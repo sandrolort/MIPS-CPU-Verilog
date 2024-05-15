@@ -1,0 +1,17 @@
+Partition Merge Status : Successful - Fri May  3 14:32:30 2024
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : Testing
+Top-level Entity Name : baseline_c5gx
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 12342
+Total pins : 237
+Total virtual pins : 0
+Total block memory bits : 28,672
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0
