@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Wed May  8 13:59:35 2024
+Analysis & Synthesis Status : Successful - Thu May 30 12:32:42 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : Testing
 Top-level Entity Name : baseline_c5gx
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 17479
+Total registers : 17412
 Total pins : 236
 Total virtual pins : 0
 Total block memory bits : 83,456

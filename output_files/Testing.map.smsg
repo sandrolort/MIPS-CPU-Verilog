@@ -1,2 +1,1 @@
-Warning (10268): Verilog HDL information at memory_full.v(27): always construct contains both blocking and non-blocking assignments File: /home/sand/Documents/Hardware/Quartus/CPU/memory_full.v Line: 27
-Warning (10268): Verilog HDL information at Shifter.v(7): always construct contains both blocking and non-blocking assignments File: /home/sand/Documents/Hardware/Quartus/CPU/Shifter.v Line: 7
+Warning (10268): Verilog HDL information at memory_full.v(27): always construct contains both blocking and non-blocking assignments File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 27

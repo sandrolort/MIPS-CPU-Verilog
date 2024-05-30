@@ -1,5 +1,5 @@
 Assembler report for Testing
-Wed May  8 14:03:41 2024
+Thu May 30 12:41:27 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -40,7 +40,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed May  8 14:03:41 2024 ;
+; Assembler Status      ; Successful - Thu May 30 12:41:27 2024 ;
 ; Revision Name         ; Testing                               ;
 ; Top-level Entity Name ; baseline_c5gx                         ;
 ; Family                ; Cyclone V                             ;
@@ -65,14 +65,14 @@ https://fpgasoftware.intel.com/eula.
 +--------+------------------------+--------------+
 
 
-+--------------------------------------------------------------------+
-; Assembler Generated Files                                          ;
-+--------------------------------------------------------------------+
-; File Name                                                          ;
-+--------------------------------------------------------------------+
-; /home/sand/Documents/Hardware/Quartus/CPU/output_files/Testing.sof ;
-; /home/sand/Documents/Hardware/Quartus/CPU/output_files/Testing.pof ;
-+--------------------------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Assembler Generated Files                                                        ;
++----------------------------------------------------------------------------------+
+; File Name                                                                        ;
++----------------------------------------------------------------------------------+
+; /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/output_files/Testing.sof ;
+; /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/output_files/Testing.pof ;
++----------------------------------------------------------------------------------+
 
 
 +---------------------------------------+
@@ -80,8 +80,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+----------------------+
 ; Option         ; Setting              ;
 +----------------+----------------------+
-; JTAG usercode  ; 0x02158C82           ;
-; Checksum       ; 0x02158C82           ;
+; JTAG usercode  ; 0x020E831A           ;
+; Checksum       ; 0x020E831A           ;
 +----------------+----------------------+
 
 
@@ -91,7 +91,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option             ; Setting          ;
 +--------------------+------------------+
 ; JTAG usercode      ; 0x00000000       ;
-; Checksum           ; 0xEA5118DC       ;
+; Checksum           ; 0xEA256C52       ;
 ; Compression Ratio  ; 2                ;
 +--------------------+------------------+
 
@@ -102,13 +102,13 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Wed May  8 14:03:33 2024
+    Info: Processing started: Thu May 30 12:41:19 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Testing -c Testing
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 671 megabytes
-    Info: Processing ended: Wed May  8 14:03:41 2024
+    Info: Peak virtual memory: 668 megabytes
+    Info: Processing ended: Thu May 30 12:41:27 2024
     Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:08
+    Info: Total CPU time (on all processors): 00:00:09
 
 

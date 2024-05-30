@@ -68,8 +68,8 @@ endfunction
 
 function [1:0] whereFrom(input [2:0]ttype, input [5:0] opcode, input [3:0]fun);
 	case(ttype)
-		// 2'b10: if(fun==6'b001001) whereFrom = 2'b11; 											//PC
-		// 		 else if(fun==6'b000010 || fun==6'b000011) whereFrom = 2'b10; //Shifter
+		// 2'b10: if(fun==6'b001001) whereFrom = 2'b11; 										//PC
+		// 		 else if(fun==6'b000010 || fun==6'b000011) whereFrom = 2'b10; 					//Shifter
 		// 		 else whereFrom = 2'b00;														//ALU
 		2'b10: casez(fun)
 			6'b001001: 							whereFrom = 2'b11;
