@@ -1,0 +1,31 @@
+
+
+/home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/pll.v
+
+Jun 03 10AM:58:45>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/pll.v
+
+Jun 03 10AM:58:48>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/pll.v
+
+Jun 03 10AM:58:48>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/pll.v
+
+Jun 03 10AM:58:54>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/pll.v
+
+Jun 03 10AM:58:55>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/pll.v
+
+Jun 03 10AM:58:57>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted

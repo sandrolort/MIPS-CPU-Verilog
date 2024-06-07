@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Testing
-Thu May 30 12:32:42 2024
+Fri Jun  7 09:07:01 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -81,7 +81,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu May 30 12:32:42 2024          ;
+; Analysis & Synthesis Status     ; Successful - Fri Jun  7 09:07:01 2024          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; Testing                                        ;
 ; Top-level Entity Name           ; baseline_c5gx                                  ;
@@ -101,92 +101,92 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------+------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                                             ;
-+---------------------------------------------------------------------------------+--------------------+--------------------+
-; Option                                                                          ; Setting            ; Default Value      ;
-+---------------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                          ; 5CGXFC5C6F27C7     ;                    ;
-; Top-level entity name                                                           ; baseline_c5gx      ; Testing            ;
-; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
-; Use smart compilation                                                           ; On                 ; Off                ;
-; Maximum processors allowed for parallel compilation                             ; 12                 ;                    ;
-; Remove Redundant Logic Cells                                                    ; On                 ; Off                ;
-; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
-; Enable compact report table                                                     ; Off                ; Off                ;
-; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
-; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
-; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
-; Preserve fewer node names                                                       ; On                 ; On                 ;
-; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
-; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
-; State Machine Processing                                                        ; Auto               ; Auto               ;
-; Safe State Machine                                                              ; Off                ; Off                ;
-; Extract Verilog State Machines                                                  ; On                 ; On                 ;
-; Extract VHDL State Machines                                                     ; On                 ; On                 ;
-; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
-; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
-; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
-; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
-; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
-; Parallel Synthesis                                                              ; On                 ; On                 ;
-; DSP Block Balancing                                                             ; Auto               ; Auto               ;
-; NOT Gate Push-Back                                                              ; On                 ; On                 ;
-; Power-Up Don't Care                                                             ; On                 ; On                 ;
-; Remove Duplicate Registers                                                      ; On                 ; On                 ;
-; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
-; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
-; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
-; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
-; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
-; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
-; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
-; Optimization Technique                                                          ; Balanced           ; Balanced           ;
-; Carry Chain Length                                                              ; 70                 ; 70                 ;
-; Auto Carry Chains                                                               ; On                 ; On                 ;
-; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
-; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
-; Auto ROM Replacement                                                            ; On                 ; On                 ;
-; Auto RAM Replacement                                                            ; On                 ; On                 ;
-; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
-; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
-; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
-; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
-; Strict RAM Replacement                                                          ; Off                ; Off                ;
-; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
-; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
-; Auto Resource Sharing                                                           ; Off                ; Off                ;
-; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
-; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
-; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
-; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
-; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
-; Report Parameter Settings                                                       ; On                 ; On                 ;
-; Report Source Assignments                                                       ; On                 ; On                 ;
-; Report Connectivity Checks                                                      ; On                 ; On                 ;
-; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
-; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
-; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
-; HDL message level                                                               ; Level2             ; Level2             ;
-; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
-; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
-; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
-; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
-; Clock MUX Protection                                                            ; On                 ; On                 ;
-; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
-; Block Design Naming                                                             ; Auto               ; Auto               ;
-; SDC constraint protection                                                       ; Off                ; Off                ;
-; Synthesis Effort                                                                ; Auto               ; Auto               ;
-; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
-; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
-; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
-; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
-; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
-; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
-; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
-+---------------------------------------------------------------------------------+--------------------+--------------------+
++-----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                         ;
++---------------------------------------------------------------------------------+----------------+--------------------+
+; Option                                                                          ; Setting        ; Default Value      ;
++---------------------------------------------------------------------------------+----------------+--------------------+
+; Device                                                                          ; 5CGXFC5C6F27C7 ;                    ;
+; Top-level entity name                                                           ; baseline_c5gx  ; Testing            ;
+; Family name                                                                     ; Cyclone V      ; Cyclone V          ;
+; Use smart compilation                                                           ; On             ; Off                ;
+; Maximum processors allowed for parallel compilation                             ; 12             ;                    ;
+; Remove Redundant Logic Cells                                                    ; On             ; Off                ;
+; Power Optimization During Synthesis                                             ; Off            ; Normal compilation ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On             ; On                 ;
+; Enable compact report table                                                     ; Off            ; Off                ;
+; Restructure Multiplexers                                                        ; Auto           ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off            ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off            ; Off                ;
+; Preserve fewer node names                                                       ; On             ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable         ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001   ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993      ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto           ; Auto               ;
+; Safe State Machine                                                              ; Off            ; Off                ;
+; Extract Verilog State Machines                                                  ; On             ; On                 ;
+; Extract VHDL State Machines                                                     ; On             ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off            ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000           ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250            ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On             ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On             ; On                 ;
+; Parallel Synthesis                                                              ; On             ; On                 ;
+; DSP Block Balancing                                                             ; Auto           ; Auto               ;
+; NOT Gate Push-Back                                                              ; On             ; On                 ;
+; Power-Up Don't Care                                                             ; On             ; On                 ;
+; Remove Duplicate Registers                                                      ; On             ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off            ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off            ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off            ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off            ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off            ; Off                ;
+; Ignore SOFT Buffers                                                             ; On             ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off            ; Off                ;
+; Optimization Technique                                                          ; Balanced       ; Balanced           ;
+; Carry Chain Length                                                              ; 70             ; 70                 ;
+; Auto Carry Chains                                                               ; On             ; On                 ;
+; Auto Open-Drain Pins                                                            ; On             ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off            ; Off                ;
+; Auto ROM Replacement                                                            ; On             ; On                 ;
+; Auto RAM Replacement                                                            ; On             ; On                 ;
+; Auto DSP Block Replacement                                                      ; On             ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto           ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto           ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On             ; On                 ;
+; Strict RAM Replacement                                                          ; Off            ; Off                ;
+; Allow Synchronous Control Signals                                               ; On             ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off            ; Off                ;
+; Auto Resource Sharing                                                           ; Off            ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off            ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off            ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off            ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On             ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off            ; Off                ;
+; Timing-Driven Synthesis                                                         ; On             ; On                 ;
+; Report Parameter Settings                                                       ; On             ; On                 ;
+; Report Source Assignments                                                       ; On             ; On                 ;
+; Report Connectivity Checks                                                      ; On             ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off            ; Off                ;
+; Synchronization Register Chain Length                                           ; 3              ; 3                  ;
+; HDL message level                                                               ; Level2         ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off            ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000           ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000           ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100            ; 100                ;
+; Clock MUX Protection                                                            ; On             ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off            ; Off                ;
+; Block Design Naming                                                             ; Auto           ; Auto               ;
+; SDC constraint protection                                                       ; Off            ; Off                ;
+; Synthesis Effort                                                                ; Auto           ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On             ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off            ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium         ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto           ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On             ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On             ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off            ; Off                ;
++---------------------------------------------------------------------------------+----------------+--------------------+
 
 
 +------------------------------------------+
@@ -197,22 +197,22 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 12          ;
 ;                            ;             ;
-; Average used               ; 2.02        ;
+; Average used               ; 2.04        ;
 ; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  10.9%      ;
-;     Processor 3            ;  10.9%      ;
-;     Processor 4            ;  10.4%      ;
-;     Processor 5            ;  10.4%      ;
-;     Processor 6            ;  10.4%      ;
-;     Processor 7            ;  10.0%      ;
-;     Processor 8            ;   8.8%      ;
-;     Processor 9            ;   7.9%      ;
-;     Processor 10           ;   7.9%      ;
-;     Processor 11           ;   7.3%      ;
-;     Processor 12           ;   7.3%      ;
+;     Processor 2            ;  11.3%      ;
+;     Processor 3            ;  11.2%      ;
+;     Processor 4            ;  11.1%      ;
+;     Processor 5            ;   9.9%      ;
+;     Processor 6            ;   9.9%      ;
+;     Processor 7            ;   9.2%      ;
+;     Processor 8            ;   9.1%      ;
+;     Processor 9            ;   8.3%      ;
+;     Processor 10           ;   8.2%      ;
+;     Processor 11           ;   8.2%      ;
+;     Processor 12           ;   7.5%      ;
 +----------------------------+-------------+
 
 
@@ -255,7 +255,7 @@ https://fpgasoftware.intel.com/eula.
 ; altrom.inc                                                         ; yes             ; Megafunction                                 ; /opt/intelFPGA/23.1/quartus/libraries/megafunctions/altrom.inc                                                             ;             ;
 ; altram.inc                                                         ; yes             ; Megafunction                                 ; /opt/intelFPGA/23.1/quartus/libraries/megafunctions/altram.inc                                                             ;             ;
 ; altdpram.inc                                                       ; yes             ; Megafunction                                 ; /opt/intelFPGA/23.1/quartus/libraries/megafunctions/altdpram.inc                                                           ;             ;
-; db/altsyncram_0f84.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/altsyncram_0f84.tdf                                             ;             ;
+; db/altsyncram_ne84.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/altsyncram_ne84.tdf                                             ;             ;
 ; altdpram.tdf                                                       ; yes             ; Megafunction                                 ; /opt/intelFPGA/23.1/quartus/libraries/megafunctions/altdpram.tdf                                                           ;             ;
 ; memmodes.inc                                                       ; yes             ; Megafunction                                 ; /opt/intelFPGA/23.1/quartus/libraries/others/maxplus2/memmodes.inc                                                         ;             ;
 ; a_hdffe.inc                                                        ; yes             ; Megafunction                                 ; /opt/intelFPGA/23.1/quartus/libraries/megafunctions/a_hdffe.inc                                                            ;             ;
@@ -309,6 +309,8 @@ https://fpgasoftware.intel.com/eula.
 ; db/sign_div_unsign_5nh.tdf                                         ; yes             ; Auto-Generated Megafunction                  ; /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/sign_div_unsign_5nh.tdf                                         ;             ;
 ; db/alt_u_div_g2f.tdf                                               ; yes             ; Auto-Generated Megafunction                  ; /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/alt_u_div_g2f.tdf                                               ;             ;
 ; db/lpm_divide_ibm.tdf                                              ; yes             ; Auto-Generated Megafunction                  ; /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/lpm_divide_ibm.tdf                                              ;             ;
+; db/altsyncram_0f84.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/altsyncram_0f84.tdf                                             ;             ;
+; altera_pll.v                                                       ; yes             ; Megafunction                                 ; /opt/intelFPGA/23.1/quartus/libraries/megafunctions/altera_pll.v                                                           ;             ;
 +--------------------------------------------------------------------+-----------------+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+-------------+
 
 
@@ -417,7 +419,7 @@ https://fpgasoftware.intel.com/eula.
 ;                |lpm_decode:wdecoder|                                                                                                    ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |baseline_c5gx|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_decode:wdecoder                                                                                                                                             ; lpm_decode                        ; work         ;
 ;                   |decode_vnf:auto_generated|                                                                                           ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |baseline_c5gx|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_decode:wdecoder|decode_vnf:auto_generated                                                                                                                   ; decode_vnf                        ; work         ;
 ;             |altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|                                                                           ; 0 (0)               ; 0 (0)                     ; 83456             ; 0          ; 0    ; 0            ; |baseline_c5gx|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram                                                                                                                                                                                ; altsyncram                        ; work         ;
-;                |altsyncram_0f84:auto_generated|                                                                                         ; 0 (0)               ; 0 (0)                     ; 83456             ; 0          ; 0    ; 0            ; |baseline_c5gx|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|altsyncram_0f84:auto_generated                                                                                                                                                 ; altsyncram_0f84                   ; work         ;
+;                |altsyncram_ne84:auto_generated|                                                                                         ; 0 (0)               ; 0 (0)                     ; 83456             ; 0          ; 0    ; 0            ; |baseline_c5gx|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|altsyncram_ne84:auto_generated                                                                                                                                                 ; altsyncram_ne84                   ; work         ;
 ;             |lpm_shiftreg:segment_offset_config_deserialize|                                                                            ; 0 (0)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |baseline_c5gx|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|lpm_shiftreg:segment_offset_config_deserialize                                                                                                                                                                                 ; lpm_shiftreg                      ; work         ;
 ;             |lpm_shiftreg:status_register|                                                                                              ; 17 (17)             ; 17 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |baseline_c5gx|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|lpm_shiftreg:status_register                                                                                                                                                                                                   ; lpm_shiftreg                      ; work         ;
 ;             |serial_crc_16:\tdo_crc_gen:tdo_crc_calc|                                                                                   ; 4 (4)               ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |baseline_c5gx|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|serial_crc_16:\tdo_crc_gen:tdo_crc_calc                                                                                                                                                                                        ; serial_crc_16                     ; work         ;
@@ -1104,7 +1106,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
 ; Name                                                                                                                                                                                                  ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF  ;
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
-; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|altsyncram_0f84:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 128          ; 652          ; 128          ; 652          ; 83456 ; None ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|altsyncram_ne84:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 128          ; 652          ; 128          ; 652          ; 83456 ; None ;
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
 
 
@@ -1813,7 +1815,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:01:14     ;
+; Top            ; 00:01:09     ;
 +----------------+--------------+
 
 
@@ -3168,7 +3170,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Thu May 30 12:31:08 2024
+    Info: Processing started: Fri Jun  7 09:05:32 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Testing -c Testing
 Info (20032): Parallel compilation is enabled and will use up to 12 processors
 Info (12021): Found 1 design units, including 1 entities, in source file n-au.v
@@ -3210,18 +3212,23 @@ Info (12021): Found 1 design units, including 1 entities, in source file CPU_tb.
     Info (12023): Found entity 1: CPU_tb File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU_tb.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file ALUDecoderBridge.v
     Info (12023): Found entity 1: ALUDecoderBridge File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/ALUDecoderBridge.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pll.v
+    Info (12023): Found entity 1: pll File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/pll.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file pll/pll_0002.v
+    Info (12023): Found entity 1: pll_0002 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/pll/pll_0002.v Line: 2
 Info (12127): Elaborating entity "baseline_c5gx" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(194): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 194
-Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(195): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 195
-Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(196): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 196
-Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(197): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 197
-Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(198): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 198
-Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(199): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 199
-Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(200): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 200
-Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(201): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 201
-Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(202): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 202
-Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(203): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 203
-Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(204): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 204
+Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(185): truncated value with size 32 to match size of target (26) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 185
+Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(213): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 213
+Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(214): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 214
+Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(215): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 215
+Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(216): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 216
+Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(217): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 217
+Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(218): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 218
+Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(219): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 219
+Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(220): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 220
+Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(221): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 221
+Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(222): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 222
+Warning (10230): Verilog HDL assignment warning at baseline_c5gx.v(223): truncated value with size 8 to match size of target (7) File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 223
 Warning (10034): Output port "HDMI_TX_D" at baseline_c5gx.v(93) has no driver File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 93
 Warning (10034): Output port "HSMC_CLKOUT_n" at baseline_c5gx.v(111) has no driver File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 111
 Warning (10034): Output port "HSMC_CLKOUT_p" at baseline_c5gx.v(112) has no driver File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 112
@@ -3246,7 +3253,7 @@ Warning (10034): Output port "SRAM_OE_n" at baseline_c5gx.v(159) has no driver F
 Warning (10034): Output port "SRAM_UB_n" at baseline_c5gx.v(160) has no driver File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 160
 Warning (10034): Output port "SRAM_WE_n" at baseline_c5gx.v(161) has no driver File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 161
 Warning (10034): Output port "UART_TX" at baseline_c5gx.v(171) has no driver File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 171
-Info (12128): Elaborating entity "CPU" for hierarchy "CPU:cpu" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 184
+Info (12128): Elaborating entity "CPU" for hierarchy "CPU:cpu" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 203
 Warning (10036): Verilog HDL or VHDL warning at CPU.v(179): object "signedExt" assigned a value but never read File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 179
 Info (12128): Elaborating entity "Splitter" for hierarchy "CPU:cpu|Splitter:splt" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 24
 Info (12128): Elaborating entity "memory_full" for hierarchy "CPU:cpu|memory_full:mem" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 41
@@ -3266,8 +3273,8 @@ Info (12128): Elaborating entity "srlfix" for hierarchy "CPU:cpu|Shifter:shf|srl
 Info (12128): Elaborating entity "srlfix" for hierarchy "CPU:cpu|Shifter:shf|srl:shiftrightlogical|srlfix:s2" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/srl.v Line: 25
 Info (12128): Elaborating entity "srlfix" for hierarchy "CPU:cpu|Shifter:shf|srl:shiftrightlogical|srlfix:s3" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/srl.v Line: 31
 Info (12128): Elaborating entity "srlfix" for hierarchy "CPU:cpu|Shifter:shf|srl:shiftrightlogical|srlfix:s4" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/srl.v Line: 37
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_0f84.tdf
-    Info (12023): Found entity 1: altsyncram_0f84 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/altsyncram_0f84.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ne84.tdf
+    Info (12023): Found entity 1: altsyncram_ne84 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/altsyncram_ne84.tdf Line: 28
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_elc.tdf
     Info (12023): Found entity 1: mux_elc File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/mux_elc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_vnf.tdf
@@ -3288,7 +3295,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_99c File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/cmpr_99c.tdf Line: 23
 Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2024.05.30.12:31:19 Progress: Loading sld3565160c/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2024.06.07.09:05:44 Progress: Loading sld3565160c/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -3313,85 +3320,85 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/ip/s
     Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/ip/sld3565160c/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
 Warning (19016): Clock multiplexers are found and protected
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~0 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux3 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux3 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|ad[0] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 14
     Warning (19017): Found clock multiplexer CPU:cpu|ALUDecoderBridge:aludec|alu:ula|Mux31 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/n-alu.v Line: 37
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~1 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux10 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux10 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|ad[1] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 14
     Warning (19017): Found clock multiplexer CPU:cpu|ALUDecoderBridge:aludec|alu:ula|Mux30 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/n-alu.v Line: 37
     Warning (19017): Found clock multiplexer CPU:cpu|ALUDecoderBridge:aludec|afAlu[1] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/ALUDecoderBridge.v Line: 11
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~2 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux5 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux5 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|ad[2] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 14
     Warning (19017): Found clock multiplexer CPU:cpu|ALUDecoderBridge:aludec|alu:ula|Mux29 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/n-alu.v Line: 37
     Warning (19017): Found clock multiplexer CPU:cpu|ALUDecoderBridge:aludec|afAlu[0] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/ALUDecoderBridge.v Line: 11
     Warning (19017): Found clock multiplexer CPU:cpu|IDecoder:idc|Af[0] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/IDecoder.v Line: 4
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~3 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux31 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux31 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|ad[3] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 14
     Warning (19017): Found clock multiplexer CPU:cpu|ALUDecoderBridge:aludec|alu:ula|Mux28 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/n-alu.v Line: 37
     Warning (19017): Found clock multiplexer CPU:cpu|ALUDecoderBridge:aludec|afAlu[2] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/ALUDecoderBridge.v Line: 11
     Warning (19017): Found clock multiplexer CPU:cpu|IDecoder:idc|Af[2] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/IDecoder.v Line: 4
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~4 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux29 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux29 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|ad[4] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 14
     Warning (19017): Found clock multiplexer CPU:cpu|ALUDecoderBridge:aludec|alu:ula|Mux27 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/n-alu.v Line: 37
     Warning (19017): Found clock multiplexer CPU:cpu|ALUDecoderBridge:aludec|afAlu[3] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/ALUDecoderBridge.v Line: 11
     Warning (19017): Found clock multiplexer CPU:cpu|IDecoder:idc|Af[3] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/IDecoder.v Line: 4
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~5 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux4 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux4 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|ad[5] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 14
     Warning (19017): Found clock multiplexer CPU:cpu|ALUDecoderBridge:aludec|alu:ula|Mux26 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/n-alu.v Line: 37
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux26 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~6 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux9 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux9 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|ad[6] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 14
     Warning (19017): Found clock multiplexer CPU:cpu|ALUDecoderBridge:aludec|alu:ula|Mux25 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/n-alu.v Line: 37
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux25 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[6] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~7 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux25 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux25 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|ad[7] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 14
     Warning (19017): Found clock multiplexer CPU:cpu|ALUDecoderBridge:aludec|alu:ula|Mux24 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/n-alu.v Line: 37
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux24 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[7] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~8 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux24 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux24 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~9 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux15 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux15 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~10 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux14 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux14 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~11 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux13 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux13 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~12 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux12 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux12 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~13 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux11 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux11 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux56 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 13
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux57 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 13
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~14 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux8 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux8 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~15 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux7 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux7 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~16 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux6 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux6 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[5] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~17 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux26 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux26 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux58 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 13
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~18 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux28 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux28 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~19 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux1 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux1 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~20 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux0 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux0 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~21 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux2 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux2 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux27 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[4] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~22 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux27 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux27 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux59 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 13
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux28 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[3] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
@@ -3401,7 +3408,7 @@ Warning (19016): Clock multiplexers are found and protected
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux61 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 13
     Warning (19017): Found clock multiplexer CPU:cpu|IDecoder:idc|Af[1] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/IDecoder.v Line: 4
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~23 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux30 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux30 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux30 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[1] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux62 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 13
@@ -3411,42 +3418,42 @@ Warning (19016): Clock multiplexers are found and protected
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux23 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[8] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~24 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux23 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux23 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux55 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 13
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux22 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[9] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~25 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux22 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux22 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux54 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 13
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux21 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[10] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~26 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux21 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux21 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux53 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 13
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux20 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[11] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~27 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux20 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux20 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux52 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 13
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux19 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[12] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~28 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux19 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux19 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux51 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 13
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux18 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[13] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~29 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux18 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux18 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux50 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 13
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux17 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[14] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~30 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux17 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux17 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux49 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 13
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux16 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[15] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
     Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|I~31 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 7
-    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux16 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 76
+    Warning (19017): Found clock multiplexer CPU:cpu|memory_full:mem|Mux16 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/memory_full.v Line: 77
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux48 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 13
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux15 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[16] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
@@ -3496,19 +3503,79 @@ Warning (19016): Clock multiplexers are found and protected
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux0 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 12
     Warning (19017): Found clock multiplexer CPU:cpu|srcB[31] File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/CPU.v Line: 88
     Warning (19017): Found clock multiplexer CPU:cpu|GPR:gpr|Mux32 File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/GPR.v Line: 13
+Warning (20013): Ignored 16 assignments for entity "pll" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 23.1 -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity pll -sip pll.sip -library lib_pll was ignored
+Warning (20013): Ignored 317 assignments for entity "pll_0002" -- entity does not exist in design
+Warning (20013): Ignored 16 assignments for entity "pll" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 23.1 -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity pll -sip pll.sip -library lib_pll was ignored
+Warning (20013): Ignored 317 assignments for entity "pll_0002" -- entity does not exist in design
+Warning (20013): Ignored 16 assignments for entity "pll" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 23.1 -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity pll -sip pll.sip -library lib_pll was ignored
+Warning (20013): Ignored 317 assignments for entity "pll_0002" -- entity does not exist in design
+Warning (20013): Ignored 16 assignments for entity "pll" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 23.1 -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity pll -sip pll.sip -library lib_pll was ignored
+Warning (20013): Ignored 317 assignments for entity "pll_0002" -- entity does not exist in design
+Warning (20013): Ignored 16 assignments for entity "pll" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 23.1 -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity pll -sip pll.sip -library lib_pll was ignored
+Warning (20013): Ignored 16 assignments for entity "pll" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 23.1 -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity pll -sip pll.sip -library lib_pll was ignored
+Warning (20013): Ignored 317 assignments for entity "pll_0002" -- entity does not exist in design
+Warning (20013): Ignored 317 assignments for entity "pll_0002" -- entity does not exist in design
+Warning (20013): Ignored 16 assignments for entity "pll" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 23.1 -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity pll -sip pll.sip -library lib_pll was ignored
+Warning (20013): Ignored 317 assignments for entity "pll_0002" -- entity does not exist in design
+Warning (20013): Ignored 16 assignments for entity "pll" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 23.1 -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity pll -sip pll.sip -library lib_pll was ignored
+Warning (20013): Ignored 317 assignments for entity "pll_0002" -- entity does not exist in design
+Warning (20013): Ignored 16 assignments for entity "pll" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 23.1 -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity pll -sip pll.sip -library lib_pll was ignored
+Warning (20013): Ignored 317 assignments for entity "pll_0002" -- entity does not exist in design
+Warning (20013): Ignored 16 assignments for entity "pll" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 23.1 -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity pll -sip pll.sip -library lib_pll was ignored
+Warning (20013): Ignored 317 assignments for entity "pll_0002" -- entity does not exist in design
+Warning (20013): Ignored 16 assignments for entity "pll" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 23.1 -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity pll -sip pll.sip -library lib_pll was ignored
+Warning (20013): Ignored 317 assignments for entity "pll_0002" -- entity does not exist in design
+Warning (20013): Ignored 16 assignments for entity "pll" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 23.1 -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity pll -sip pll.sip -library lib_pll was ignored
+Warning (20013): Ignored 317 assignments for entity "pll_0002" -- entity does not exist in design
 Info (278001): Inferred 10 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 188
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod4" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 188
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod5" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 193
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div2" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 189
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod6" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 193
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 186
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 193
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 187
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 187
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod3" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 193
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 188
-Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter: File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 188
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 207
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod4" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 207
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod5" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 212
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div2" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 208
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod6" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 212
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 205
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 212
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 206
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 206
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod3" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 212
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 207
+Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter: File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 207
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "7"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -3519,8 +3586,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_rlh File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/sign_div_unsign_rlh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_sve.tdf
     Info (12023): Found entity 1: alt_u_div_sve File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/alt_u_div_sve.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod4" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 188
-Info (12133): Instantiated megafunction "lpm_divide:Mod4" with the following parameter: File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 188
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod4" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 207
+Info (12133): Instantiated megafunction "lpm_divide:Mod4" with the following parameter: File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 207
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -3531,8 +3598,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_olh File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/sign_div_unsign_olh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_mve.tdf
     Info (12023): Found entity 1: alt_u_div_mve File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/alt_u_div_mve.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod5" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 193
-Info (12133): Instantiated megafunction "lpm_divide:Mod5" with the following parameter: File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 193
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod5" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 212
+Info (12133): Instantiated megafunction "lpm_divide:Mod5" with the following parameter: File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 212
     Info (12134): Parameter "LPM_WIDTHN" = "4"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -3543,8 +3610,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_7kh File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/sign_div_unsign_7kh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_kse.tdf
     Info (12023): Found entity 1: alt_u_div_kse File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/alt_u_div_kse.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div2" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 189
-Info (12133): Instantiated megafunction "lpm_divide:Div2" with the following parameter: File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 189
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div2" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 208
+Info (12133): Instantiated megafunction "lpm_divide:Div2" with the following parameter: File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 208
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "10"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -3555,8 +3622,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_5nh File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/sign_div_unsign_5nh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_g2f.tdf
     Info (12023): Found entity 1: alt_u_div_g2f File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/db/alt_u_div_g2f.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 187
-Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 187
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 206
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 206
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -3745,6 +3812,11 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "SRAM_WE_n" is stuck at GND File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 161
     Warning (13410): Pin "UART_TX" is stuck at GND File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 171
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
+Warning (20013): Ignored 16 assignments for entity "pll" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 23.1 -entity pll -sip pll.sip -library lib_pll was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity pll -sip pll.sip -library lib_pll was ignored
+Warning (20013): Ignored 317 assignments for entity "pll_0002" -- entity does not exist in design
 Info (144001): Generated suppressed messages file /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/output_files/Testing.map.smsg
 Critical Warning (35025): Partially connected in-system debug instance "auto_signaltap_0" to 995 of its 1337 required data inputs, trigger inputs, acquisition clocks, and dynamic pins.  There were 0 illegal, 0 inaccessible, and 342 missing sources or connections.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
@@ -3765,7 +3837,7 @@ Warning (21074): Design contains 26 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "HSMC_CLKIN_p[1]" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 109
     Warning (15610): No output dependent on input pin "KEY[3]" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 129
     Warning (15610): No output dependent on input pin "KEY[2]" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 129
-    Warning (15610): No output dependent on input pin "KEY[0]" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 129
+    Warning (15610): No output dependent on input pin "KEY[1]" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 129
     Warning (15610): No output dependent on input pin "SW[9]" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 164
     Warning (15610): No output dependent on input pin "SW[8]" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 164
     Warning (15610): No output dependent on input pin "SW[7]" File: /home/sand/Documents/Hardware/Quartus/CPU-Wolfgangified/baseline_c5gx.v Line: 164
@@ -3782,11 +3854,11 @@ Info (21057): Implemented 32457 device resources after synthesis - the final res
     Info (21060): Implemented 97 bidirectional pins
     Info (21061): Implemented 31564 logic cells
     Info (21064): Implemented 652 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 433 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 499 warnings
     Info: Peak virtual memory: 1378 megabytes
-    Info: Processing ended: Thu May 30 12:32:42 2024
-    Info: Elapsed time: 00:01:34
-    Info: Total CPU time (on all processors): 00:02:29
+    Info: Processing ended: Fri Jun  7 09:07:02 2024
+    Info: Elapsed time: 00:01:30
+    Info: Total CPU time (on all processors): 00:02:23
 
 
 +------------------------------------------+

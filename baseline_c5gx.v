@@ -173,8 +173,27 @@ module baseline_c5gx(
 wire [31:0] Alures, registerOut, pc;
 wire halt;
 
+reg newclk = 0;
+reg [25:0] counter = 0;
+
+always @(posedge CLOCK_50_B5B) begin
+	if (counter == 10000000) begin
+		newclk = ~newclk;
+		counter = 0;
+	end
+	else begin
+		counter = counter + 1;
+	end
+end
+
+// pll ref_pll(
+// 		CLOCK_50_B5B,   	//  refclk.clk
+// 		SW[1],      		//   reset.reset
+// 		newclk  			// outclk0.clk
+// );
+
 CPU cpu(
-	~KEY[1],
+	KEY[0],
 	SW[0],
 	halt,
 	Alures,

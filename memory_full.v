@@ -40,6 +40,7 @@ always @(posedge clk && wren, posedge rst) begin
 		Memory[4] <= 32'b00000000010000010001000000100001;
 		Memory[5] <= 32'b00010100001001001111111111111110;
 		Memory[6] <= 32'b00000000010000000010100000100001;
+		Memory[7] <= 32'b00000000000000000000000000000000;
 		
 		// Write 5 to reg 1, 7 to reg 2. Sum up those two to output register (5)
 		// Memory[0] = 32'b00100000001000010000000000000101;

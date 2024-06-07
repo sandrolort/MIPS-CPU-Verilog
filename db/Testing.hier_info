@@ -158,8 +158,8 @@ I2C_SCL <= <GND>
 I2C_SDA <> <UNC>
 KEY[3] => ~NO_FANOUT~
 KEY[2] => ~NO_FANOUT~
-KEY[1] => _.IN1
-KEY[0] => ~NO_FANOUT~
+KEY[1] => ~NO_FANOUT~
+KEY[0] => KEY[0].IN1
 LEDG[7] <= <GND>
 LEDG[6] <= <GND>
 LEDG[5] <= <GND>
