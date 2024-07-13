@@ -1,0 +1,34 @@
+`timescale 1ns / 1ps
+
+module CPU_tb;
+    reg clk;
+    reg rst;
+
+    wire halt;
+    wire [0:31] Alures;
+    wire [0:31] registerOut;
+    wire [0:31] pc;
+
+    CPU uut (
+        .clk(clk),
+        .rst(rst),
+        .halt(halt),
+        .Alures(Alures),
+        .registerOut(registerOut),
+        .pc(pc)
+    );
+
+    initial begin
+        clk = 0;
+        rst = 1;
+
+        #10 rst = 0;
+
+        repeat (30) begin
+            #10 clk = ~clk;
+        end
+
+        #100 $finish;
+    end
+
+endmodule

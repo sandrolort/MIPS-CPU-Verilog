@@ -1,0 +1,228 @@
+Flow report for Testing
+Sat Jul 13 17:29:15 2024
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++---------------------------------+------------------------------------------------+
+; Flow Status                     ; Successful - Sat Jul 13 17:29:15 2024          ;
+; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                   ; Testing                                        ;
+; Top-level Entity Name           ; baseline_c5gx                                  ;
+; Family                          ; Cyclone V                                      ;
+; Device                          ; 5CGXFC5C6F27C7                                 ;
+; Timing Models                   ; Final                                          ;
+; Logic utilization (in ALMs)     ; 4,506 / 29,080 ( 15 % )                        ;
+; Total registers                 ; 4314                                           ;
+; Total pins                      ; 298 / 364 ( 82 % )                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 116,736 / 4,567,040 ( 3 % )                    ;
+; Total DSP Blocks                ; 0 / 150 ( 0 % )                                ;
+; Total HSSI RX PCSs              ; 0 / 6 ( 0 % )                                  ;
+; Total HSSI PMA RX Deserializers ; 0 / 6 ( 0 % )                                  ;
+; Total HSSI TX PCSs              ; 0 / 6 ( 0 % )                                  ;
+; Total HSSI PMA TX Serializers   ; 0 / 6 ( 0 % )                                  ;
+; Total PLLs                      ; 1 / 12 ( 8 % )                                 ;
+; Total DLLs                      ; 1 / 4 ( 25 % )                                 ;
++---------------------------------+------------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 07/13/2024 17:26:04 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; Testing             ;
++-------------------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                                                    ;
++-------------------------------------+--------------------------------------------------------------------------------------+--------------------+---------------+-----------------------------------+
+; Assignment Name                     ; Value                                                                                ; Default Value      ; Entity Name   ; Section Id                        ;
++-------------------------------------+--------------------------------------------------------------------------------------+--------------------+---------------+-----------------------------------+
+; COMPILER_SIGNATURE_ID               ; 233730241990753.172087716402488                                                      ; --                 ; --            ; --                                ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                                  ; --                 ; --            ; eda_board_design_timing           ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                                  ; --                 ; --            ; eda_board_design_boundary_scan    ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                                  ; --                 ; --            ; eda_board_design_signal_integrity ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                                  ; --                 ; --            ; eda_board_design_symbol           ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                                                                          ; --                 ; --            ; eda_simulation                    ;
+; EDA_SIMULATION_TOOL                 ; Questa Intel FPGA (Verilog)                                                          ; <None>             ; --            ; --                                ;
+; EDA_TIME_SCALE                      ; 1 ps                                                                                 ; --                 ; --            ; eda_simulation                    ;
+; ENABLE_SIGNALTAP                    ; On                                                                                   ; --                 ; --            ; --                                ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                                                   ; --                 ; --            ; --                                ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                                                    ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2.cmp                                                                      ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2.v                                                        ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_0002.v                                       ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_mem_if_dll_cyclonev.sv                            ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_mem_if_oct_cyclonev.sv                            ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_mem_if_hard_memory_controller_top_cyclonev.sv     ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_software/sequencer.c                      ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_software/sequencer.h                      ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_software/sequencer_defines.h              ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_make_qsys_seq.tcl                         ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0.v                                         ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_avalon_mm_bridge.v                                ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_avalon_sc_fifo.v                                  ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_avalon_st_pipeline_base.v                         ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_mem_if_sequencer_cpu_cv_sim_cpu_inst.v            ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_mem_if_sequencer_cpu_cv_sim_cpu_inst_test_bench.v ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_mem_if_sequencer_mem_no_ifdef_params.sv           ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_mem_if_sequencer_rst.sv                           ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_mem_if_simple_avalon_mm_bridge.sv                 ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_merlin_arbitrator.sv                              ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_merlin_burst_uncompressor.sv                      ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_merlin_master_agent.sv                            ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_merlin_master_translator.sv                       ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_merlin_reorder_memory.sv                          ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_merlin_slave_agent.sv                             ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_merlin_slave_translator.sv                        ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altera_merlin_traffic_limiter.sv                         ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_irq_mapper.sv                             ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_0.v                       ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_0_addr_router.sv          ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_0_addr_router_001.sv      ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_0_addr_router_002.sv      ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_0_cmd_xbar_demux.sv       ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_0_cmd_xbar_demux_001.sv   ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_0_cmd_xbar_demux_002.sv   ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_0_cmd_xbar_mux.sv         ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_0_cmd_xbar_mux_003.sv     ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_0_id_router.sv            ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_0_id_router_002.sv        ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_0_id_router_003.sv        ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_0_rsp_xbar_mux.sv         ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_0_rsp_xbar_mux_001.sv     ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_0_rsp_xbar_mux_002.sv     ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_1.v                       ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_1_addr_router.sv          ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_1_cmd_xbar_demux.sv       ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_1_cmd_xbar_mux.sv         ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_1_id_router.sv            ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_1_rsp_xbar_demux.sv       ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_mm_interconnect_1_rsp_xbar_mux.sv         ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/sequencer_reg_file.sv                                    ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/sequencer_scc_acv_phase_decode.v                         ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/sequencer_scc_acv_wrapper.sv                             ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/sequencer_scc_mgr.sv                                     ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/sequencer_scc_reg_file.v                                 ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/sequencer_scc_siii_phase_decode.v                        ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/sequencer_scc_siii_wrapper.sv                            ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/sequencer_scc_sv_phase_decode.v                          ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/sequencer_scc_sv_wrapper.sv                              ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/sequencer_trk_mgr.sv                                     ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_sequencer_mem.hex                         ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_AC_ROM.hex                                ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_s0_inst_ROM.hex                              ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_p0_clock_pair_generator.v                    ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_p0_acv_hard_addr_cmd_pads.v                  ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_p0_acv_hard_memphy.v                         ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_p0_acv_ldc.v                                 ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_p0_acv_hard_io_pads.v                        ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_p0_generic_ddio.v                            ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_p0_reset.v                                   ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_p0_reset_sync.v                              ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_p0_phy_csr.sv                                ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_p0_iss_probe.v                               ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_p0.sv                                        ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_p0_altdqdqs.v                                ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/altdq_dqs2_acv_connect_to_hard_phy_cyclonev_lpddr2.sv    ; --                 ; --            ; --                                ;
+; MISC_FILE                           ; fpga_lpddr2_sim/fpga_lpddr2/fpga_lpddr2_pll0.sv                                      ; --                 ; --            ; --                                ;
+; NUM_PARALLEL_PROCESSORS             ; 12                                                                                   ; --                 ; --            ; --                                ;
+; OPTIMIZE_POWER_DURING_FITTING       ; Off                                                                                  ; Normal compilation ; --            ; --                                ;
+; OPTIMIZE_POWER_DURING_SYNTHESIS     ; Off                                                                                  ; Normal compilation ; --            ; --                                ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                                    ; --                 ; --            ; --                                ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                                    ; --                 ; --            ; --                                ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                                           ; --                 ; --            ; --                                ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                                           ; --                 ; --            ; --                                ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                                               ; --                 ; baseline_c5gx ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                                               ; --                 ; baseline_c5gx ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                                               ; --                 ; baseline_c5gx ; Top                               ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                                  ; --                 ; --            ; --                                ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                                ; --                 ; --            ; --                                ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                                         ; --                 ; --            ; --                                ;
+; SMART_RECOMPILE                     ; On                                                                                   ; Off                ; --            ; --                                ;
+; SPD_FILE                            ; fpga_lpddr2.spd                                                                      ; --                 ; --            ; --                                ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                                                   ; --                 ; --            ; --                                ;
+; TOP_LEVEL_ENTITY                    ; baseline_c5gx                                                                        ; Testing            ; --            ; --                                ;
+; USE_SIGNALTAP_FILE                  ; output_files/stp.stp                                                                 ; --                 ; --            ; --                                ;
++-------------------------------------+--------------------------------------------------------------------------------------+--------------------+---------------+-----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 5135 MB             ; 00:00:23                           ;
+; Fitter               ; 00:02:01     ; 1.4                     ; 8516 MB             ; 00:07:38                           ;
+; Assembler            ; 00:00:08     ; 1.0                     ; 4939 MB             ; 00:00:07                           ;
+; Timing Analyzer      ; 00:00:30     ; 2.0                     ; 6522 MB             ; 00:00:40                           ;
+; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4917 MB             ; 00:00:03                           ;
+; Total                ; 00:03:02     ; --                      ; --                  ; 00:08:51                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; Sandro           ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; Sandro           ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; Sandro           ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; Sandro           ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; Sandro           ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off Testing -c Testing
+quartus_fit --read_settings_files=off --write_settings_files=off Testing -c Testing
+quartus_asm --read_settings_files=off --write_settings_files=off Testing -c Testing
+quartus_sta Testing -c Testing
+quartus_eda --read_settings_files=off --write_settings_files=off Testing -c Testing
+
+
+

@@ -1,0 +1,34 @@
+# Clock constraints
+create_clock -name "button_clk" -period 1000.000 [get_ports {KEY[1]}]
+create_clock -name "sys_clk" -period 20.000 [get_ports {CLOCK_50_B5B}]
+
+# Set clock groups
+set_clock_groups -asynchronous -group {button_clk} -group {sys_clk}
+
+# Clock latencies
+set_clock_latency 1.0 [get_clocks {button_clk}]
+set_clock_latency 0.5 [get_clocks {sys_clk}]
+
+# Input delays
+set_input_delay -clock button_clk -max 3 [get_ports {KEY[*] SW[*]}]
+set_input_delay -clock button_clk -min 1 [get_ports {KEY[*] SW[*]}]
+set_input_delay -clock sys_clk -max 2 [get_ports {CLOCK_125_p CLOCK_50_B6A CLOCK_50_B7A CLOCK_50_B8A CPU_RESET_n}]
+set_input_delay -clock sys_clk -min 0.5 [get_ports {CLOCK_125_p CLOCK_50_B6A CLOCK_50_B7A CLOCK_50_B8A CPU_RESET_n}]
+
+# Output delays
+set_output_delay -clock button_clk -max 3 [get_ports {LEDG[*] LEDR[*] HEX0[*] HEX1[*]}]
+set_output_delay -clock button_clk -min 1 [get_ports {LEDG[*] LEDR[*] HEX0[*] HEX1[*]}]
+set_output_delay -clock sys_clk -max 2 [get_ports {HDMI_TX_CLK HDMI_TX_D[*] HDMI_TX_DE HDMI_TX_HS HDMI_TX_VS}]
+set_output_delay -clock sys_clk -min 0.5 [get_ports {HDMI_TX_CLK HDMI_TX_D[*] HDMI_TX_DE HDMI_TX_HS HDMI_TX_VS}]
+
+# Cut paths for asynchronous inputs
+set_false_path -from [get_ports {KEY[0]}] -to *
+set_false_path -from [get_ports {SW[0] SW[1] SW[2] SW[3] SW[4] SW[5] SW[6] SW[7] SW[8] SW[9]}] -to *
+
+# Derive PLL clocks (if you're using PLL)
+derive_pll_clocks
+
+# Add any design-specific constraints here
+# For example:
+# set_false_path -from [get_ports {CPU_RESET_n}] -to *
+# set_multicycle_path -setup 2 -from [get_clocks {button_clk}] -to [get_clocks {sys_clk}]

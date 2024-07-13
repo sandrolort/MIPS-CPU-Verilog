@@ -1,0 +1,103 @@
+module IDecoder(
+	// ALU
+	input [0:31] instruction, // Input instruction to be decoded
+	output [0:3] Af, // 4-bit control signal for ALU operation
+	output I, // 1-bit signal indicating whether the second operand is immediate
+	output ALU_MUX_SEL, // 1-bit multiplexer select signal for choosing between immediate and register operand
+	// General Purpose Registers (GPR)
+	output [0:4] Cad,
+	// 5-bit long signal determining the address of the register to store the result
+	output GP_WE,
+	// 1-bit long signal for enabling write to general purpose registers
+	output [0:1] GP_MUX_SEL,
+	// 2-bit long multiplexer select signal for choosing the data source for register write
+	// Branch Condition Evaluation (BCE)
+	output [0:3] Bf,
+	// 4-bit long control signal determining the condition to be tested by BCE
+	// Memory
+	output DM_WE,
+	output [0:2] Shift_type,
+	output [0:1] PC_MUX_Select // 2-bit long multiplexer select signal for choosing the next instruction address
+);
+
+wire [0:5] opc, fun;
+wire [0:4] rs, rt, rd, sa;
+wire [0:15] imm;
+wire [0:25] iindex;
+
+//Introducing a splitter module that divides all the instruction information
+//Lets us keep the project cleaner and easier to understand.
+splitter splt(
+	instruction,
+	opc, fun,
+	rs, rt, rd, sa,
+	imm,
+	iindex
+);
+
+assign Af = fun[2:5];
+
+wire [1:0] ttype;
+assign ttype = Type(opc);
+
+assign I = ttype != 2'b10;
+assign ALU_MUX_SEL = ttype != 2'b10;
+
+assign Cad = I ? rt : rd;
+assign GP_WE = isWritten(opc, Af);
+assign GP_MUX_SEL = whereFrom(ttype, opc, Af);
+
+assign Bf = opc == 6'b000001 ? rt[1:4] : //bltz/bgez
+				opc == 6'b000100 ? 4'b0010 : //beq
+				opc == 6'b000101 ? 4'b0011 : //bne
+				opc == 6'b000110 ? 4'b0100 : //blez
+										 4'b0101 ; //bgtz
+										 
+assign DM_WE = opc == 6'b101011; //save word (sw) instruction
+
+assign Shift_type = Af == 000000 ? {ttype != 2'b10,2'b00} : //sll
+						  Af == 000010 ? {ttype != 2'b10,2'b01} : //srl
+											  {ttype != 2'b10,2'b10} ; //sra
+
+assign PC_MUX_Select = PC_Select(opc, Af);
+
+function [1:0] Type(input [0:5] instruction);
+	casez (instruction)
+		6'b001???, 6'b1???11, 6'b0001??, 6'b000001:	Type = 2'b00;//I-Type
+		6'b00001?:												Type = 2'b01;//J-Type
+		default:													Type = 2'b10;//R-type
+	endcase
+endfunction
+
+function [0:0] isWritten(input [0:5] instruction, input [0:3] Af);
+	casez(instruction)
+		6'b001???, 6'b100011:	isWritten = 1'b1;
+		6'b000000:					isWritten = Af != 6'b001000 && Af!=6'b001000;
+		default:						isWritten = 1'b0;
+	endcase
+endfunction
+
+function [0:1] whereFrom(input [0:2]ttype, input [0:5] instruction, input [0:3]Af);
+	case(ttype)
+		2'b10: if(Af==4'b1001) whereFrom = 2'b11; 												//PC
+				 else if(Af==4'b0010 || Af==4'b0000 || Af==4'b0011 ) whereFrom = 2'b10; //Shifter
+				 else whereFrom = 2'b00;																//ALU
+		2'b00: if(instruction == 6'b100011) whereFrom = 2'b01; 								//Memory
+				 else casez (instruction)
+						6'b001???: whereFrom = 2'b00; 												//ALU
+						default: whereFrom = 2'b11;													//PC
+				 endcase
+		default: whereFrom = 2'b11;
+	endcase
+endfunction
+
+function [0:1] PC_Select(input [0:5] instruction, input [0:3] Af);
+	casez(instruction)
+		6'b000000:					PC_Select = (Af == 4'b1000 || Af == 4'b1001) ? 2'b00 : 2'b11;//Jr/Jalr
+		6'b0001??, 6'b000001:	PC_Select = 2'b01;//Branch
+		6'b00001?:					PC_Select = 2'b10;//J/Jal
+		default:						PC_Select = 2'b11;
+	endcase
+endfunction
+
+endmodule

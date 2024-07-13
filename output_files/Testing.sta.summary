@@ -1,0 +1,504 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'button_clk'
+Slack : -53.807
+TNS   : -728.160
+
+Type  : Slow 1100mV 85C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : -3.942
+TNS   : -32.880
+
+Type  : Slow 1100mV 85C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.089
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.570
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_50_B5B'
+Slack : 3.623
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_50_B6A'
+Slack : 14.920
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 14.950
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.160
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.270
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.278
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50_B6A'
+Slack : 0.439
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50_B5B'
+Slack : 0.454
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.455
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'button_clk'
+Slack : 9.352
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : -5.798
+TNS   : -33.011
+
+Type  : Slow 1100mV 85C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : -5.067
+TNS   : -10.132
+
+Type  : Slow 1100mV 85C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : -3.937
+TNS   : -7.861
+
+Type  : Slow 1100mV 85C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : -1.980
+TNS   : -29.628
+
+Type  : Slow 1100mV 85C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : -0.018
+TNS   : -0.140
+
+Type  : Slow 1100mV 85C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.672
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.147
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.268
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 0.757
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.757
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll3~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.810
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|fpga_lpddr2_p0_sampling_clock'
+Slack : 1.512
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : 2.271
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : 6.141
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50_B5B'
+Slack : 8.807
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50_B6A'
+Slack : 9.221
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 21.759
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'button_clk'
+Slack : -58.158
+TNS   : -789.103
+
+Type  : Slow 1100mV 0C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : -3.859
+TNS   : -32.515
+
+Type  : Slow 1100mV 0C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.158
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50_B5B'
+Slack : 3.572
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 14.772
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50_B6A'
+Slack : 15.015
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.210
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.251
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.261
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.436
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50_B5B'
+Slack : 0.441
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50_B6A'
+Slack : 0.444
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'button_clk'
+Slack : 9.181
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : -5.586
+TNS   : -31.773
+
+Type  : Slow 1100mV 0C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : -5.050
+TNS   : -10.099
+
+Type  : Slow 1100mV 0C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : -3.774
+TNS   : -7.524
+
+Type  : Slow 1100mV 0C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : -1.979
+TNS   : -29.617
+
+Type  : Slow 1100mV 0C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.038
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.640
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.068
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.142
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.685
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 0.757
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll3~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.818
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|fpga_lpddr2_p0_sampling_clock'
+Slack : 1.510
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : 2.182
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : 6.109
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50_B5B'
+Slack : 8.758
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50_B6A'
+Slack : 9.311
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 21.752
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'button_clk'
+Slack : -13.214
+TNS   : -173.658
+
+Type  : Fast 1100mV 85C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : -1.703
+TNS   : -13.137
+
+Type  : Fast 1100mV 85C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.375
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : 7.860
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50_B5B'
+Slack : 10.808
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50_B6A'
+Slack : 17.344
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 18.646
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.055
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.143
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.178
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.183
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50_B5B'
+Slack : 0.184
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50_B6A'
+Slack : 0.195
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'button_clk'
+Slack : 4.782
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : -2.733
+TNS   : -15.052
+
+Type  : Fast 1100mV 85C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : -2.400
+TNS   : -4.799
+
+Type  : Fast 1100mV 85C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : -1.662
+TNS   : -3.320
+
+Type  : Fast 1100mV 85C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : -0.035
+TNS   : -0.503
+
+Type  : Fast 1100mV 85C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.189
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.414
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.569
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.577
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 0.757
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.067
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll3~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.149
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|fpga_lpddr2_p0_sampling_clock'
+Slack : 1.514
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : 2.569
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : 6.462
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50_B5B'
+Slack : 8.505
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50_B6A'
+Slack : 9.096
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 22.266
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'button_clk'
+Slack : -11.759
+TNS   : -152.518
+
+Type  : Fast 1100mV 0C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : -1.552
+TNS   : -12.204
+
+Type  : Fast 1100mV 0C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.461
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : 8.560
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50_B5B'
+Slack : 11.717
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50_B6A'
+Slack : 17.600
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 18.993
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.032
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.131
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.169
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50_B5B'
+Slack : 0.175
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.177
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50_B6A'
+Slack : 0.188
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'button_clk'
+Slack : 4.443
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : -2.570
+TNS   : -14.091
+
+Type  : Fast 1100mV 0C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : -2.243
+TNS   : -4.485
+
+Type  : Fast 1100mV 0C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : -1.540
+TNS   : -3.064
+
+Type  : Fast 1100mV 0C Model Recovery 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.045
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.124
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.361
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.473
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.530
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 0.757
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.062
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll3~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.147
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|fpga_lpddr2_p0_sampling_clock'
+Slack : 1.513
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll5~PLL_OUTPUT_COUNTER|divclk'
+Slack : 2.566
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll6~PLL_OUTPUT_COUNTER|divclk'
+Slack : 6.465
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50_B5B'
+Slack : 8.457
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50_B6A'
+Slack : 9.059
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'fpga_lpddr2_inst|fpga_lpddr2_inst|pll0|pll7~PLL_OUTPUT_COUNTER|divclk'
+Slack : 22.260
+TNS   : 0.000
+
+------------------------------------------------------------
+Info: see the "DDR report" for DDR timing results
+------------------------------------------------------------
+------------------------------------------------------------
