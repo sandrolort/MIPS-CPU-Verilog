@@ -3,9 +3,9 @@ module CPU_tb;
     reg rst;
 
     wire halt;
-    wire [0:31] Alures;
-    wire [0:31] registerOut;
-    wire [0:31] pc;
+    wire [31:0] Alures;
+    wire [31:0] registerOut;
+    wire [31:0] pc;
 
     CPU uut (
         .clk(clk),
