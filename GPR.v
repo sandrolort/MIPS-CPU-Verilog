@@ -16,6 +16,11 @@ module GPR (
     assign data_out_B = (addrB == 5'b0) ? 32'b0 : registers[addrB];
     assign registerOut = registers[5]; // a0, used for LED output (unsigned int)
 
+    initial begin
+        for (i = 1; i < 32 ; i=i+1)
+            registers[i] = 0;
+    end
+
     // Sequential write logic
     always @(posedge clk or posedge rst) begin
         if (rst) begin

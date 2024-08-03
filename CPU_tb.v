@@ -18,14 +18,13 @@ module CPU_tb;
 
     initial begin
         clk = 0;
+        rst = 1;
+        #20;
         rst = 0;
-
-        #30 rst = 1;
-        #30 rst = 0;
     end
 	 
-	 always begin
-		#10 clk = ~clk;
-	 end
+    always begin
+        #10 clk = ~clk;
+    end
 
 endmodule

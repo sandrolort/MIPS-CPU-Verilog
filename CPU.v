@@ -1,5 +1,6 @@
 module CPU (
 	input clk,
+	input mem_clk,
 	input rst,
 	output halt,
 	output [31:0] Alures,
@@ -32,7 +33,7 @@ wire [31:0] memory_data_out, memory_data_in, next_pc, I;
 wire S;
 
 memory_full mem(
-	clk, rst, S,
+	clk, mem_clk, rst, S,
 	next_pc, memory_address_in[29:0], memory_data_in,
 	I,
 	pc,
@@ -44,7 +45,7 @@ memory_full mem(
 wire ID;
 wire [3:0] Af;
 wire [4:0] Cad;
-wire [1:0] GP_MUX_SEL, PC_MUX_Select;
+wire [1:0] GP_MUX_SEL/*synthesis keep*/, PC_MUX_Select /*synthesis keep*/;
 wire [2:0] Shift_type;
 wire [3:0] Bf;
 wire ALU_MUX_SEL, GP_WE;
@@ -65,7 +66,7 @@ assign instruction = I;
 
 //Branch Condition Evaluation unit
 wire [31:0] a, b;
-wire bcres, bcres1;
+wire bcres;
 
 bce bce(a, b, Bf, bcres);
 
@@ -108,21 +109,14 @@ ALUDecoderBridge #(32) aludec(
 );
 
 //Connecting the wires + additional modules
-wire E_delayed;
-Delay #(.Bits(1)) E_D(clk, E, E_delayed); //Parametrized declaration.
-wire GP_WE_delayed;
-Delay #(.Bits(1)) GPWE_D(clk, GP_WE, GP_WE_delayed);
-
 wire [31:0] Imm_Extension;
 IEU #(16,32) ext(opc[0], imm, Imm_Extension);
 
 assign addrA = rs;
 assign addrB = rt;
-wire [4:0] rd_delayed;
-Delay #(.Bits(5)) rs_D(clk, Cad, rd_delayed);
-assign addrC = opc == 6'b000011 ? 5'd31 : rd_delayed;
+assign addrC = opc == 6'b000011 ? 5'd31 : Cad;
 
-assign wren = ~E && GP_WE_delayed;
+assign wren = E && GP_WE;
 
 assign srcA = data_out_A;
 assign srcB = ALU_MUX_SEL ? Imm_Extension : data_out_B;
@@ -147,19 +141,13 @@ assign shift_amount = Shift_type[2] ? data_out_A[3:0] : sa;
 assign shift_funct = Shift_type[1:0];
 
 wire [31:0] GP_DATA_IN;
-wire [31:0] pc_delayed;
-
-//This was necessary because otherwise Jalr instruction would save new pc.
-Delay PC_D(clk, pc, pc_delayed);
 
 assign GP_DATA_IN = 	GP_MUX_SEL == 2'b00 ? Alures			:
 						GP_MUX_SEL == 2'b01 ? memory_data_out	:
 						GP_MUX_SEL == 2'b10 ? shift_result 		:
-						pc_delayed + 4;
+						pc + 4;
 
-wire [31:0] GP_DATA_IN_delayed;
-Delay GP_D(clk, GP_DATA_IN, GP_DATA_IN_delayed);
-assign data_in_C = GP_DATA_IN_delayed;
+assign data_in_C = GP_DATA_IN;
 
 assign a = data_out_A;
 assign b = data_out_B;

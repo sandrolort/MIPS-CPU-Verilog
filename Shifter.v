@@ -5,6 +5,10 @@ module Shifter (
 	output reg /*wire*/ [31:0] R
 );
 
+initial begin
+	R = 0;
+end
+
 // Non-wolfgang way of doing it, without srl/srlfix modules
 always @(funct, a, N, R) begin
 	case (funct)

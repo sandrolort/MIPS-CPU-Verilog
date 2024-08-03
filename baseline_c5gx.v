@@ -143,8 +143,19 @@ module baseline_c5gx(
 wire [0:31] Alures, registerOut, pc;
 wire halt;
 
+reg [2:0] clk_div;
+wire slow_clk;
+
+always @(posedge CLOCK_125_p) begin
+    clk_div <= clk_div + 1'b1;
+end
+
+assign slow_clk = clk_div[1]; // 67.5MHz clock (125MHz / 2)
+
+
 CPU cpu(
-	CLOCK_50_B5B,
+	slow_clk,
+      CLOCK_125_p,
 	SW[0],
 	halt,
 	Alures,
@@ -152,6 +163,8 @@ CPU cpu(
 	pc,
 	LEDG[0]
 );
+
+
 
 assign HEX0 = GenerateHexDisplayFromInteger((registerOut)%10);
 assign HEX1 = GenerateHexDisplayFromInteger((registerOut/10)%10);
