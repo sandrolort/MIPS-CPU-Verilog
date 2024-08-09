@@ -154,7 +154,7 @@ assign slow_clk = clk_div[1]; // 67.5MHz clock (125MHz / 2)
 
 
 CPU cpu(
-	slow_clk,
+	CLOCK_50_B5B,
       CLOCK_125_p,
 	SW[0],
 	halt,

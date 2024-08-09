@@ -74,6 +74,17 @@ def translate_mips(instruction, indx):
                     pass
     return f"{int(binary_format, 2):08X}"  # Convert binary to hexadecimal
 
+def handle_init(parts):
+    """Handle the init command and return the address and value."""
+    if len(parts) != 3:
+        return None
+    try:
+        address = int(parts[1], 16)
+        value = int(parts[2], 16)
+        return (address, f"{value:08X}")
+    except ValueError:
+        return None
+
 def create_mif_file(input_file, output_file):
     with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
         # Write MIF file header
@@ -84,20 +95,48 @@ def create_mif_file(input_file, output_file):
         outfile.write("CONTENT BEGIN\n")
 
         index = 0
+        content = []
+
         for line in infile:
-            hex_value = translate_mips(line.strip(), index)
-            if hex_value:
-                outfile.write(f"\t{index:03X} : {hex_value};\n")
-                index += 1
+            line = line.strip()
+            if line.startswith("//") or not line:
+                continue
+            
+            parts = line.split()
+            if parts[0].lower() == "init":
+                init_result = handle_init(parts)
+                if init_result:
+                    content.append(init_result)
+            else:
+                hex_value = translate_mips(line, index)
+                if hex_value:
+                    content.append((index, hex_value))
+                    index += 1
+
+        # Sort content by address
+        content.sort(key=lambda x: x[0])
+
+        # Write content with refined gap filling
+        prev_addr = -1
+        for addr, value in content:
+            if prev_addr != -1:
+                diff = addr - prev_addr
+                if diff == 2:
+                    outfile.write(f"\t{(prev_addr + 1):03X} : 00000000;\n")
+                elif diff > 2:
+                    outfile.write(f"\t[{(prev_addr + 1):03X}..{(addr - 1):03X}] : 00000000;\n")
+            outfile.write(f"\t{addr:03X} : {value};\n")
+            prev_addr = addr
 
         # Fill the rest with zeros using range notation
-        if index < 4096:
-            outfile.write(f"\t[{index:03X}..FFF] : 00000000;\n")
+        last_address = content[-1][0]
+        if last_address < 4095:
+            outfile.write(f"\t[{(last_address + 1):03X}..FFF] : 00000000;\n")
 
         outfile.write("END;\n")
 
 # Usage
 input_file = 'MIPS.asm'
-output_file = 'output_temp.mif'
+output_file = 'output.mif'
 create_mif_file(input_file, output_file)
 print(f"MIF file '{output_file}' has been created.")

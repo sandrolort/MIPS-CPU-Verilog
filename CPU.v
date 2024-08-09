@@ -45,7 +45,7 @@ memory_full mem(
 wire ID;
 wire [3:0] Af;
 wire [4:0] Cad;
-wire [1:0] GP_MUX_SEL/*synthesis keep*/, PC_MUX_Select /*synthesis keep*/;
+wire [1:0] GP_MUX_SEL, PC_MUX_Select;
 wire [2:0] Shift_type;
 wire [3:0] Bf;
 wire ALU_MUX_SEL, GP_WE;
@@ -116,7 +116,7 @@ assign addrA = rs;
 assign addrB = rt;
 assign addrC = opc == 6'b000011 ? 5'd31 : Cad;
 
-assign wren = E && GP_WE;
+assign wren = ~E && GP_WE;
 
 assign srcA = data_out_A;
 assign srcB = ALU_MUX_SEL ? Imm_Extension : data_out_B;
@@ -156,26 +156,16 @@ assign b = data_out_B;
 wire [31:0] Incr;
 assign Incr = pc + 4;
 
-wire [17:0] branch;
-assign branch = {imm,2'b00};
-
-wire signed [31:0]Imm_Extension_S;
-IEU #(16,32) ext2(0, branch, Imm_Extension_S);
-
-wire signed [31:0] Adder;
-
-wire signed [31:0] signedPc, signedExt;
-assign signedPc = $signed(pc);
-assign signedExt = $signed(Imm_Extension_S);
+wire [31:0] Adder;/*synthesis keep*/
 
 //todo bad name, change
-assign Adder = signedPc + Imm_Extension_S;
+assign Adder = $unsigned($signed(pc) + $signed(imm << 2));
 
-wire [31:0] muxPCBres;
-assign muxPCBres = bcres ? $unsigned(Adder) : Incr;
+wire [31:0] muxPCBres/*synthesis keep*/;
+assign muxPCBres = bcres ? Adder : Incr;
 
-wire [31:0] jjal;
-assign jjal = {Incr[3:0],iindex,2'b00};
+wire [31:0] jjal/*synthesis keep*/;
+assign jjal = {Incr[31:28],iindex,2'b00};
 
 assign next_pc = 	halt ? pc :
 					PC_MUX_Select == 2'b11 ? Incr		: 

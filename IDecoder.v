@@ -13,7 +13,7 @@ module IDecoder(
 	output [1:0] PC_MUX_Select // 2-bit long multiplexer select signal for choosing the next instruction address
 );
 
-wire [5:0] opc /*synthesis keep*/, fun /*synthesis keep*/;
+wire [5:0] opc, fun;
 wire [4:0] rs, rt, rd, sa;
 wire [15:0] imm;
 wire [25:0] iindex;
@@ -40,6 +40,7 @@ assign Cad = I ? rt : rd;
 assign GP_WE = isWritten(opc, fun);
 assign GP_MUX_SEL = whereFrom(ttype, opc, fun);
 
+// bf (c) = opc(c)[2 : 0] ◦ rt(c)[0] = I(c)[28 : 26]I[16].
 assign Bf = {instruction[28:26],instruction[16]};
 										 
 assign DM_WE = opc == 6'b101011; //save word (sw) instruction
