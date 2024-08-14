@@ -156,7 +156,7 @@ assign b = data_out_B;
 wire [31:0] Incr;
 assign Incr = pc + 4;
 
-wire [31:0] Adder;/*synthesis keep*/
+wire [31:0] Adder;
 
 //todo bad name, change
 assign Adder = $unsigned($signed(pc) + $signed(imm << 2));

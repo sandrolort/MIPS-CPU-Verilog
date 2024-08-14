@@ -1,23 +1,10 @@
 
-module srlfix(a,s,res);
-parameter i = 16;
-    input  [31:0] a;
-	input  s;
-    output reg [31:0] res;
+module srlfix #(parameter i = 16)(
+	input  [31:0] a,
+	input  s,
+	output wire [31:0] res
+);
 
-always @(*) begin
-if (s==1'b1) begin
+assign res = s == 1'b1 ? ({{i{1'b0}}, a[31:i]}) : a;
 
- res=	({{i{1'b0}}, a[31:i]});
-end
-else begin
- res=a;
-end
-	
-	end
-
-	
-	
-	
-	
 endmodule

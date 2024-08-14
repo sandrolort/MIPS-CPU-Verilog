@@ -10,6 +10,9 @@ module alu #(parameter n = 32) (
 wire [n-1:0] au_result;
 wire au_neg, au_ovf;
 
+// The module can be done without implementing an additional AU,
+// And writing everything in this module. It'll be much less complex.
+// The AU implementation is done to stick as close as possible to the book.
 au #(n) arithmetic_unit (
     .a(a),
     .b(b),
@@ -20,20 +23,14 @@ au #(n) arithmetic_unit (
     .ovf(au_ovf)
 );
 
-wire [n-1:0] and_result = a & b;
-wire [n-1:0] or_result = a | b;
-wire [n-1:0] xor_result = a ^ b;
-wire [n-1:0] special_result = i ? {b[15:0], 16'b0} : ~(a | b);
-wire [n-1:0] neg_result = {31'b0, au_neg};
-
 wire [n-1:0] mux_result;
 assign mux_result = 
     (af == 4'b0000 || af == 4'b0001 || af == 4'b0010 || af == 4'b0011) ? au_result :
-    (af == 4'b0100) ? and_result :
-    (af == 4'b0101) ? or_result :
-    (af == 4'b0110) ? xor_result :
-    (af == 4'b0111) ? special_result :
-    (af == 4'b1010 || af == 4'b1011) ? neg_result :
+    (af == 4'b0100) ? a & b :
+    (af == 4'b0101) ? a | b :
+    (af == 4'b0110) ? a ^ b :
+    (af == 4'b0111) ? i ? {b[15:0], 16'b0} : ~(a | b) :
+    (af == 4'b1010 || af == 4'b1011) ? {31'b0, au_neg} :
     {n{1'b0}};
 
 assign alures = mux_result;
