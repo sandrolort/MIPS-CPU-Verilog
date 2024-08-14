@@ -23,8 +23,7 @@ au #(n) arithmetic_unit (
     .ovf(au_ovf)
 );
 
-wire [n-1:0] mux_result;
-assign mux_result = 
+assign alures = 
     (af == 4'b0000 || af == 4'b0001 || af == 4'b0010 || af == 4'b0011) ? au_result :
     (af == 4'b0100) ? a & b :
     (af == 4'b0101) ? a | b :
@@ -33,7 +32,6 @@ assign mux_result =
     (af == 4'b1010 || af == 4'b1011) ? {31'b0, au_neg} :
     {n{1'b0}};
 
-assign alures = mux_result;
 assign ovfalu = au_ovf & ~af[3] & ~af[2];
 
 endmodule
