@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 module alu #(parameter n = 32) (
     input [n-1:0] a,
     input [n-1:0] b,
@@ -36,6 +37,8 @@ assign alures =
 assign ovfalu = au_ovf & ~af[3] & ~af[2];
 
 =======
+=======
+>>>>>>> ff7c54a (Minor changes to MIPS assembler. Backup.)
 module alu #(parameter n = 32) (
     input [n-1:0] a,
     input [n-1:0] b,
@@ -74,5 +77,8 @@ assign mux_result =
 assign alures = mux_result;
 assign ovfalu = au_ovf & ~af[3] & ~af[2];
 
+<<<<<<< HEAD
+>>>>>>> ff7c54a (Minor changes to MIPS assembler. Backup.)
+=======
 >>>>>>> ff7c54a (Minor changes to MIPS assembler. Backup.)
 endmodule
