@@ -2,28 +2,23 @@ module main_interrupt (
     input wire [31:0] instruction,
     input wire clk,
     input wire [22:0] ca,  // Cause Signals
-    input wire [31:0] sr,   // Status register
     input wire [31:0] pc,
     input wire e,
-    input wire mode,
     input wire eret,        // Return from exception
-    input wire [31:0] esr,  // Exception status register
-    input wire [31:0] epc,  // Exception pc
     input wire rpt,         // 1 bit 'repeat' signal
     input wire [31:0] next_pc,
-    input wire [31:0] ea,
-    output wire [31:0] sr_out,
-    output wire [31:0] esr_out,
+    output wire [31:0] sr,
+    output wire [31:0] esr,
     output wire [31:0] eca_out,
-    output wire [31:0] epc_out,
+    output wire [31:0] epc,
     output wire [31:0] edata_out,
     output wire [31:0] pto,
     output wire [31:0] ptl,
-    output wire mode_out
+    output wire mode,
+	output wire jisr
 );
 
     // Internal wires for connecting modules
-    wire jisr;
     wire [4:0] il;
     wire second_part_of_ill;
     wire misaf;
@@ -79,22 +74,20 @@ module main_interrupt (
     spr spr_inst (
         .clk(clk),
         .jisr(jisr),
-        .esr(esr),
-        .sr(sr),
         .mca({9'b0, ca}),  // mca is 32-bit long
         .rpt(rpt),
         .pc(pc),
         .next_pc(next_pc),
         .ea(ea),
         .mode(mode),
-        .sr_out(sr_out),
-        .esr_out(esr_out),
+        .sr(sr),
+        .esr(esr),
         .eca_out(eca_out),
-        .epc_out(epc_out),
+        .epc_out(epc),
         .edata_out(edata_out),
         .pto(pto),
         .ptl(ptl),
-        .mode_out(mode_out)
+        .mode(mode)
     );
 
 endmodule

@@ -26,4 +26,10 @@ module au #(parameter n = 32)(
 	assign neg = (~u & (a[n-1] ^d[n-1] ^cout)) | (u&~cout & sub); // lemma 39
 	
 	assign ovf = u & (cout ^ lcin); // lemma 40
+
+	always @(*) begin
+		if (ovf) begin 
+			$display("Overflow detected with a = %b, b = %b, sub = %b", a, b, sub);
+		end
+	end
 endmodule

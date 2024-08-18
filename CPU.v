@@ -31,9 +31,44 @@ wire [31:0] memory_address_in;
 wire [31:0] memory_data_out, memory_data_in, next_pc, I;
 wire S;
 
+wire mode;
+wire eret;
+wire epc;
+wire rpt;
+wire sr;
+wire esr;
+wire eca_out;
+wire edata_out;
+wire pto;
+wire ptl;
+wire jsr;
+
+main_interrupt interrupt_handler (
+    .instruction(instruction),
+    .clk(clk),
+    .ca(32'b0),
+    .pc(pc),
+    .e(E),
+    .eret(eret),
+    .epc(epc),
+    .rpt(rpt),
+    .next_pc(next_pc),
+    .sr(sr),
+    .esr(esr),
+    .eca_out(eca_out),
+    .edata_out(edata_out),
+    .pto(pto),
+    .ptl(ptl),
+    .mode(mode),
+	.jisr(jisr)
+);
+
 memory_full mem(
 	clk, rst, S,
 	next_pc, memory_address_in[29:0], memory_data_in,
+	jisr, // added since interrupts were added
+	eret,
+	epc,
 	I,
 	pc,
 	memory_data_out,
@@ -56,7 +91,7 @@ IDecoder idc(
 	Cad,
 	GP_WE, GP_MUX_SEL,
 	Bf,
-	S, //DM_WE
+	S, // DM_WE
 	Shift_type,
 	PC_MUX_Select
 );

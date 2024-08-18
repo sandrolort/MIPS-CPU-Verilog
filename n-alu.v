@@ -32,7 +32,14 @@ parameter n = 32;
 	assign sub=af[1];
 	assign z=neg;
 	assign ovfalu= ovf &~af[3]&~af[2]; // book page 96
+	always @(*) begin
+        if (ovf) begin 
+            $display("Overflow detected with a = %b, b = %b, sub = %b", a, b, sub);
+        end
+    end
 	
+
+
 	always @ * 
 	case(af)
 		4'b0000,4'b0001,4'b0010,4'b0011: alures = s;
