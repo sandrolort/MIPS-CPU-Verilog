@@ -37,50 +37,86 @@ mips_instructions = {
     "jal":"000011xxxxxxxxxxxxxxxxxxxxxxxxxx"
 }
 
+register_map = {
+    "$zero": 0, "$at": 1, "$v0": 2, "$v1": 3,
+    "$a0": 4, "$a1": 5, "$a2": 6, "$a3": 7,
+    "$t0": 8, "$t1": 9, "$t2": 10, "$t3": 11,
+    "$t4": 12, "$t5": 13, "$t6": 14, "$t7": 15,
+    "$s0": 16, "$s1": 17, "$s2": 18, "$s3": 19,
+    "$s4": 20, "$s5": 21, "$s6": 22, "$s7": 23,
+    "$t8": 24, "$t9": 25, "$k0": 26, "$k1": 27,
+    "$gp": 28, "$sp": 29, "$fp": 30, "$ra": 31
+}
+
 def twos_complement(value, bits):
-    """Compute the two's complement of an integer value with the given number of bits."""
     if value >= 0:
         return value
     else:
         return (1 << bits) + value
 
-def translate_mips(instruction, indx):
+def parse_register(reg):
+    if reg in register_map:
+        return register_map[reg]
+    elif reg.startswith('$'):
+        try:
+            return int(reg[1:])
+        except ValueError:
+            raise ValueError(f"Invalid register: {reg}")
+    else:
+        try:
+            return int(reg)
+        except ValueError:
+            raise ValueError(f"Invalid register: {reg}")
+
+def parse_immediate(imm):
+    if imm.startswith('0x'):
+        return int(imm, 16)
+    elif imm.startswith('0b'):
+        return int(imm, 2)
+    else:
+        return int(imm)
+
+def translate_mips(instruction, labels, current_address):
     parts = re.split(r'[\[,\(\)\s]', instruction)
+    parts = [part for part in parts if part]  # Remove empty parts
     opcode = parts[0].lower()
     if opcode not in mips_instructions:
         return None  # Return None for invalid instructions
     binary_format = mips_instructions[opcode]
+
     for i, part in enumerate(parts[1:]):
-        if part:
-            if part.isdigit():
-                register = int(part)
-                if "ddddd" in binary_format:
-                    binary_format = binary_format.replace(f"ddddd", f"{register:05b}")
-                elif "ttttt" in binary_format:
-                    binary_format = binary_format.replace(f"ttttt", f"{register:05b}")
-                else:
-                    binary_format = binary_format.replace(f"sssss", f"{register:05b}")
-            elif part.startswith("0x"):
-                value = int(part, 16)
-                binary_format = binary_format.replace("iiiiiiiiiiiiiiii", f"{twos_complement(value, 16):016b}")
-                binary_format = binary_format.replace("xxxxxxxxxxxxxxxxxxxxxxxxxx", f"{twos_complement(value, 26):026b}")
+        if part in labels:
+            # Calculate relative offset for branch instructions
+            if opcode in ["beq", "bne", "blez", "bgtz", "bltz", "bgez"]:
+                offset = (labels[part] - current_address - 1) & 0xFFFF  # -1 because PC is incremented
+                binary_format = binary_format.replace("iiiiiiiiiiiiiiii", f"{offset:016b}")
+            # Calculate absolute address for jump instructions
+            elif opcode in ["j", "jal"]:
+                address = labels[part] & 0x3FFFFFF  # 26-bit address
+                binary_format = binary_format.replace("xxxxxxxxxxxxxxxxxxxxxxxxxx", f"{address:026b}")
+        elif part.startswith('$') or part.isdigit():
+            register = parse_register(part)
+            if "ddddd" in binary_format:
+                binary_format = binary_format.replace("ddddd", f"{register:05b}")
+            elif "ttttt" in binary_format:
+                binary_format = binary_format.replace("ttttt", f"{register:05b}")
             else:
-                try:
-                    value = int(part)
-                    binary_format = binary_format.replace("iiiiiiiiiiiiiiii", f"{twos_complement(value, 16):016b}")
-                    binary_format = binary_format.replace("xxxxxxxxxxxxxxxxxxxxxxxxxx", f"{twos_complement(value, 26):026b}")
-                except ValueError:
-                    # If the value cannot be converted to an integer, leave it as is
-                    pass
+                binary_format = binary_format.replace("sssss", f"{register:05b}")
+        else:
+            try:
+                value = parse_immediate(part)
+                binary_format = binary_format.replace("iiiiiiiiiiiiiiii", f"{twos_complement(value, 16):016b}")
+            except ValueError:
+                # If the value cannot be converted to an integer, leave it as is
+                pass
     return f"{int(binary_format, 2):08X}"  # Convert binary to hexadecimal
 
 def handle_init(parts):
-    """Handle the init command and return the address and value."""
     if len(parts) != 3:
         return None
     try:
-        address = int(parts[1], 16)
-        value = int(parts[2], 16)
+        address = parse_immediate(parts[1])
+        value = parse_immediate(parts[2])
         return (address, f"{value:08X}")
     except ValueError:
         return None
@@ -94,24 +130,40 @@ def create_mif_file(input_file, output_file):
         outfile.write("DATA_RADIX=HEX;\n\n")
         outfile.write("CONTENT BEGIN\n")
 
-        index = 0
+        # First pass: collect labels
+        labels = {}
+        address = 0
+        for line in infile:
+            line = line.strip()
+            if not line or line.startswith("//"):
+                continue
+            if line.endswith(":"):
+                labels[line[:-1]] = address
+            elif not line.startswith("init"):
+                address += 1
+
+        # Second pass: translate instructions
+        infile.seek(0)
+        address = 0
         content = []
 
         for line in infile:
             line = line.strip()
-            if line.startswith("//") or not line:
+            if not line or line.startswith("//"):
                 continue
-            
+            if line.endswith(":"):
+                continue
+
             parts = line.split()
             if parts[0].lower() == "init":
                 init_result = handle_init(parts)
                 if init_result:
                     content.append(init_result)
             else:
-                hex_value = translate_mips(line, index)
+                hex_value = translate_mips(line, labels, address)
                 if hex_value:
-                    content.append((index, hex_value))
-                    index += 1
+                    content.append((address, hex_value))
+                    address += 1
 
         # Sort content by address
         content.sort(key=lambda x: x[0])

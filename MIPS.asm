@@ -10,11 +10,11 @@ addi 3, 0, 0x0
 //Jump to end if counter is equal to first number
 beq 1, 3, 0x4
 // add to sum and increment
-addu 4, 4, 2
+add 4, 4, 2
 addi 3, 3, 0x1
 // Back to the beginning of the loop
-beq 0, 0, -3
+j 0x3
 // Print the result
-addu 5, 4, 0
+add 5, 4, 0
 //...and save to memory
 sw 5, 0, 0x20
