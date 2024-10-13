@@ -67,7 +67,7 @@ function [0:0] isWritten(input [5:0] opc, input [5:0] fun);
 	endcase
 endfunction
 
-function [1:0] whereFrom(input [2:0]ttype, input [5:0] opc, input [3:0]fun);
+function [1:0] whereFrom(input [2:0]ttype, input [5:0] opc, input [5:0]fun);
 	case(ttype)
 		// 2'b10: if(fun==6'b001001) whereFrom = 2'b11; 										//PC
 		// 		 else if(fun==6'b000010 || fun==6'b000011) whereFrom = 2'b10; 					//Shifter

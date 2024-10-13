@@ -3,7 +3,7 @@ module au(input  [n-1:0] a,
 	input [n-1:0] b,
 	input sub,
 	input u,
-    output wire [n-1:0] s,
+   output wire [n-1:0] s,
 	output wire neg,
 	output ovf);
 parameter n = 32;
