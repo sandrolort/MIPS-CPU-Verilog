@@ -1,4 +1,3 @@
-
 module srlfix #(parameter i = 16)(
 	input  [31:0] a,
 	input  s,
