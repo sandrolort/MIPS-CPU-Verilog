@@ -152,24 +152,10 @@ end
 
 assign slow_clk = clk_div[1]; // 67.5MHz clock (125MHz / 2)
 
-
-cpu upc(
-	slow_clk,
-	CLOCK_125_p,
-	SW[0],
-	halt,
-	Alures,
-	registerOut,
-	pc,
-	LEDG[0]
-);
-
-
-
-assign HEX0 = GenerateHexDisplayFromInteger((registerOut)%10);
-assign HEX1 = GenerateHexDisplayFromInteger((registerOut/10)%10);
-assign HEX2 = GenerateHexDisplayFromInteger((registerOut/100)%10);
-assign HEX3 = GenerateHexDisplayFromInteger(registerOut/1000);
+// assign HEX0 = GenerateHexDisplayFromInteger((registerOut)%10);
+// assign HEX1 = GenerateHexDisplayFromInteger((registerOut/10)%10);
+// assign HEX2 = GenerateHexDisplayFromInteger((registerOut/100)%10);
+// assign HEX3 = GenerateHexDisplayFromInteger(registerOut/1000);
 
 //Responsible for generating a proper HEX from a number for the LED
 function reg[6:0] GenerateHexDisplayFromInteger(input [0:31] number);
@@ -189,44 +175,69 @@ function reg[6:0] GenerateHexDisplayFromInteger(input [0:31] number);
 endfunction
 
 // LPDDR2 Memory setup
-wire [26:0] address;
-wire [31:0] write_data;
-wire [31:0] read_data;
-wire read_req;
-wire write_req;
+wire [26:0] address/*synthesis keep*/;
+wire [31:0] write_data/*synthesis keep*/;
+wire [31:0] read_data/*synthesis keep*/;
+wire read_req, write_req;
 
-assign address = 199;
-assign write_data = 199;
+wire read_req_raw/*synthesis keep*/, write_req_raw/*synthesis keep*/;
+
+// assign address = 199;
+// assign write_data = 199;
 
 reg sw4_prev;
 reg sw4_posedge;
 
 always @(posedge CLOCK_50_B5B) begin
-      sw4_prev <= SW[4];
-      sw4_posedge <= SW[4] & ~sw4_prev;
+      sw4_prev <= write_req_raw;
+      sw4_posedge <= write_req_raw & ~sw4_prev;
 end
 
 reg sw3_prev;
 reg sw3_posedge;
 
 always @(posedge CLOCK_50_B5B) begin
-      sw3_prev <= SW[3];
-      sw3_posedge <= SW[3] & ~sw3_prev;
+      sw3_prev <= read_req_raw;
+      sw3_posedge <= read_req_raw & ~sw3_prev;
 end
 
 assign read_req = sw3_posedge;
 assign write_req = sw4_posedge;
 
-//assign HEX0 = GenerateHexDisplayFromInteger((read_data)%10);
-//assign HEX1 = GenerateHexDisplayFromInteger((read_data/10)%10);
-//assign HEX2 = GenerateHexDisplayFromInteger((read_data/100)%10);
-//assign HEX3 = GenerateHexDisplayFromInteger(read_data/1000);
+cpu upc(
+	slow_clk,
+	CLOCK_125_p,
+	SW[0],
+	halt,
+	Alures,
+	registerOut,
+	pc,
+	LEDG[7],
+	// LPDDR2 Memory 
+	// address,
+	// write_data,
+	// read_data,
+	// read_req,
+	// write_req,
+      address,
+	write_data,
+	read_data,
+	read_req_raw,
+	write_req_raw,
+	c_state != 1'b1 || busy,
+);
+
+
+assign HEX0 = GenerateHexDisplayFromInteger((read_data)%10);
+assign HEX1 = GenerateHexDisplayFromInteger((read_data/10)%10);
+assign HEX2 = GenerateHexDisplayFromInteger((read_data/100)%10);
+assign HEX3 = GenerateHexDisplayFromInteger(read_data/1000);
 
 wire afi_clk;
 wire afi_half_clk;
 wire clk_lpddr2;
 
-wire fpga_lpddr2_local_init_done/*synthesis keep*/;
+wire fpga_lpddr2_local_init_done;
 
 wire         fpga_lpddr2_avl_ready;
 wire         fpga_lpddr2_avl_burstbegin;
@@ -321,7 +332,7 @@ lpddr2_memory fpga_lpddr2_Verify(
 
       .c_state(c_state)
 );
-//assign LEDG[0] = !c_state;
-//assign LEDG[1] = !fpga_lpddr2_local_init_done;
-//assign LEDR[3:0] = c_state;
+assign LEDG[0] = !c_state;
+assign LEDG[1] = !fpga_lpddr2_local_init_done;
+assign LEDR[3:0] = c_state;
 endmodule

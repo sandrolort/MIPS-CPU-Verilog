@@ -9,16 +9,28 @@ module memory_full (
     output reg [31:0] I,
     output reg [31:0] PC = 0,
     output wire [31:0] data_out/*synthesis keep*/,
-    output reg E = 1/*synthesis keep*/
+    output reg E = 1/*synthesis keep*/,
+    // LPDDR2 Memory
+    output wire [26:0] address,
+    output wire [31:0] write_data,
+    input wire [31:0] read_data,
+    output wire read_req,
+    output wire write_req
 );
+wire is_lpddr2_used = (~E ? addr_in[11:0] : PC[13:2]) > {11{1'b1}};
 
 wire [11:0] sram_address;
 wire [31:0] sram_q;
 wire sram_wren;
 
 assign sram_address = ~E ? addr_in[11:0] : PC[13:2];
-assign sram_wren = S && ~E;
-assign data_out = sram_q;
+assign sram_wren = S && ~E && ~is_lpddr2_used;
+assign data_out = is_lpddr2_used ? read_data : sram_q;
+
+assign address = (~E ? addr_in[11:0] : PC[13:2])-{11{1'b1}};
+assign write_req = S && ~E && is_lpddr2_used;
+assign read_req = is_lpddr2_used && ~write_req;
+assign write_data = data_in;
 
 SRAM memory_sram (
     .address(sram_address),
@@ -32,7 +44,7 @@ SRAM memory_sram (
 always @(posedge clk or posedge rst) begin
     if (rst) begin
         // Reset logic
-        E = 1'b0;
+        E = 1'b1;
         PC = 32'b0;
         I = 32'b0;
     end else begin
