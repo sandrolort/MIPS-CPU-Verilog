@@ -27,7 +27,7 @@ module spr (
     always @(jisr) begin
         if (jisr) begin
             esr = sr;
-			sr = 32'b0;
+            sr = 32'b0;
             eca_out = mca;
             mode = 32'b0;
             epc_out = actual_pc;
@@ -35,16 +35,14 @@ module spr (
             pto = 32'b0; // Handling paging comes later
             ptl = 32'b0; // Handling paging comes later
         end else begin
-            // No interrupt -> Use old transition function \delta_M (d, reset)
+            // No interrupt -> Use old transition function \delta_M (d, reset) and maintain current mode
             esr = 32'b0;
             eca_out = 32'b0;
             epc_out = 32'b0;
             edata_out = 32'b0;
-            // Maintain current mode
             pto = 32'b0; // Handling paging comes later
             ptl = 32'b0; // Handling paging comes later
         end
     end
-
 endmodule
 

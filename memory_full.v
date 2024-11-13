@@ -6,9 +6,9 @@ module memory_full (
     input wire [31:0] next_pc,
     input wire [29:0] addr_in/*synthesis keep*/,
     input wire [31:0] data_in,
-	input wire jisr,
-	input wire eret,
-	input wire [31:0] epc,
+    input wire jisr,
+    input wire eret,
+    input wire [31:0] epc,
     output reg [31:0] I,
     output reg [31:0] PC = 0,
     output wire [31:0] data_out/*synthesis keep*/,
@@ -31,7 +31,6 @@ SRAM memory_sram (
     .q(sram_q)
 );
 
-// Reset logic and Memory write operation
 always @(posedge clk or posedge rst or posedge jisr) begin
     if (rst) begin
         // Reset logic

@@ -64,15 +64,15 @@ main_interrupt interrupt_handler (
 );
 
 memory_full mem(
-	clk, rst, S,
-	next_pc, memory_address_in[29:0], memory_data_in,
-	jisr, // added since interrupts were added
-	eret,
-	epc,
-	I,
-	pc,
-	memory_data_out,
-	E
+    clk, rst, S,
+    next_pc, memory_address_in[29:0], memory_data_in,
+    jisr, // added since interrupts were included
+    eret,
+    epc,
+    I,
+    pc,
+    memory_data_out,
+    E
 );
 
 //Instruction Decoder

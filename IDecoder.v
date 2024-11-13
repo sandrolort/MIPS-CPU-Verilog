@@ -89,7 +89,7 @@ function [0:0] isWritten(input [5:0] instruction, input [3:0] fun);
 	endcase
 endfunction
 
-function [1:0] whereFrom(input [2:0]ttype, input [5:0] opcode, input [3:0]fun);
+function [1:0] whereFrom(input [2:0]ttype, input [5:0] opcode, input [5:0] fun);
 	case (ttype)
 		2'b10: casez(fun)
 			6'b001001: 							whereFrom = 2'b11;

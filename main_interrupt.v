@@ -7,6 +7,7 @@ module main_interrupt (
     input wire eret,        // Return from exception
     input wire rpt,         // 1 bit 'repeat' signal
     input wire [31:0] next_pc,
+    input wire mode,
     output wire [31:0] sr,
     output wire [31:0] esr,
     output wire [31:0] eca_out,
@@ -14,16 +15,19 @@ module main_interrupt (
     output wire [31:0] edata_out,
     output wire [31:0] pto,
     output wire [31:0] ptl,
-    output wire mode,
-	output wire jisr
+    output wire mode_out,
+    output wire jisr
 );
 
     // Internal wires for connecting modules
     wire [4:0] il;
     wire second_part_of_ill;
+    wire ls;
     wire misaf;
     wire misals;
     wire sysc;
+    wire pff;
+    wire pfls;
 
     wire [31:0] ea; // Effective address is computed by rs + imm(sign extended)
     assign ea = instruction[25:21] + {{16{instruction[15]}}, instruction[15:0]};
@@ -41,11 +45,16 @@ module main_interrupt (
     assign second_part_of_ill = mode == 1'b1 && instruction[31:26] == 6'b010000;
 
     // Logic of misalignment of fetch or load/store
+    assign ls = instruction[31:26] == 6'b100011 || instruction[31:26] == 6'b101011;
     assign misaf = e == 1 && pc[1:0] != 2'b00;
-    assign misals = ((instruction[31:26] == 6'b100011) || (instruction[31:26] == 6'b101011)) && (ea[1:0] != 2'b00);
+    assign misals = ls && ea[1:0] != 2'b00;
     
     // Logic for system call
-    assign sysc = instruction[31:26] = 6'b000000 && instruction[5:0] == 6'b001100;
+    assign sysc = instruction[31:26] == 6'b000000 && instruction[5:0] == 6'b001100;
+
+    // Logic for page fault during fetch and page fault during load/store
+    assign pff = mode == 1'b1 && ({12'b0, pc[31:12]} >= ptl || !pc[11]);  // Last part(checking if valid bit is 0) is not correct.
+    assign pfls = mode == 1'b1 && ({12'b0, ea[31:12]} >= ptl || !ea[11]); // It should be updated later on.
 
     always @(posedge clk) begin
         if (second_part_of_ill) begin
@@ -67,6 +76,16 @@ module main_interrupt (
             $display("System Call");
             $stop;
         end
+
+        if (pff) begin
+            $display("Page Fault during Fetch. Should be repeated.");
+            $stop;
+        end
+
+        if (pfls) begin
+            $display("Page Fault during Load/Store. Should be repeat.");
+            $stop;
+        end
     end
 
 
@@ -79,7 +98,6 @@ module main_interrupt (
         .pc(pc),
         .next_pc(next_pc),
         .ea(ea),
-        .mode(mode),
         .sr(sr),
         .esr(esr),
         .eca_out(eca_out),
@@ -87,7 +105,7 @@ module main_interrupt (
         .edata_out(edata_out),
         .pto(pto),
         .ptl(ptl),
-        .mode(mode)
+        .mode(mode_out)
     );
 
 endmodule
