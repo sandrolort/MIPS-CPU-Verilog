@@ -17,7 +17,7 @@ module memory_full (
     output wire read_req,
     output wire write_req
 );
-wire is_lpddr2_used = (~E ? addr_in[11:0] : PC[13:2]) > {11{1'b1}};
+wire is_lpddr2_used = (~E ? addr_in : PC) > {11{1'b1}};
 
 wire [11:0] sram_address;
 wire [31:0] sram_q;

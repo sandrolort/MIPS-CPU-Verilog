@@ -152,10 +152,12 @@ end
 
 assign slow_clk = clk_div[1]; // 67.5MHz clock (125MHz / 2)
 
-// assign HEX0 = GenerateHexDisplayFromInteger((registerOut)%10);
-// assign HEX1 = GenerateHexDisplayFromInteger((registerOut/10)%10);
-// assign HEX2 = GenerateHexDisplayFromInteger((registerOut/100)%10);
-// assign HEX3 = GenerateHexDisplayFromInteger(registerOut/1000);
+// assign slow_clk = KEY[1];
+
+assign HEX0 = GenerateHexDisplayFromInteger((registerOut)%10);
+assign HEX1 = GenerateHexDisplayFromInteger((registerOut/10)%10);
+assign HEX2 = GenerateHexDisplayFromInteger((registerOut/100)%10);
+assign HEX3 = GenerateHexDisplayFromInteger(registerOut/1000);
 
 //Responsible for generating a proper HEX from a number for the LED
 function reg[6:0] GenerateHexDisplayFromInteger(input [0:31] number);
@@ -205,7 +207,7 @@ assign read_req = sw3_posedge;
 assign write_req = sw4_posedge;
 
 cpu upc(
-	slow_clk,
+	slow_clk && !(c_state != 1'b1 || busy),
 	CLOCK_125_p,
 	SW[0],
 	halt,
@@ -228,10 +230,10 @@ cpu upc(
 );
 
 
-assign HEX0 = GenerateHexDisplayFromInteger((read_data)%10);
-assign HEX1 = GenerateHexDisplayFromInteger((read_data/10)%10);
-assign HEX2 = GenerateHexDisplayFromInteger((read_data/100)%10);
-assign HEX3 = GenerateHexDisplayFromInteger(read_data/1000);
+// assign HEX0 = GenerateHexDisplayFromInteger((read_data)%10);
+// assign HEX1 = GenerateHexDisplayFromInteger((read_data/10)%10);
+// assign HEX2 = GenerateHexDisplayFromInteger((read_data/100)%10);
+// assign HEX3 = GenerateHexDisplayFromInteger(read_data/1000);
 
 wire afi_clk;
 wire afi_half_clk;

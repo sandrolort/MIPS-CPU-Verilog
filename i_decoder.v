@@ -1,13 +1,13 @@
 module i_decoder(
-    input [31:0] instruction, // Input instruction to be decoded
-    output [3:0] af, // 4-bit control signal for ALU operation
-    output i, // 1-bit signal indicating whether the second operand is immediate
-    output alu_mux_sel, // 1-bit multiplexer select signal for choosing between immediate and register operand General Purpose Registers (GPR)
-    output [4:0] cad, // 5-bit long signal determining the address of the register to store the result
-    output gp_we, // 1-bit long signal for enabling write to general purpose registers
-    output [1:0] gp_mux_sel, // 2-bit long multiplexer select signal for choosing the data source for register write Branch Condition Evaluation (BCE)
-    output [3:0] bf, // 4-bit long control signal determining the condition to be tested by BCE Memory
-    output dm_we,
+    input [31:0] instruction, 	// Input instruction to be decoded
+    output [3:0] af, 			// 4-bit control signal for ALU operation
+    output i,					// 1-bit signal indicating whether the second operand is immediate
+    output alu_mux_sel, 		// 1-bit multiplexer select signal for choosing between immediate and register operand General Purpose Registers (GPR)
+    output [4:0] cad, 			// 5-bit long signal determining the address of the register to store the result
+    output gp_we, 				// 1-bit long signal for enabling write to general purpose registers
+    output [1:0] gp_mux_sel, 	// 2-bit long multiplexer select signal for choosing the data source for register write Branch Condition Evaluation (BCE)
+    output [3:0] bf, 			// 4-bit long control signal determining the condition to be tested by BCE Memory
+    output dm_we,				// Memory Write Enable
     output [2:0] shift_type,
     output [1:0] pc_mux_select // 2-bit long multiplexer select signal for choosing the next instruction address
 );
