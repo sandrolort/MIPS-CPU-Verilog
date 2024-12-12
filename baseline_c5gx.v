@@ -207,7 +207,7 @@ assign read_req = sw3_posedge;
 assign write_req = sw4_posedge;
 
 cpu upc(
-	slow_clk && !(c_state != 1'b1 || busy),
+	KEY[3] && c_state == 1'b1,
 	CLOCK_125_p,
 	SW[0],
 	halt,
@@ -226,7 +226,7 @@ cpu upc(
 	read_data,
 	read_req_raw,
 	write_req_raw,
-	c_state != 1'b1 || busy,
+	//c_state != 1'b1 || busy,
 );
 
 

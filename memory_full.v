@@ -17,7 +17,7 @@ module memory_full (
     output wire read_req,
     output wire write_req
 );
-wire is_lpddr2_used = (~E ? addr_in : PC) > {11{1'b1}};
+wire is_lpddr2_used = (~E ? addr_in : {2'b0, PC[31:2]}) > {11{1'b1}} /* synthesis keep */;
 
 wire [11:0] sram_address;
 wire [31:0] sram_q;
@@ -30,7 +30,7 @@ assign data_out = is_lpddr2_used ? read_data : sram_q;
 assign address = (~E ? addr_in[11:0] : PC[13:2])-{11{1'b1}};
 assign write_req = S && ~E && is_lpddr2_used;
 assign read_req = is_lpddr2_used && ~write_req;
-assign write_data = data_in;
+assign write_data = data_in & is_lpddr2_used;
 
 SRAM memory_sram (
     .address(sram_address),

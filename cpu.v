@@ -12,8 +12,7 @@ module cpu (
     output [31:0] write_data,
     input [31:0] read_data,
     output read_req,
-    output write_req,
-	input waiting
+    output write_req
 );
 
 // Splitter, this divides up instruction for ease of use later on.
@@ -32,7 +31,7 @@ splitter splt(
 );
 
 //Halt instruction - The CPU stops executing if instruction is an array of 31 1-s
-assign halt = instruction == {32{1'b0}} || waiting;
+assign halt = instruction == {32{1'b0}};
 
 //Memory
 wire [31:0] memory_address_in;
