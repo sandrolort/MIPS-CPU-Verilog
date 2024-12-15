@@ -10,7 +10,6 @@
 
 module memory_full (
     input wire clk,
-    input wire memory_clk,
     input wire rst,
     input wire S,
     input wire [31:0] next_pc,
@@ -59,7 +58,8 @@ always @(posedge clk or posedge rst or posedge jisr) begin
     end else begin
         E = jisr ? 1'b0 : ~E;
         if (E) PC = (jisr ? 32'b0 : (eret ? epc : next_pc));
-        if (!E) I = sram_q;
+        if (!E) I = Memory[ad[8:0]];
+		if (wren) Memory[ad[29:21]] = data_in;
     end
 end
 

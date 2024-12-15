@@ -18,9 +18,8 @@ module CPU_tb;
 
     initial begin
         clk = 0;
-        rst = 0;
+        rst = 1;
 
-        #30 rst = 1;
         #30 rst = 0;
     end
 	 

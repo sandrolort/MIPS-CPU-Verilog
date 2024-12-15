@@ -1,0 +1,337 @@
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-adder.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:15 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-adder.v 
+# -- Compiling module adder
+# 
+# Top level modules:
+# 	adder
+# End time: 22:42:15 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/ALU.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:15 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/ALU.v 
+# -- Compiling module ALU
+# 
+# Top level modules:
+# 	ALU
+# End time: 22:42:15 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-alu.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:15 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-alu.v 
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 22:42:15 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/ALUDecoderBridge.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:15 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/ALUDecoderBridge.v 
+# -- Compiling module ALUDecoderBridge
+# 
+# Top level modules:
+# 	ALUDecoderBridge
+# End time: 22:42:15 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-au.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:15 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-au.v 
+# -- Compiling module au
+# 
+# Top level modules:
+# 	au
+# End time: 22:42:15 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/baseline_c5gx.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:15 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/baseline_c5gx.v 
+# -- Compiling module baseline_c5gx
+# 
+# Top level modules:
+# 	baseline_c5gx
+# End time: 22:42:15 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/bce.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:15 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/bce.v 
+# -- Compiling module bce
+# 
+# Top level modules:
+# 	bce
+# End time: 22:42:15 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:15 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v 
+# -- Compiling module CPU
+# 
+# Top level modules:
+# 	CPU
+# End time: 22:42:16 on Nov 13,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU_tb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:16 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU_tb.v 
+# -- Compiling module CPU_tb
+# 
+# Top level modules:
+# 	CPU_tb
+# End time: 22:42:16 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Delay.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:16 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Delay.v 
+# -- Compiling module Delay
+# 
+# Top level modules:
+# 	Delay
+# End time: 22:42:16 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/GPR.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:16 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/GPR.v 
+# -- Compiling module GPR
+# 
+# Top level modules:
+# 	GPR
+# End time: 22:42:16 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IDecoder.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:16 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IDecoder.v 
+# -- Compiling module IDecoder
+# 
+# Top level modules:
+# 	IDecoder
+# End time: 22:42:16 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IEU.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:16 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IEU.v 
+# -- Compiling module IEU
+# 
+# Top level modules:
+# 	IEU
+# End time: 22:42:16 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/interrupt_controller.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:16 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/interrupt_controller.v 
+# -- Compiling module interrupt_controller
+# 
+# Top level modules:
+# 	interrupt_controller
+# End time: 22:42:16 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:16 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v 
+# -- Compiling module main_interrupt
+# 
+# Top level modules:
+# 	main_interrupt
+# End time: 22:42:16 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/memory_full.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:16 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/memory_full.v 
+# -- Compiling module memory_full
+# 
+# Top level modules:
+# 	memory_full
+# End time: 22:42:16 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/pll.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:16 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/pll.v 
+# -- Compiling module pll
+# 
+# Top level modules:
+# 	pll
+# End time: 22:42:16 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Shifter.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:16 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Shifter.v 
+# -- Compiling module Shifter
+# 
+# Top level modules:
+# 	Shifter
+# End time: 22:42:17 on Nov 13,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Splitter.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:17 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Splitter.v 
+# -- Compiling module Splitter
+# 
+# Top level modules:
+# 	Splitter
+# End time: 22:42:17 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/spr.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:17 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/spr.v 
+# -- Compiling module spr
+# 
+# Top level modules:
+# 	spr
+# End time: 22:42:17 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/srl.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:17 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/srl.v 
+# -- Compiling module srl
+# 
+# Top level modules:
+# 	srl
+# End time: 22:42:17 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/srlfix.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:17 on Nov 13,2024
+# vlog -reportprogress 300 -work work /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/srlfix.v 
+# -- Compiling module srlfix
+# 
+# Top level modules:
+# 	srlfix
+# End time: 22:42:17 on Nov 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.CPU_tb
+# vsim work.CPU_tb 
+# Start time: 22:42:23 on Nov 13,2024
+# Loading work.CPU_tb
+# Loading work.CPU
+# Loading work.Splitter
+# Loading work.main_interrupt
+# Loading work.interrupt_controller
+# Loading work.spr
+# Loading work.memory_full
+# Loading work.IDecoder
+# Loading work.bce
+# Loading work.GPR
+# Loading work.ALUDecoderBridge
+# Loading work.alu
+# Loading work.au
+# Loading work.adder
+# Loading work.IEU
+# Loading work.Delay
+# Loading work.Shifter
+# Loading work.srl
+# Loading work.srlfix
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'uut'.  Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU_tb.v Line: 10
+# ** Warning: (vsim-3722) /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU_tb.v(10): [TFMPC] - Missing connection for port 'E'.
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'interrupt_handler'.  Expected 18, found 17.
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (23) does not match connection size (32) for port 'ca'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'epc'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(14).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'sr'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(11).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'esr'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(12).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'eca_out'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(13).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'edata_out'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(15).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'pto'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(16).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'ptl'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(17).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3722) /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v(46): [TFMPC] - Missing connection for port 'mode_out'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'epc'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/memory_full.v(20).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/mem File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 66
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'idc'.  Expected 12, found 11.
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/idc File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 87
+# ** Warning: (vsim-3722) /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v(87): [TFMPC] - Missing connection for port 'is_illegal'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'U'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IEU.v(2).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/ext2 File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 210
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (18) for port 'immediateIN'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IEU.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/ext2 File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 210
+add wave -position insertpoint  \
+sim:/CPU_tb/clk \
+sim:/CPU_tb/rst \
+sim:/CPU_tb/halt \
+sim:/CPU_tb/Alures \
+sim:/CPU_tb/registerOut \
+sim:/CPU_tb/pc
+add wave -position end sim:/CPU_tb/uut/mem/*
+add wave -position -1  -format Default -height 18 -label mem -max 0 -min 0
+# Missing signal name or pattern.
+add wave -position end sim:/CPU_tb/uut/interrupt_handler/spr_inst/*
+run
+# ill: Undefined Instruction
+# ill: Undefined Instruction
+run
+run
+run
+run
+run
+run
+add wave -position end sim:/CPU_tb/uut/*
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'uut'.  Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU_tb.v Line: 10
+# ** Warning: (vsim-3722) /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU_tb.v(10): [TFMPC] - Missing connection for port 'E'.
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'interrupt_handler'.  Expected 18, found 17.
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (23) does not match connection size (32) for port 'ca'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'epc'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(14).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'sr'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(11).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'esr'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(12).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'eca_out'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(13).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'edata_out'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(15).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'pto'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(16).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'ptl'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v(17).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/interrupt_handler File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 46
+# ** Warning: (vsim-3722) /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v(46): [TFMPC] - Missing connection for port 'mode_out'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'epc'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/memory_full.v(20).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/mem File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 66
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'idc'.  Expected 12, found 11.
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/idc File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 87
+# ** Warning: (vsim-3722) /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v(87): [TFMPC] - Missing connection for port 'is_illegal'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'U'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IEU.v(2).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/ext2 File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 210
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (18) for port 'immediateIN'. The port definition is at: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IEU.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/uut/ext2 File: /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v Line: 210
+run
+# ill: Undefined Instruction
+# ill: Undefined Instruction
+run
+run
+run
+run
+run
+# End time: 22:48:28 on Nov 13,2024, Elapsed time: 0:06:05
+# Errors: 0, Warnings: 17

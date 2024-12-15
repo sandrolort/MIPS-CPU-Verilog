@@ -51,7 +51,7 @@ main_interrupt interrupt_handler (
     .e(E),
     .eret(eret),
     .epc(epc),
-    .rpt(rpt),
+    .rpt(1'b0),  // 0 since repeat interrupts only occur for external devices(not yet implemented)
     .next_pc(next_pc),
     .sr(sr),
     .esr(esr),

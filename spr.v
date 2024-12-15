@@ -24,6 +24,17 @@ module spr (
     assign jisr_esr = jisr ? 32'b0 : esr;
     assign actual_pc = rpt ? pc : next_pc;
 
+	initial begin
+		sr = 32'b0;
+		esr = 32'b0;
+		eca_out = 32'b0;
+		epc_out = 32'b0;
+		edata_out = 32'b0;
+		pto = 32'b0;
+		ptl = 32'b0;
+		mode = 1'b0;
+	end
+
     always @(jisr) begin
         if (jisr) begin
             esr = sr;
