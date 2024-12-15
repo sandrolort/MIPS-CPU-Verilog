@@ -22,19 +22,16 @@ module interrupt_controller (
     assign jisr = |mca;  // Even if a single signal in mca is active, we need to jump to interrupt service routine
 
     // Determine interrupt level
-    integer interrupt_level;
     integer j;
     always @(*) begin : interrupt_level_block
-        interrupt_level = 0; // We start from 0 and increment up to 22 because of this one little line:
         for (j = 0; j < 23; j = j + 1) begin // "We handle interrupts with small indices with higher priority than interrupts with high indices."
             if (mca[j]) begin
-                interrupt_level = j;
                 disable interrupt_level_block; // This is Verilog's alternative to break statement
             end
         end
     end
 
     // Assign interrupt level to output
-    assign il = interrupt_level[4:0];
+    assign il = j[4:0];
 
 endmodule
