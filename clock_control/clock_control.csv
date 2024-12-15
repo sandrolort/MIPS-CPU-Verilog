@@ -1,0 +1,18 @@
+# system info clock_control on 2024.12.15.16:23:44
+system_info:
+name,value
+DEVICE,5CGXFC5C6F27C7
+DEVICE_FAMILY,Cyclone V
+GENERATION_ID,1734265424
+#
+#
+# Files generated for clock_control on 2024.12.15.16:23:44
+files:
+filepath,kind,attributes,module,is_top
+simulation/clock_control.v,VERILOG,,clock_control,true
+simulation/submodules/clock_control_altclkctrl_0.v,VERILOG,,clock_control_altclkctrl_0,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+clock_control.altclkctrl_0,clock_control_altclkctrl_0

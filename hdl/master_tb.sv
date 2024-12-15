@@ -9,21 +9,18 @@ wire clock_led;
 // Instantiate the master module
 master uut (
     .external_clk(external_clk),
+    .ena(1),
     .rst(rst),
     .debug_hex_display(debug_hex_display),
     .clock_led(clock_led)
 );
 
-// Clock generation
 initial begin
-    external_clk = 0;
-    forever #5 external_clk = ~external_clk; // 100MHz clock
+    #5 external_clk = 0;
+    forever #5 external_clk = ~external_clk;
 end
 
-// Test stimulus
 initial begin
-    // Initialize waveform output
-    
     // Initial values
     rst = 0;
     

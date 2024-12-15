@@ -1,17 +1,37 @@
 module master (
     input external_clk,
+    input ena,
     input rst,
     output [31:0] debug_hex_display,
-    output clock_led
+    output[7:0] clock_led,
+    // LPDDR2
+    output wire [26:0] lpddr2_address,
+    output wire [31:0] lpddr2_write_data,
+    input wire [31:0] lpddr2_read_data,
+    output wire lpddr2_rreq,
+    output wire lpddr2_wreq
 );
 
 // Clock definitions
-wire clk, mem_clk;
+wire clk, clk_wen, mem_clk;
 wire E;  // E signal from memory stage
 assign mem_clk = external_clk;
-clock_div divider(mem_clk, clk);
+clock_div divider(mem_clk, clk_wen);
 
-assign clock_led = clk;
+`ifdef HARDWARE
+clock_control contr(
+    .inclk(clk_wen),       //  altclkctrl_input.inclk
+    .ena(ena),             //                  .ena
+    .outclk(clk)           // altclkctrl_output.outclk
+);
+`else
+assign clk = ena ? clk_wen : 0;
+`endif
+
+
+assign clock_led[0] = clk;
+assign clock_led[1] = external_clk;
+assign clock_led[2] = ena;
 
 // Control and data signals
 wire [4:0] ra1, ra2;
@@ -59,7 +79,13 @@ memory_master memory(
     .mem_wren(mem_wren),
     .gp_we(gp_we),
     .out(mem_out),
-    .E(E)
+    .E(E),
+    // LPDDR2 Memory
+    .address(lpddr2_address),
+    .write_data(lpddr2_write_data),
+    .read_data(lpddr2_read_data),
+    .read_req(lpddr2_rreq),
+    .write_req(lpddr2_wreq)
 );
 `else
 memory_master_mock memory(
