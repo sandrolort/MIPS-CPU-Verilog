@@ -41,7 +41,7 @@ end
 
 // Instruction register
 reg [31:0] instruction_reg = 0;
-always @(posedge clk) begin
+always @(posedge mem_clk) begin
     if (E) 
         instruction_reg <= mem_out;
 end
@@ -54,7 +54,7 @@ memory_master memory(
     .clk(clk),
     .mem_clk(mem_clk),
     .rst(rst),
-    .addr_in(E ? pc[31:2] : alu_res[31:2]),
+    .addr_in(E ? pc[31:2] : alu_res),
     .data_in(b_gpr),
     .mem_wren(mem_wren),
     .gp_we(gp_we),
@@ -66,7 +66,7 @@ memory_master_mock memory(
     .clk(clk),
     .mem_clk(mem_clk),
     .rst(rst),
-    .addr_in(E ? pc[31:2] : alu_res[31:2]),
+    .addr_in(E ? pc[31:2] : alu_res),
     .data_in(b_gpr),
     .mem_wren(mem_wren),
     .gp_we(gp_we),

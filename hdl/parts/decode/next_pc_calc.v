@@ -28,14 +28,15 @@ bce bce(a_gpr, b_gpr, bf, bcres);
 
 // Next PC calculation logic
 wire [31:0] incr = pc + 4;
-wire [31:0] pc_imm_sum = $unsigned($signed(pc) + $signed(imm << 2));
+wire [31:0] pc_imm_sum = $unsigned($signed(pc+4) + $signed(imm << 2));
 wire [31:0] jjal = {incr[31:28], iindex, 2'b00};
 wire [31:0] mux_bcres = bcres ? pc_imm_sum : incr;
 
 assign next_pc =
-    (pc_mux_select == 2'b11) ? incr :
+    (i_fetch == 32'b0)       ? pc        : // Halt signal
+    (pc_mux_select == 2'b11) ? incr      :
     (pc_mux_select == 2'b01) ? mux_bcres :
-    (pc_mux_select == 2'b10) ? jjal :
-    a_gpr;
+    (pc_mux_select == 2'b10) ? jjal      :
+                               a_gpr;
 
 endmodule

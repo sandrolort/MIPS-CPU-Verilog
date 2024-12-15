@@ -10,37 +10,40 @@ module memory_master_mock(
     output reg E = 0
 );
 
-reg [31:0] memory [0:30];
+reg [31:0] memory [0:32];
 
 initial begin
-    for (integer i = 0; i < 30; i = i + 1)
+    // Initialize all memory locations to 0
+    for (integer i = 0; i < 32; i = i + 1)
         memory[i] = 32'h00000000;
     
-    memory[0] = 32'h24020005;  // addiu $2, $0, 5
-    memory[1] = 32'h24030007;  // addiu $3, $0, 7
-    memory[2] = 32'h24040002;  // addiu $4, $0, 2
-    memory[3] = 32'h24050003;  // addiu $5, $0, 3
-    memory[4] = 32'h00430820;  // add $1, $2, $3
-    memory[5] = 32'h00A42822;  // sub $5, $5, $4
-    memory[6] = 32'h00623824;  // and $7, $3, $2
-    memory[7] = 32'h8C0A0010;  // lw $10, 16($0)
-    memory[8] = 32'h00624025;  // or $8, $3, $2
-    memory[9] = 32'h00624826;  // xor $9, $3, $2
-    memory[10] = 32'h00423827; // nor $7, $2, $2
-    memory[11] = 32'h24020004; // addiu $2, $0, 5
-    memory[12] = 32'h24030005; // addiu $3, $0, 7
-    memory[13] = 32'h24040006; // addiu $4, $0, 2
+    // Initialize specific memory locations according to MIF file
+    memory[0] = 32'h2401000a;  // addiu $1, $0, 10
+    memory[1] = 32'h2402000e;  // addiu $2, $0, 14
+    memory[2] = 32'h24180001;  // addiu $24, $0, 1
+    memory[3] = 32'h243a0000;  // addiu $26, $0, 0
+    memory[4] = 32'h241b0000;  // addiu $27, $0, 0
+    memory[5] = 32'h241c0006;  // addiu $28, $0, 6
+    memory[6] = 32'h0058c824;  // and $25, $2, $24
+    memory[7] = 32'h13200001;  // beq $25, $0, 1
+    memory[8] = 32'h037ad821;  // addu $27, $27, $26
+    memory[9] = 32'h0318c021;  // addu $24, $24, $24
+    memory[10] = 32'h035ad021;  // addu $26, $26, $26
+    memory[11] = 32'h279cffff;  // addiu $28, $28, -1
+    memory[12] = 32'h1f80fff9;  // bgtz $28, -7
+    memory[13] = 32'h27650000;  // addiu $5, $27, 0
 end
 
-always @(posedge clk or posedeg rst) begin
-    if(!rst) 
-        E <= ~E;
-    else
+always @(posedge clk or posedge rst) begin
+    if(rst)
         E <= 0;
+    else
+        E <= ~E;
 end
 
 reg [31:0] out_reg = 0;
-always @(negedge clk) begin
+
+always @(posedge mem_clk) begin
     if (E && mem_wren && gp_we)
         memory[addr_in] = data_in;
     out_reg = memory[addr_in];

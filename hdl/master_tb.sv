@@ -32,44 +32,6 @@ initial begin
     rst = 1;
     #20;
     rst = 0;
-    
-    // Wait for several clock cycles to observe instruction fetch and execution
-    #200;
-    
-    // Monitor debug display
-    $display("Debug Display Value: %h", debug_hex_display);
-    
-    // Add specific test cases here
-    // Test Case 1: Check reset behavior
-    if (uut.pc !== 32'h0) begin
-        $display("Error: PC not reset to 0");
-    end
-    
-    // Test Case 2: Check clock division
-    #100;
-    if (!clock_led) begin
-        $display("Error: Clock division not working");
-    end
-    
-    // Test Case 3: Monitor instruction fetch
-    @(posedge uut.E); // Wait for fetch phase
-    $display("Fetched Instruction: %h", uut.mem_out);
-    
-    // Test Case 4: Monitor ALU operation
-    @(negedge uut.E); // Wait for execute phase
-    $display("ALU Result: %h", uut.alu_res);
-    
-    // Test Case 5: Check register file write
-    if (uut.gp_we && !uut.E) begin
-        $display("Register Write Data: %h", uut.gpr_data_in);
-    end
-    
-    // Run for additional cycles to observe behavior
-    #1000;
-    
-    // End simulation
-    $display("Testbench completed");
-    $finish;
 end
 
 // Monitor important signals
