@@ -2,7 +2,7 @@ module i_decoder(
     input wire [31:0] instruction,
     output [4:0] rs, rt,
     output wire [39:0] out_data_packed,
-	output reg is_illegal = 1'b1
+	output reg is_illegal = 1'b0
 );
 
 wire [5:0] opc, fun;
