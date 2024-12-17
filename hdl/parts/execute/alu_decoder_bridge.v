@@ -8,6 +8,7 @@ module alu_decoder_bridge (
     output ovfalu
 );
 
+//TODO This is unnecessary. Remove.
 wire [3:0] af_alu =  
         ~i ? af :
         opcode == 6'b001001 ? 4'b0001 :

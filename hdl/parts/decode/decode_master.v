@@ -4,7 +4,7 @@ module decode_master(
     input [31:0] pc,
     output [31:0] next_pc,
     output [4:0] rs, rt,
-    output [38:0] decoder_packed
+    output [39:0] decoder_packed
 );
 
 i_decoder idc(

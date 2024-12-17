@@ -5,6 +5,7 @@ module memory_master(
     input wire [29:0] addr_in,
     input wire [31:0] data_in,
     input wire mem_wren,
+    input wire mem_rren,
     input wire gp_we,
     output wire [31:0] out,
     output reg E = 0,
@@ -16,12 +17,14 @@ module memory_master(
     output wire write_req
 );
 
-wire is_lpddr2_used = addr_in > {11{1'b1}} /* synthesis keep */;
-assign out = is_lpddr2_used ? read_data : sram_q;
-
-wire sram_wren = ~E && mem_wren && !is_lpddr2_used;
 wire [31:0] sram_q;
 
+wire is_lpddr2_used = addr_in > {11{1'b1}} /* synthesis keep */;
+
+wire [31:0] sram_q_grounded = (~E || E && mem_rren) ? sram_q : 0;
+assign out = is_lpddr2_used ? read_data : sram_q_grounded;
+
+wire sram_wren = E && mem_wren && !is_lpddr2_used;
 always @(posedge clk or posedge rst) begin
 	if(rst)
 		E <= 0;
@@ -39,8 +42,9 @@ sram memory_sram (
 
 // LPDDR2
 assign address = addr_in - {11{1'b1}};
-assign write_req = ~E && mem_wren && is_lpddr2_used;
-assign read_req = is_lpddr2_used && ~write_req;
+assign write_req = E && mem_wren && is_lpddr2_used;
+assign read_req = is_lpddr2_used && ~write_req && (E && mem_rren || ~E);
 assign write_data = data_in;
+
 
 endmodule

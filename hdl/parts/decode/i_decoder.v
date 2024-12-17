@@ -1,7 +1,7 @@
 module i_decoder(
     input wire [31:0] instruction,
     output [4:0] rs, rt,
-    output wire [38:0] out_data_packed
+    output wire [39:0] out_data_packed
 );
 
 wire [5:0] opc, fun;
@@ -9,9 +9,9 @@ wire [4:0] rd, sa;
 wire [15:0] imm;
 wire [25:0] iindex;
 wire [3:0] af;
-wire i, alu_mux_sel, gp_we, mem_wren;
+wire i, alu_mux_sel, gp_we, mem_wren, mem_rren;
 wire [2:0] shift_type;
-wire [4:0] cad;
+wire [4:0] cad, cadn;
 wire [1:0] gp_mux_sel, pc_mux_select;
 wire [3:0] bf;
 wire [1:0] ttype;
@@ -27,22 +27,26 @@ assign gp_we = IsWritten(opc, fun);
 assign gp_mux_sel = WhereFrom(ttype, opc, fun);
 assign bf = {instruction[28:26], instruction[16]};
 assign mem_wren = opc == 6'b101011; // sw instruction
+assign mem_rren = opc == 6'b100011; // lw instruction
 assign shift_type = af == 3'b000 ? {ttype != 2'b10, 2'b00} : // sll
                     af == 3'b010 ? {ttype != 2'b10, 2'b01} : // srl
                     {ttype != 2'b10, 2'b10}; // sra
 assign pc_mux_select = PCSelect(opc, fun);
+
+assign cadn = opc == 6'b000011 || opc == 6'b0 && fun == 4'b1001 ? 31 : cad; //For Jalr, Jal
 
 decoder_concat concat_inst (
     .af(af),
     .i(i),
     .alu_mux_sel(alu_mux_sel),
     .shift_type(shift_type),
-    .cad(cad),
+    .cad(cadn),
     .gp_we(gp_we),
     .gp_mux_sel(gp_mux_sel),
     .bf(bf),
     .pc_mux_select(pc_mux_select),
     .mem_wren(mem_wren),
+    .mem_rren(mem_rren),//readenable
     .packed_out(out_data_packed),
     .rs(rs),
     .rt(rt),
@@ -59,8 +63,8 @@ endfunction
 
 function [0:0] IsWritten(input [5:0] opc, input [5:0] fun);
     casez(opc)
-        6'b001???, 6'b100011: IsWritten = 1'b1;
-        6'b000000: IsWritten = fun != 6'b001000 && fun!=6'b001000;
+        6'b001???, 6'b100011, 6'b000011: IsWritten = 1'b1;
+        6'b000000: IsWritten = fun != 6'b001000;
         default: IsWritten = 1'b0;
     endcase
 endfunction

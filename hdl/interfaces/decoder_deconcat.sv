@@ -1,5 +1,5 @@
 module decoder_deconcat (
-    input [38:0] packed_in,
+    input [39:0] packed_in,
     output [3:0] af,
     output i,
     output alu_mux_sel,
@@ -10,11 +10,12 @@ module decoder_deconcat (
     output [3:0] bf,
     output [1:0] pc_mux_select,
     output mem_wren,
+    output mem_rren,
     output [4:0] rs, rt, rd
 );
 
 assign {af, i, alu_mux_sel, shift_type, cad, gp_we,
-        gp_mux_sel, bf, pc_mux_select, mem_wren,
+        gp_mux_sel, bf, pc_mux_select, mem_wren, mem_rren,
         rs, rt, rd} = packed_in;
 
 endmodule

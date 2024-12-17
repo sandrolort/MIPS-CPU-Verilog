@@ -1,5 +1,5 @@
 module execute_master(
-    input [38:0] decoder_packed,
+    input [39:0] decoder_packed,
     input [31:0] a_decoder, b_decoder,
     input [31:0] i_decoder,
     input [31:0] pc,

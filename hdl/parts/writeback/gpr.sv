@@ -17,13 +17,17 @@ assign register_out = registers[5];
 initial begin
     for (i = 1; i < 32; i = i + 1)
         registers[i] = 0;
+    registers[29] = 11'b01111111111;
 end
 
 always @(posedge clk or posedge rst) begin
     if (rst) begin
-        for (i = 1; i < 32; i = i + 1) begin
+        for (i = 1; i < 29; i = i + 1)
             registers[i] <= 32'b0;
-        end
+        
+        registers[29] <= 11'b01111111111;
+        registers[30] <= 32'b0;
+        registers[31] <= 32'b0;
     end else if (we && wa != 5'b0) begin
         registers[wa] <= wd;
     end
