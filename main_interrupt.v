@@ -45,7 +45,7 @@ module main_interrupt (
     assign second_part_of_ill = mode == 1'b1 && (instruction[31:26] == 6'b010000 || eret);
 
     // Logic of misalignment of fetch or load/store
-    assign ls = instruction[31:26] == 6'b10?011;
+    assign ls = (instruction[31:26] == 6'b100011) || (instruction[31:26] == 6'b101011);
 
 	// Misaligned fetch in execute phase
 	assign misaf = e == 1 && pc[1:0] != 2'b00;

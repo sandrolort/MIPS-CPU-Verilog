@@ -11,302 +11,302 @@ z2
 cModel Technology
 Z0 d/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog
 vadder
-Z1 !s110 1734290793
+!s110 1734450204
 !i10b 1
 !s100 FaFbedPM20`1T3FIz`A^72
-Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
 IhW3ji0m331O75]=63`>7`2
-Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-Z4 w1723994916
+Z3 w1723994916
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-adder.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-adder.v
-!i122 739
+!i122 901
 L0 2 9
-Z5 OV;L;2020.1;71
+Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1734290793.000000
+!s108 1734450204.000000
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-adder.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-adder.v|
 !i113 1
-Z7 o-work work
-Z8 tCvgOpt 0
+Z5 o-work work
+Z6 tCvgOpt 0
 vALU
-R1
+Z7 !s110 1734450205
 !i10b 1
 !s100 Nh38`:mH>mSH`KSFE8l2b2
-R2
+R1
 IMOHgeXi[id]_C`AEozL[S0
-R3
+R2
 R0
-Z9 w1723994915
+Z8 w1723994915
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/ALU.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/ALU.v
-!i122 741
+!i122 903
 L0 1 44
-R5
+R4
 r1
 !s85 0
 31
-R6
+Z9 !s108 1734450205.000000
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/ALU.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/ALU.v|
 !i113 1
-R7
-R8
+R5
+R6
 n@a@l@u
 valu
-R1
+R7
 !i10b 1
 !s100 hLmIPn0?EMD[@;HOCQj=k3
-R2
+R1
 IW?S;cTQ[bVEA?8HI<[`[F0
-R3
+R2
 R0
 w1723995282
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-alu.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-alu.v
-!i122 740
+!i122 902
 L0 2 53
-R5
+R4
 r1
 !s85 0
 31
-R6
+R9
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-alu.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-alu.v|
 !i113 1
-R7
-R8
+R5
+R6
 vALUDecoderBridge
-R1
+R7
 !i10b 1
 !s100 AL:f0MKLZ^YM<EO`SIeo[0
-R2
+R1
 IOi0^zZ2k^z@CLIK7DdK8K3
-R3
+R2
 R0
-R9
+R8
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/ALUDecoderBridge.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/ALUDecoderBridge.v
-!i122 742
+!i122 904
 Z10 L0 1 28
-R5
+R4
 r1
 !s85 0
 31
-R6
+R9
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/ALUDecoderBridge.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/ALUDecoderBridge.v|
 !i113 1
-R7
-R8
+R5
+R6
 n@a@l@u@decoder@bridge
 vau
-R1
+R7
 !i10b 1
 !s100 >cKcok>U6HSkHb2mB9][<2
-R2
+R1
 IFeNPK^CJ9DQn23hN8Pj7i2
-R3
+R2
 R0
 w1723995233
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-au.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-au.v
-!i122 743
+!i122 905
 L0 1 35
-R5
+R4
 r1
 !s85 0
 31
-R6
+R9
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-au.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/n-au.v|
 !i113 1
-R7
-R8
+R5
+R6
 vbaseline_c5gx
-R1
+R7
 !i10b 1
 !s100 JJe0zUA<jzh8nOTaFlRQ32
-R2
+R1
 IdSb_Ndz<U450f_=9:0caN0
-R3
+R2
 R0
-R9
+R8
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/baseline_c5gx.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/baseline_c5gx.v
-!i122 744
+!i122 906
 L0 38 189
-R5
+R4
 r1
 !s85 0
 31
-R6
+R9
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/baseline_c5gx.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/baseline_c5gx.v|
 !i113 1
-R7
-R8
+R5
+R6
 vbce
-R1
+R7
 !i10b 1
 !s100 Db_3=e;GRbH]nCO?9`GPa3
-R2
+R1
 IPO:iMfLVF_<C<X2oo2kl90
-R3
+R2
 R0
-R9
+R8
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/bce.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/bce.v
-!i122 745
+!i122 907
 L0 2 16
-R5
+R4
 r1
 !s85 0
 31
-R6
+R9
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/bce.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/bce.v|
 !i113 1
-R7
-R8
+R5
+R6
 vCPU
-R1
+R7
 !i10b 1
 !s100 N3nK6b6^P8;P>K_9`AjP10
-R2
+R1
 Im826Zn8Y=i]fa@LiRR;>i0
-R3
+R2
 R0
 w1731523250
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v
-!i122 746
+!i122 908
 L0 1 232
-R5
+R4
 r1
 !s85 0
 31
-R6
+R9
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU.v|
 !i113 1
-R7
-R8
+R5
+R6
 n@c@p@u
 vCPU_tb
-R1
+R7
 !i10b 1
 !s100 9OVoEdIA0oKja=@f:Kn7@3
-R2
+R1
 INJO9LDmmFIHFJ<H9lCY4P1
-R3
+R2
 R0
 w1731523280
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU_tb.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU_tb.v
-!i122 747
+!i122 909
 L0 1 30
-R5
+R4
 r1
 !s85 0
 31
-R6
+R9
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU_tb.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/CPU_tb.v|
 !i113 1
-R7
-R8
+R5
+R6
 n@c@p@u_tb
 vDelay
-R1
+Z11 !s110 1734450206
 !i10b 1
 !s100 ``c4WIT0;79aOW0oiJAbB3
-R2
+R1
 I=2QV=7m5`9`j7NT>]YLjf0
-R3
+R2
 R0
-R9
+R8
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Delay.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Delay.v
-!i122 748
+!i122 910
 L0 1 10
-R5
+R4
 r1
 !s85 0
 31
-R6
+Z12 !s108 1734450206.000000
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Delay.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Delay.v|
 !i113 1
-R7
-R8
+R5
+R6
 n@delay
 vGPR
-R1
+R11
 !i10b 1
 !s100 PdA=0GTo^oCD[ml[<KcDT1
-R2
+R1
 I6nO?9G1R<fG@S<AZeK5n92
-R3
+R2
 R0
-R9
+R8
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/GPR.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/GPR.v
-!i122 749
+!i122 911
 R10
-R5
+R4
 r1
 !s85 0
 31
-R6
+R12
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/GPR.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/GPR.v|
 !i113 1
-R7
-R8
+R5
+R6
 n@g@p@r
 vIDecoder
-Z11 !s110 1734290794
+R11
 !i10b 1
 !s100 ;C`;[ga@iVlLL:`h7f27Z0
-R2
+R1
 Io08Nk_E;3dW>6oRKjYb8L3
-R3
+R2
 R0
 w1731521807
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IDecoder.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IDecoder.v
-!i122 750
+!i122 912
 L0 1 117
-R5
+R4
 r1
 !s85 0
 31
-Z12 !s108 1734290794.000000
+R12
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IDecoder.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IDecoder.v|
 !i113 1
-R7
-R8
+R5
+R6
 n@i@decoder
 vIEU
 R11
 !i10b 1
 !s100 PD@G9DGD3WLUNGLFB9J:93
-R2
+R1
 I40VgXOefRR1QDNQBZ4ec31
-R3
+R2
 R0
-R9
+R8
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IEU.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IEU.v
-!i122 751
+!i122 913
 L0 1 15
-R5
+R4
 r1
 !s85 0
 31
@@ -314,23 +314,23 @@ R12
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IEU.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/IEU.v|
 !i113 1
-R7
-R8
+R5
+R6
 n@i@e@u
 vinterrupt_controller
 R11
 !i10b 1
 !s100 OehLc7_`@oTn@<hHlXW]m2
-R2
+R1
 IQVIoG36]A:b9F6DT2_=Y_2
-R3
+R2
 R0
 w1734282029
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/interrupt_controller.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/interrupt_controller.v
-!i122 752
+!i122 914
 L0 1 37
-R5
+R4
 r1
 !s85 0
 31
@@ -338,22 +338,22 @@ R12
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/interrupt_controller.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/interrupt_controller.v|
 !i113 1
-R7
-R8
+R5
+R6
 vinterrupt_controller_tb
 R11
 !i10b 1
 !s100 NXCf<gcJdhU2PT@5hMd`R2
-R2
+R1
 I8]6lm36Ze;7L44ZRKInOi3
-R3
+R2
 R0
 w1734283236
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/interrupt_controller_tb.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/interrupt_controller_tb.v
-!i122 753
+!i122 915
 L0 1 51
-R5
+R4
 r1
 !s85 0
 31
@@ -361,22 +361,22 @@ R12
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/interrupt_controller_tb.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/interrupt_controller_tb.v|
 !i113 1
-R7
-R8
+R5
+R6
 vmain_interrupt
 R11
 !i10b 1
-!s100 XM07HTMfG[WMkkaJ9ZL::0
+!s100 iQ>?o<aOmg0cnnMI@cm2C1
+R1
+IEJ=i@41Q74<c8YzT;]FY?0
 R2
-IS5B>dbX;@Y]zKB;jSTUGJ2
-R3
 R0
-w1734290697
+w1734450195
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v
-!i122 754
+!i122 916
 L0 1 103
-R5
+R4
 r1
 !s85 0
 31
@@ -384,208 +384,208 @@ R12
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt.v|
 !i113 1
-R7
-R8
+R5
+R6
 vmain_interrupt_tb
-R11
+!s110 1734450500
 !i10b 1
-!s100 ZB_bVZIWMh]8^hNg1HZhK0
+!s100 [;9eg:`nOLgG>4JXRj<JX0
+R1
+IXhP6;YLh?@6@][V5fG`dL3
 R2
-InJQeJd68U2@O6VWckIQSJ2
-R3
 R0
-w1734290772
+w1734450495
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt_tb.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt_tb.v
-!i122 755
-L0 1 91
-R5
+!i122 927
+L0 1 92
+R4
 r1
 !s85 0
 31
-R12
+!s108 1734450500.000000
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt_tb.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/main_interrupt_tb.v|
 !i113 1
-R7
-R8
+R5
+R6
 vmemory_full
-R11
+Z13 !s110 1734450207
 !i10b 1
 !s100 Q`GPN0OP0;7b4;:o9:olk0
-R2
+R1
 I`W3aKFfYKj[h^RUnOCPV:2
-R3
+R2
 R0
 w1731521949
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/memory_full.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/memory_full.v
-!i122 756
+!i122 918
 L0 11 56
-R5
+R4
 r1
 !s85 0
 31
-R12
+Z14 !s108 1734450207.000000
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/memory_full.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/memory_full.v|
 !i113 1
-R7
-R8
+R5
+R6
 vpll
-R11
+R13
 !i10b 1
 !s100 l>eTo?R[XXg=eNEk<I13c2
-R2
+R1
 Id9bL>LTkBD@a[f87gjZQP2
-R3
+R2
 R0
-R4
+R3
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/pll.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/pll.v
-!i122 757
+!i122 919
 L0 8 14
-R5
+R4
 r1
 !s85 0
 31
-R12
+R14
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/pll.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/pll.v|
 !i113 1
-R7
-R8
+R5
+R6
 vShifter
-R11
+R13
 !i10b 1
 !s100 G:AFz[@X3EPM?1@DaF?=E3
-R2
+R1
 IXC4j:n;G]j5f[XbK_`ooQ2
-R3
+R2
 R0
-R9
+R8
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Shifter.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Shifter.v
-!i122 758
+!i122 920
 L0 1 33
-R5
+R4
 r1
 !s85 0
 31
-R12
+R14
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Shifter.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Shifter.v|
 !i113 1
-R7
-R8
+R5
+R6
 n@shifter
 vSplitter
-R11
+R13
 !i10b 1
 !s100 CFfdYDc`D2B0R`RJcboLc3
-R2
+R1
 ILZWCK1DI?UIZ?c]1ZmNC;1
-R3
+R2
 R0
-R9
+R8
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Splitter.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Splitter.v
-!i122 759
+!i122 921
 L0 3 19
-R5
+R4
 r1
 !s85 0
 31
-R12
+R14
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Splitter.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/Splitter.v|
 !i113 1
-R7
-R8
+R5
+R6
 n@splitter
 vspr
-R11
+R13
 !i10b 1
-!s100 HYD]iQWeRPe2cP:c8bb450
+!s100 YM0_GK^zn8Q_@83HoF[7i0
+R1
+I]7W1R:6V2EkhQzdDI2W5j3
 R2
-I6z=flO^eSIaFN1GYmCLCm2
-R3
 R0
-w1734276788
-8/home/apeiron/KIU/Thesis/spr.v
-F/home/apeiron/KIU/Thesis/spr.v
-!i122 760
-L0 1 64
-R5
+w1734276587
+8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/spr.v
+F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/spr.v
+!i122 922
+L0 1 62
+R4
 r1
 !s85 0
 31
-R12
-!s107 /home/apeiron/KIU/Thesis/spr.v|
-!s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/spr.v|
+R14
+!s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/spr.v|
+!s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/spr.v|
 !i113 1
-R7
-R8
+R5
+R6
 vspr_tb
-Z13 !s110 1734290795
+R13
 !i10b 1
-!s100 Fnan7JnB[>c=MYB]g_<3B3
+!s100 eTI4QG]e3?U7nW>Q[X^];3
+R1
+IbO<5n<F??mWh_9gE<UWkm0
 R2
-IM14Ng75>;YjO1m]>Bkb]z2
-R3
 R0
-w1734276807
-8/home/apeiron/KIU/Thesis/spr_tb.v
-F/home/apeiron/KIU/Thesis/spr_tb.v
-!i122 761
-L0 1 114
-R5
+w1734438457
+8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/spr_tb.v
+F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/spr_tb.v
+!i122 923
+L0 1 107
+R4
 r1
 !s85 0
 31
-R12
-!s107 /home/apeiron/KIU/Thesis/spr_tb.v|
-!s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/spr_tb.v|
+R14
+!s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/spr_tb.v|
+!s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/spr_tb.v|
 !i113 1
-R7
-R8
+R5
+R6
 vsrl
 R13
 !i10b 1
 !s100 c=gk;ZZGJAbd6@FeAMYfZ0
-R2
+R1
 I_BgXmSo<X;@fcL_8z3ECS1
-R3
+R2
 R0
-R4
+R3
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/srl.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/srl.v
-!i122 762
+!i122 924
 L0 1 40
-R5
+R4
 r1
 !s85 0
 31
-Z14 !s108 1734290795.000000
+R14
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/srl.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/srl.v|
 !i113 1
-R7
-R8
+R5
+R6
 vsrlfix
 R13
 !i10b 1
 !s100 kijSXUgB822<BMgV4;YWf1
-R2
+R1
 I`9L^1BZ@DF7:lZVoW?oMM3
-R3
+R2
 R0
-R4
+R3
 8/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/srlfix.v
 F/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/srlfix.v
-!i122 763
+!i122 925
 L0 2 22
-R5
+R4
 r1
 !s85 0
 31
@@ -593,5 +593,5 @@ R14
 !s107 /home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/srlfix.v|
 !s90 -reportprogress|300|-work|work|/home/apeiron/KIU/Thesis/MIPS-CPU-Verilog/srlfix.v|
 !i113 1
-R7
-R8
+R5
+R6

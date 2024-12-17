@@ -43,9 +43,11 @@ module spr_tb;
         .ptl(ptl),
         .mode_out(mode_out)
     );
-
-    clk = 1;
-
+	
+	initial begin
+		clk = 1;
+	end
+	
     // Test sequence
     initial begin
         // Initialize inputs

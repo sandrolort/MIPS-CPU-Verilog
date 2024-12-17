@@ -62,26 +62,27 @@ module main_interrupt_tb;
 		// Test Case 1(ill part 2):
 		instruction = {6'b010000, 26'b0};
 		mode = 1'b1;
-		#10	
+		#10;	
 
 		// Test Case 2(misaf):
 		instruction = 32'b0; // Avoiding previous case
 		e = 1'b1;
-		pc[1:0] = 2'b0;
+		pc[1:0] = 2'b01;
 		#10
 
 		// Test Case 3(misals part 1):
 		e = 1'b0; // Avoiding previous case
-		instruction = {6'b100011, 26'b0};
+		instruction = {6'b100011, 24'b0, 2'b01};
 		#10
 
 		// Test Case 4(misals part 2):
-		instruction = {6'b101011, 26'b0};
+		instruction = {6'b101011, 24'b0, 2'b01};
 		#10
 
 		// Test Case 5(sysc):
 		instruction = {6'b000000, 20'b0, 6'b001100};
-    end
+		$stop;
+	end
 
     // Optional: Waveform dumping
     initial begin
