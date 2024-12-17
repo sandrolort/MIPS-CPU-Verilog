@@ -7,6 +7,7 @@ module memory_master(
     input wire mem_wren,
     input wire mem_rren,
     input wire gp_we,
+	input wire jisr,  // Added
     output wire [31:0] out,
     output reg E = 0,
     // LPDDR2 Memory
@@ -26,7 +27,7 @@ assign out = is_lpddr2_used ? read_data : sram_q_grounded;
 
 wire sram_wren = E && mem_wren && !is_lpddr2_used;
 always @(posedge clk or posedge rst) begin
-	if(rst)
+	if(jisr)  // 'rst' replaced with 'jisr'
 		E <= 0;
 	else
 		E <= ~E;

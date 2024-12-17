@@ -53,11 +53,42 @@ wire [31:0] next_pc;
 // Instruction register
 wire [31:0] instruction;
 
-always @(posedge clk or posedge rst) begin
-    if (rst)
-        pc <= 32'h0;
-    else if (E)
-        pc <= next_pc;
+// Interrupts
+wire [31:0] sr;
+wire [31:0] esr;
+wire [31:0] eca;
+wire [31:0] epc;
+wire [31:0] edata;
+wire [31:0] pto;
+wire [31:0] ptl;
+wire mode;
+wire jisr;
+wire eret = instruction[31:26] == 6'b010000 && instruction[5:0] == 6'b011000; 
+wire [31:0] temp_pc = eret ? next_pc : epc;
+wire is_illegal;
+
+main_interrupt interrupts(
+	.instruction(instruction),
+	.clk(clk),
+	.ca(23'b0), // initially, all cause signals are all set to 0
+	.pc(pc),
+	.e(E),
+	.rpt(1'b0),
+	.next_pc(next_pc),
+	.sr_out(sr),
+	.esr_out(esr),
+	.eca_out(eca),
+	.edata_out(edata),
+	.mode_out(mode),
+	.jisr(jisr)
+)
+
+
+always @(posedge clk or posedge jisr) begin // JISR or E
+    if (jisr)  // reset
+        pc <= 32'b0;
+    else if (E) // next_pc vs epc
+        pc <= temp_pc;
 end
 
 // Instruction register
@@ -113,7 +144,8 @@ decode_master decode(
     .next_pc(next_pc),
     .rs(ra1),
     .rt(ra2),
-    .decoder_packed(decoder_packed)
+    .decoder_packed(decoder_packed),
+	.is_illegal(is_illegal)
 );
 
 decoder_deconcat defcon(
