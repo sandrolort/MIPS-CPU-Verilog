@@ -2,7 +2,7 @@ module i_decoder(
     input wire [31:0] instruction,
     output [4:0] rs, rt,
     output wire [39:0] out_data_packed,
-	output reg is_illegal = 1'b0
+	output wire is_illegal
 );
 
 wire [5:0] opc, fun;
@@ -19,7 +19,7 @@ wire [1:0] ttype;
 
 splitter splt(instruction, opc, fun, rs, rt, rd, sa, imm, iindex);  
 
-assign ttype = Type(opc);
+assign ttype = Type(opc, fun, rt, rs);
 assign af = i ? {(~instruction[28] & instruction[27]), instruction[28:26]} : instruction[3:0];
 assign i = ttype != 2'b10;
 assign alu_mux_sel = ttype != 2'b10;
@@ -35,6 +35,8 @@ assign shift_type = af == 3'b000 ? {ttype != 2'b10, 2'b00} : // sll
 assign pc_mux_select = PCSelect(opc, fun);
 
 assign cadn = opc == 6'b000011 || opc == 6'b0 && fun == 4'b1001 ? 31 : cad; //For Jalr, Jal
+
+assign is_illegal = ttype == 2'b11;
 
 decoder_concat concat_inst (
     .af(af),
@@ -54,28 +56,89 @@ decoder_concat concat_inst (
     .rd(rd)
 );
 
-
+/*
 function [1:0] Type(input [5:0] opc, input [5:0] fun, input [4:0] rt, input [4:0] rs);
-        begin
-                is_illegal = 1'b0;
+    begin
         casez (opc)
-            6'b10?011, 6'b001???, 6'b00010?: Type = 2'b00; // I-Type
-            6'b000001: if (rt[4:1] == 4'b0000) 
-                            Type = 2'b00; // I-Type
-            6'b00011?: if (rt == 5'b00000) 
-                            Type = 2'b00; // I-Type
-            6'b000000: if (fun[5:3] == 3'b100 || fun == 6'b000010 || fun[5:1] == 5'b10101 || fun == 6'b001000 || fun == 6'b001010 || fun == 6'b001100)
-                            Type = 2'b10; // R-Type
-            6'b010000: if ((fun == 6'b011000 && rs == 5'b10000) || rs == 5'b00100 || rs == 5'b00000)
-                            Type = 2'b10; // R-Type
-            6'b00001?: Type = 2'b01; // J-Type
-                        default: begin
-                                Type = 2'b11; // None of the above, undefined(c) -> illegal instruction
-                                                                is_illegal = 1'b1;
-                                $display("ill: Undefined Instruction");
-								$stop; // According to Table 13 on page 377, ill should be aborted
-                        end
-                endcase
+            6'b10?011, 6'b001???, 6'b00010?: begin
+                Type = 2'b00; // I-Type
+            end
+
+            6'b000001: begin
+                if (rt[4:1] == 4'b0000) begin
+                    Type = 2'b00; // I-Type
+                end else begin
+                    Type = 2'b11; // Undefined
+                end
+                break;
+            end
+
+            6'b00011?: begin
+                if (rt == 5'b00000) begin
+                    Type = 2'b00; // I-Type
+                end else begin
+                    Type = 2'b11; // Undefined
+                end
+                break;
+            end
+
+            6'b000000: begin
+                if (fun[5:3] == 3'b100 || fun == 6'b000010 || fun[5:1] == 5'b10101 || 
+                    fun == 6'b001000 || fun == 6'b001010 || fun == 6'b001100) begin
+                    Type = 2'b10; // R-Type
+                end else begin
+                    Type = 2'b11; // Undefined
+                end
+                break;
+            end
+
+            6'b010000: begin
+                if ((fun == 6'b011000 && rs == 5'b10000) || rs == 5'b00100 || rs == 5'b00000) begin
+                    Type = 2'b10; // R-Type
+                end else begin
+                    Type = 2'b11; // Undefined
+                end
+                break;
+            end
+
+            6'b00001?: begin
+                Type = 2'b01; // J-Type
+            end
+
+            default: begin
+                Type = 2'b11; // None of the above, undefined(c) -> illegal instruction
+                $display("ill: Undefined Instruction");
+                // $stop; // According to Table 13 on page 377, ill should be aborted
+            end
+        endcase
+    end
+endfunction
+*/
+function [1:0] Type(input [5:0] opc, input [5:0] fun, input [4:0] rt, input [4:0] rs);
+	begin
+        casez (opc)
+            6'b10?011, 6'b001???, 6'b00010?: 
+				Type = 2'b00; // I-Type
+            6'b000001: 
+				if (rt[4:1] == 4'b0000) 
+                    Type = 2'b00; // I-Type
+            6'b00011?: 
+				if (rt == 5'b00000) 
+                    Type = 2'b00; // I-Type
+            6'b000000: 
+				if (fun[5:3] == 3'b100 || fun == 6'b000010 || fun[5:1] == 5'b10101 || fun == 6'b001000 || fun == 6'b001010 || fun == 6'b001100)
+                    Type = 2'b10; // R-Type
+            6'b010000: 
+				if ((fun == 6'b011000 && rs == 5'b10000) || rs == 5'b00100 || rs == 5'b00000)
+                    Type = 2'b10; // R-Type
+            6'b00001?: 
+				Type = 2'b01; // J-Type
+            default: begin
+                Type = 2'b11; // None of the above, undefined(c) -> illegal instruction
+                $display("ill: Undefined Instruction");
+				// $stop; // According to Table 13 on page 377, ill should be aborted
+                end
+            endcase
     end
 endfunction
 

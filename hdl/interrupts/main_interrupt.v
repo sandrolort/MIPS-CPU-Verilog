@@ -1,6 +1,7 @@
 module main_interrupt (
     input wire [31:0] instruction,
     input wire clk,
+    input wire rst,
     input wire [22:0] ca,  // Cause Signals
     input wire [31:0] pc,
     input wire e,
@@ -16,7 +17,8 @@ module main_interrupt (
     output wire [31:0] ptl,
     output wire mode_out,
 	output wire [22:0] mca,
-    output wire jisr
+    output wire jisr,
+	output reg abort = 1'b0
 );
 
     // Internal wires for connecting modules
@@ -55,24 +57,31 @@ module main_interrupt (
     // Logic for system call
     assign sysc = instruction[31:26] == 6'b000000 && instruction[5:0] == 6'b001100;
 
-    always @(posedge clk) begin
+    always @(posedge clk, rst) begin
         if (second_part_of_ill) begin
             $display("Trying to use unauthorized instructions");
-            $stop;
+            abort = 1'b1;
+			// $stop;
         end
 
         if (misaf) begin
             $display("Misaligned fetch");
-            $stop;
+            abort = 1'b1;
+			// $stop;
         end
 
         if (misals) begin
             $display("Misaligned load/store");
-            $stop;
+            abort = 1'b1;
+			// $stop;
         end
 
 		if (sysc) begin
             $display("System Call");
+		end
+
+		if (rst) begin
+            abort = 1'b0;
 		end
     end
 

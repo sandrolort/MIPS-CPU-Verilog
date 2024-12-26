@@ -10,11 +10,11 @@ module spr (
     input wire [31:0] ea,
     output reg [31:0] sr_out = 32'b0,
     output reg [31:0] esr_out = 32'b0,
-    output reg [31:0] eca_out,
-    output reg [31:0] epc_out,
-    output reg [31:0] edata_out,
-    output reg [31:0] pto,
-    output reg [31:0] ptl,
+    output reg [31:0] eca_out = 32'b0,
+    output reg [31:0] epc_out = 32'b0,
+    output reg [31:0] edata_out = 32'b0,
+    output reg [31:0] pto = 32'b0,
+    output reg [31:0] ptl = 32'b0,
     output reg mode_out = 1 
 );
     // Temporary variables

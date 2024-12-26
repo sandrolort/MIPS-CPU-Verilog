@@ -16,16 +16,18 @@ module master (
 wire clk, clk_wen, mem_clk;
 wire E;  // E signal from memory stage
 assign mem_clk = external_clk;
+wire abort;
+wire is_illegal;
 clock_div divider(mem_clk, clk_wen);
 
 `ifdef HARDWARE
 clock_control contr(
     .inclk(clk_wen),       //  altclkctrl_input.inclk
-    .ena(ena),             //                  .ena
+    .ena(ena && !abort && !is_illegal),             //                  .ena
     .outclk(clk)           // altclkctrl_output.outclk
 );
 `else
-assign clk = ena ? clk_wen : 0;
+assign clk = (ena && !abort && !is_illegal) ? clk_wen : 0;
 `endif
 
 
@@ -64,27 +66,29 @@ wire [31:0] ptl;
 wire mode;
 wire jisr;
 wire eret = instruction[31:26] == 6'b010000 && instruction[5:0] == 6'b011000; 
-wire [31:0] temp_pc = eret ? next_pc : epc;
-wire is_illegal;
+wire [31:0] temp_pc = eret ? epc : next_pc;
+
 
 main_interrupt interrupts(
 	.instruction(instruction),
 	.clk(clk),
+	.rst(rst),
 	.ca(23'b0), // initially, all cause signals are all set to 0
 	.pc(pc),
 	.e(E),
-	.rpt(1'b0),
+	.rpt(1'b0),  // This should be modified if external interrupts are added
 	.next_pc(next_pc),
 	.sr_out(sr),
 	.esr_out(esr),
 	.eca_out(eca),
 	.edata_out(edata),
 	.mode_out(mode),
-	.jisr(jisr)
-)
+	.jisr(jisr),
+	.abort(abort)
+);
 
 
-always @(posedge clk or posedge jisr) begin // JISR or E
+always @(posedge E or posedge jisr) begin // JISR or E
     if (jisr)  // reset
         pc <= 32'b0;
     else if (E) // next_pc vs epc
@@ -111,6 +115,7 @@ memory_master memory(
     .mem_rren(mem_rren),
     .mem_wren(mem_wren),
     .gp_we(gp_we),
+	.jisr(jisr),  // Added
     .out(mem_out),
     .E(E),
     // LPDDR2 Memory
@@ -130,6 +135,7 @@ memory_master_mock memory(
     .mem_rren(mem_rren),
     .mem_wren(mem_wren),
     .gp_we(gp_we),
+	.jisr(jisr),  // Added
     .out(mem_out),
     .E(E)
 );

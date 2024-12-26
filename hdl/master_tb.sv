@@ -16,18 +16,14 @@ master uut (
 );
 
 initial begin
-    #5 external_clk = 0;
+    external_clk = 0;
     forever #5 external_clk = ~external_clk;
 end
 
 initial begin
-    // Initial values
-    rst = 0;
-    
     // Apply reset
-    #10; 
-    rst = 1;
-    #20;
+    rst = 1; 
+    #30;
     rst = 0;
 end
 
