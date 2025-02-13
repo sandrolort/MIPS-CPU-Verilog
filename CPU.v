@@ -5,7 +5,8 @@ module CPU (
 	output [31:0] Alures,
 	output [31:0] registerOut,
 	output [31:0] pc,
-	output E
+	output E,
+	output reg [31:0] phase
 );
 
 // Splitter, this divides up instruction for ease of use later on.
@@ -64,15 +65,33 @@ main_interrupt interrupt_handler (
 );
 
 memory_full mem(
-    clk, rst, S,
-    next_pc, memory_address_in[29:0], memory_data_in,
+    clk,
+	rst,
+	S,
+    next_pc,
+	memory_address_in[29:0],
+	memory_data_in,
     jisr, // added since interrupts were included
     eret,
     epc,
+	mode,
+	rpt,
     I,
     pc,
     memory_data_out,
-    E
+    E,
+	phase
+);
+
+mmu_ mmu(
+	.pc(pc),
+	.ea(memory_address_in),
+	.pto(pto),
+	.mout(memory_data_out),
+	.phase(phase),
+	.E(E),
+	.mode(mode),
+	.ma(memory_address_in)
 );
 
 //Instruction Decoder
@@ -157,11 +176,13 @@ wire [4:0] rd_delayed;
 Delay #(.Bits(5)) rs_D(clk, Cad, rd_delayed);
 assign addrC = opc == 6'b000011 ? 5'd31 : rd_delayed;
 
-assign wren = ~E && GP_WE;
+// gw(h, eev) = h.E ∧ (gprwold (h) ∨ movs2g(h)) ∧ ¬( jisr(h, eev) ∧ repeat(h, eev)).
+assign wren = E && (GP_WE | ~jisr & rpt);
 
 assign srcA = data_out_A;
 assign srcB = ALU_MUX_SEL ? Imm_Extension : data_out_B;
 
+// declare momory_address_in
 assign memory_address_in = Alures;
 assign memory_data_in = data_out_B;
 

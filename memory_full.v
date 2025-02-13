@@ -18,19 +18,28 @@ module memory_full (
     input wire jisr,
     input wire eret,
     input wire [31:0] epc,
+    input wire mode,
+    input wire rpt,
     output reg [31:0] I,
     output reg [31:0] PC = 0,
     output wire [31:0] data_out/*synthesis keep*/,
-    output reg E = 1/*synthesis keep*/
+    output reg E = 1/*synthesis keep*/,
+    output reg phase = 0
+
 );
 
 reg [31:0] Memory [255:0];
 wire [29:0] ad;
 wire wren;
+wire ex;
 assign ad = ~E ? addr_in : PC[31:2];
 assign wren = S && ~E;
 assign data_out = Memory[ad[4:0]];
 integer i;
+
+// ex(h) = h.E ∧ (¬h.mode[0] ∨ h.mode[0] ∧ h.phase).
+assign  ex = E & (~mode | mode & phase);
+
 // Memory initialization
 initial begin
     PC = 0;
@@ -49,18 +58,27 @@ initial begin
     end
 end
 
+
 always @(posedge clk or posedge rst or posedge jisr) begin
     if (rst) begin
         // Reset logic
-        E = 1'b0;
-        PC = 32'b0;
-        I = 32'b0;
+        E <= 1'b0;
+        PC <= 32'b0;
+        I <= 32'b0;  
     end else begin
-        E = jisr ? 1'b0 : ~E;
-        if (E) PC = (jisr ? 32'b0 : (eret ? epc : next_pc));
-        if (!E) I = Memory[ad[8:0]];
-		if (wren) Memory[ad[29:21]] = data_in;
+        E <= ~jisr & (mode & ~E | mode & (E ^ phase));
+        phase <= ~jisr & mode & ~phase;
+        PC <= ~(ex | jisr) ? 0 : jisr ? 0 : eret ? epc : next_pc; 
+        Memory[ad[29:21]] <= ex & S & ~(jisr & rpt) ? data_in : Memory[ad[29:21]];
+        
+
+        // E = jisr ? 1'b0 : ~E;
+        // if (E) PC = (jisr ? 32'b0 : (eret ? epc : next_pc));
+        // if (!E) I = Memory[ad[8:0]];
+		// if (wren) Memory[ad[29:21]] = data_in;
     end
 end
+
+
 
 endmodule
