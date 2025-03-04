@@ -8,7 +8,7 @@ module memory_master_mock(
     input wire mem_rren,
     input wire gp_we,
     output wire [31:0] out,
-    output reg E = 0
+    input wire E
 );
 
 reg [31:0] memory [0:4096];
@@ -35,13 +35,6 @@ initial begin
     memory[14] = 32'h0800000a; // j 10
     memory[15] = 32'h000a1021; // addu $2, $0, $10
     memory[16] = 32'h00081821; // addu $3, $0, $8
-end
-
-always @(posedge clk or posedge rst) begin
-    if(rst)
-        E <= 0;
-    else
-        E <= ~E;
 end
 
 reg [31:0] out_reg = 0;

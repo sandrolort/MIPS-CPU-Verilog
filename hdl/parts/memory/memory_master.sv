@@ -8,7 +8,7 @@ module memory_master(
     input wire mem_rren,
     input wire gp_we,
     output wire [31:0] out,
-    output reg E = 0,
+    input wire E,
     // LPDDR2 Memory
     output wire [26:0] address,
     output wire [31:0] write_data,
@@ -20,17 +20,11 @@ module memory_master(
 wire [31:0] sram_q;
 
 wire is_lpddr2_used = addr_in > {11{1'b1}} /* synthesis keep */;
+wire sram_wren = E && mem_wren && !is_lpddr2_used;
 
 wire [31:0] sram_q_grounded = (~E || E && mem_rren) ? sram_q : 0;
 assign out = is_lpddr2_used ? read_data : sram_q_grounded;
 
-wire sram_wren = E && mem_wren && !is_lpddr2_used;
-always @(posedge clk or posedge rst) begin
-	if(rst)
-		E <= 0;
-	else
-		E <= ~E;
-end
 
 sram memory_sram (
     .address(addr_in[11:0]),
@@ -41,7 +35,9 @@ sram memory_sram (
 );
 
 // LPDDR2
-assign address = addr_in - {11{1'b1}};
+// When address overflows, initial bits will be used, giving the same final memory size.
+// This is (almost) equivalent to subtracting by 11{1'b1}.
+assign address = addr_in;
 assign write_req = E && mem_wren && is_lpddr2_used;
 assign read_req = is_lpddr2_used && ~write_req && (E && mem_rren || ~E);
 assign write_data = data_in;

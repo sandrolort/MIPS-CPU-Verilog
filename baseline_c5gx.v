@@ -158,7 +158,7 @@ assign test_start_n           =(sample[4:3]==2'b01)?1'b0:1'b1;
 
 
 wire [3:0] c_state;
-lpddr2_memory fpga_lpddr2_Verify(
+lpddr2_memory fpga_mem_inst(
       .iCLK(afi_half_clk),
       .iRST_n(test_software_reset_n),
 

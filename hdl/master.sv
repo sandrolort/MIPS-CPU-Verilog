@@ -14,7 +14,6 @@ module master (
 
 // Clock definitions
 wire clk, clk_wen, mem_clk;
-wire E;  // E signal from memory stage
 assign mem_clk = external_clk;
 clock_div divider(mem_clk, clk_wen);
 
@@ -49,6 +48,15 @@ wire [39:0] decoder_packed;
 // Program counter
 reg [31:0] pc = 0;
 wire [31:0] next_pc;
+
+// Execute bit
+reg E = 0;
+always @(posedge clk or posedge rst) begin
+	if(rst)
+		E <= 0;
+	else
+		E <= ~E;
+end
 
 // Instruction register
 wire [31:0] instruction;
