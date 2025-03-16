@@ -5,7 +5,6 @@ module interrupt_controller (
     output wire jisr,
     output wire [4:0] il    // Interrupt level
 );
-
     // Code segment below generates masked cause signals
     genvar i;
     generate

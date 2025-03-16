@@ -35,7 +35,7 @@ module pp_or #(parameter N = 32)(
             end
 
             for (i = 0; i < N/2; i = i + 1) begin: assign_output
-                assign y[2 * i]   = y_even[i];
+                assign y[2 * i] = y_even[i];
                 assign y[2 * i + 1] = y_odd[i];
             end
         end

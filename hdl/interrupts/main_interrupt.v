@@ -30,9 +30,8 @@ module main_interrupt (
     wire movg2s;
     wire movs2g;
 
-    assign move = instruction[31:26] == 6'b010000;
-    assign movg2s = move && instruction[4:0] == 6'b00100;
-    assign movs2g = move && instruction[5:0] == 6'b00000;
+    assign movg2s = (instruction[31:26] == 6'b010000) && (instruction[4:0] == 6'b00100);
+    assign movs2g = (instruction[31:26] == 6'b010000) && (instruction[5:0] == 6'b00000);
 
     // Instantiate updated interrupt_controller module
     interrupt_controller ic_inst (
@@ -44,7 +43,7 @@ module main_interrupt (
     );
 
     // Logic for illegal instruction in user mode
-    assign second_part_of_ill = mode == 32'b1 && move;  // replace 'mode_in' with 'mode'
+    assign second_part_of_ill = mode == 32'b1 && (instruction[31:26] == 6'b010000);  // replace 'mode' with 'mode_in' for testing
 
     // Logic of misalignment of fetch or load/store
     assign ls = (instruction[31:26] == 6'b100011) || (instruction[31:26] == 6'b101011);
