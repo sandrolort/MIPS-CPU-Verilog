@@ -1,24 +1,22 @@
 module main_interrupt (
     input wire [31:0] instruction,
+	input wire [31:0] ea,
     input wire clk,
     input wire rst,
     input wire [22:0] ca,  // Cause Signals
     input wire [31:0] pc,
     input wire e,
     input wire rpt,         // 1 bit 'repeat' signal
+    // input wire [31:0] mode_in, // Only for testing
     input wire [31:0] next_pc,
-	// input wire mode, // Only for testbench
-    output wire [31:0] sr_out,
-    output wire [31:0] esr_out,
-    output wire [31:0] eca_out,
-    output wire [31:0] epc_out,
-    output wire [31:0] edata_out,
-    output wire [31:0] pto,
-    output wire [31:0] ptl,
-    output wire mode_out,
+	input wire [31:0] data_in,
+	input wire [2:0] reg_sel,
+	input wire sprw,
+    output wire [31:0] spr_out,
 	output wire [22:0] mca,
     output wire jisr,
-	output reg abort = 1'b0
+	output reg abort = 1'b0,
+	output wire [31:0] mode
 );
 
     // Internal wires for connecting modules
@@ -28,9 +26,13 @@ module main_interrupt (
     wire misaf;
     wire misals;
     wire sysc;
+    wire mode;
+    wire movg2s;
+    wire movs2g;
 
-    wire [31:0] ea; // Effective address is computed by rs + imm(sign extended)
-    assign ea = instruction[25:21] + {{16{instruction[15]}}, instruction[15:0]};
+    assign move = instruction[31:26] == 6'b010000;
+    assign movg2s = move && instruction[4:0] == 6'b00100;
+    assign movs2g = move && instruction[5:0] == 6'b00000;
 
     // Instantiate updated interrupt_controller module
     interrupt_controller ic_inst (
@@ -41,9 +43,8 @@ module main_interrupt (
         .il(il)
     );
 
-
     // Logic for illegal instruction in user mode
-    assign second_part_of_ill = mode_out == 1'b1 && (instruction[31:26] == 6'b010000); // 'mode_out' should be changed to 'mode' during testing
+    assign second_part_of_ill = mode == 32'b1 && move;  // replace 'mode_in' with 'mode'
 
     // Logic of misalignment of fetch or load/store
     assign ls = (instruction[31:26] == 6'b100011) || (instruction[31:26] == 6'b101011);
@@ -61,19 +62,19 @@ module main_interrupt (
         if (second_part_of_ill) begin
             $display("Trying to use unauthorized instructions");
             abort = 1'b1;
-			// $stop;
+			$stop;
         end
 
         if (misaf) begin
             $display("Misaligned fetch");
             abort = 1'b1;
-			// $stop;
+			$stop;
         end
 
         if (misals) begin
             $display("Misaligned load/store");
             abort = 1'b1;
-			// $stop;
+			$stop;
         end
 
 		if (sysc) begin
@@ -85,7 +86,6 @@ module main_interrupt (
 		end
     end
 
-
     // Instantiate spr module
     spr spr_inst (
         .clk(clk),
@@ -95,14 +95,11 @@ module main_interrupt (
         .pc(pc),
         .next_pc(next_pc),
         .ea(ea),
-        .sr_out(sr_out),
-        .esr_out(esr_out),
-        .eca_out(eca_out),
-        .epc_out(epc_out),
-        .edata_out(edata_out),
-        .pto(pto),
-        .ptl(ptl),
-        .mode_out(mode_out)
-    );
+		.data_in(data_in),
+		.reg_sel(reg_sel),
+		.sprw(sprw),
+		.spr_out(spr_out),
+		.mode(mode)
+	);
 
 endmodule

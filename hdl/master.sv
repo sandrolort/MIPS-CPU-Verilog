@@ -23,7 +23,7 @@ clock_div divider(mem_clk, clk_wen);
 `ifdef HARDWARE
 clock_control contr(
     .inclk(clk_wen),       //  altclkctrl_input.inclk
-    .ena(ena && !abort && !is_illegal),             //                  .ena
+    .ena(ena && !abort && !is_illegal),             // .ena
     .outclk(clk)           // altclkctrl_output.outclk
 );
 `else
@@ -47,6 +47,7 @@ wire mem_wren;
 wire [1:0] gp_mux_sel;
 wire [31:0] gpr_data_in;
 wire [39:0] decoder_packed;
+wire [31:0] ea;
 
 // Program counter
 reg [31:0] pc = 0;
@@ -56,21 +57,17 @@ wire [31:0] next_pc;
 wire [31:0] instruction;
 
 // Interrupts
-wire [31:0] sr;
-wire [31:0] esr;
-wire [31:0] eca;
-wire [31:0] epc;
-wire [31:0] edata;
-wire [31:0] pto;
-wire [31:0] ptl;
-wire mode;
+wire [31:0] data_in,
+wire [2:0] reg_sel,
+wire [31:0] spr_out,
 wire jisr;
-wire eret = instruction[31:26] == 6'b010000 && instruction[5:0] == 6'b011000; 
+wire eret = instruction[31:26] == 6'b010000 && instruction[5:0] == 6'b011000;
 wire [31:0] temp_pc = eret ? epc : next_pc;
-
+wire mode = 1'b0;
 
 main_interrupt interrupts(
 	.instruction(instruction),
+	.ea(ea),
 	.clk(clk),
 	.rst(rst),
 	.ca(23'b0), // initially, all cause signals are all set to 0
@@ -78,13 +75,12 @@ main_interrupt interrupts(
 	.e(E),
 	.rpt(1'b0),  // This should be modified if external interrupts are added
 	.next_pc(next_pc),
-	.sr_out(sr),
-	.esr_out(esr),
-	.eca_out(eca),
-	.edata_out(edata),
-	.mode_out(mode),
+    .data_in(data_in),
+	.reg_sel(reg_sel),
+    .spr_out(spr_out),
 	.jisr(jisr),
-	.abort(abort)
+	.abort(abort),
+	.mode(mode)
 );
 
 
@@ -98,7 +94,7 @@ end
 // Instruction register
 reg [31:0] instruction_reg = 0;
 always @(posedge mem_clk) begin
-    if (~E) 
+    if (~E)
         instruction_reg <= mem_out;
 end
 
@@ -171,7 +167,8 @@ execute_master execute(
     .i_decoder(instruction),
     .pc(pc),
     .alu_res(alu_res),
-    .shift_res(shift_res)
+    .shift_res(shift_res),
+	.ea(ea)
 );
 
 // Writeback stage

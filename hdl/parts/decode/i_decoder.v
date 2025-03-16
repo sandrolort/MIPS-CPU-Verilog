@@ -138,7 +138,7 @@ function [1:0] Type(input [5:0] opc, input [5:0] fun, input [4:0] rt, input [4:0
                 $display("ill: Undefined Instruction");
 				// $stop; // According to Table 13 on page 377, ill should be aborted
                 end
-            endcase
+        endcase
     end
 endfunction
 

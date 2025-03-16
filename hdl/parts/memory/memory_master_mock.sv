@@ -16,14 +16,14 @@ reg [31:0] memory [0:4096];
 
 initial begin
     // Initialize all memory locations to 0
-	memory[0] = {6'b001000, 5'b00000, 5'b00001, {14'b0, 2'b11}};
-	memory[1] = {6'b000000, 5'b00001, 15'b0, 6'b001000};
+	memory[0] = {6'b001000, 5'b00000, 5'b00001, {14'b0, 2'b11}};  // 'malf' first instruction
+	memory[1] = {6'b000000, 5'b00001, 15'b0, 6'b001000};  // 'malf' second instruction
     for (integer i = 2; i < 4096; i = i + 1)
         memory[i] = 32'h00000000;
     // Initialize specific memory locations according to MIF file
-	// memory[0] = 32'b0; // ill
-	// memory[0] = {6'b010000, 5'b10000, 15'b0, 6'b01100};  // ill part 2
-	// memory[0] = {6'b101011, 5'b00000, 5'b00001, {15'b0, 1'b1}}; // misals
+	// memory[0] = 32'b0; // 'ill' part 1
+	// memory[0] = {6'b010000, 5'b10000, 15'b0, 6'b01100};  // 'ill' part 2
+	// memory[0] = {6'b101011, 5'b00000, 5'b00001, {15'b0, 1'b1}}; // 'misals'
 	/*
     memory[0] = 32'h24040019;  // addiu $4, $0, 25
     memory[1] = 32'h24050004;  // addiu $5, $0, 4

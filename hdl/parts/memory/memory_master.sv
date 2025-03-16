@@ -27,7 +27,7 @@ assign out = is_lpddr2_used ? read_data : sram_q_grounded;
 
 wire sram_wren = E && mem_wren && !is_lpddr2_used;
 always @(posedge clk or posedge jisr) begin
-	if(jisr)  // 'rst' replaced with 'jisr'
+	if (jisr)  // 'rst' replaced with 'jisr'
 		E <= 0;
 	else
 		E <= ~E;
