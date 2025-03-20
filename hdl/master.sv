@@ -87,7 +87,6 @@ memory_master memory(
     .data_in(b_gpr),
     .mem_rren(mem_rren),
     .mem_wren(mem_wren),
-    .gp_we(gp_we),
     .out(mem_out),
     .E(E),
     // LPDDR2 Memory
@@ -106,7 +105,6 @@ memory_master_mock memory(
     .data_in(b_gpr),
     .mem_rren(mem_rren),
     .mem_wren(mem_wren),
-    .gp_we(gp_we),
     .out(mem_out),
     .E(E)
 );
