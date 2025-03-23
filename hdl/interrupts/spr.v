@@ -2,7 +2,7 @@ module spr (
 	input wire clk,
 	input wire jisr,
 	input wire [22:0] mca,
-	input wire rpt,
+	input wire rpt,  // 1 bit 'repeat' signal
 	input wire [31:0] pc,
 	input wire [31:0] next_pc,
 	input wire [31:0] ea,

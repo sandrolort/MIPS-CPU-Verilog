@@ -1,7 +1,7 @@
 module ff1_tb;
     parameter N = 32;
     reg [N-1:0] x;
-    wire [4:0] y;
+    wire [N-1:0] y;
 
     ff1 #(N) uut (.x(x), .y(y));
 

@@ -2,7 +2,7 @@ module main_interrupt (
     input wire [31:0] instruction,
 	input wire [31:0] ea,
     input wire clk,
-    input wire rst,
+    input wire rst,  // 1 bit 'reset' signal
     input wire [22:0] ca,  // Cause Signals
     input wire [31:0] pc,
     input wire e,
@@ -20,7 +20,7 @@ module main_interrupt (
 );
 
     // Internal wires for connecting modules
-    wire [4:0] il;
+    wire [31:0] il;
     wire second_part_of_ill;
     wire ls;
     wire misaf;

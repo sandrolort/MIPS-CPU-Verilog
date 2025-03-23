@@ -3,7 +3,7 @@ module interrupt_controller (
     input wire [31:0] sr,   // Status register
 	output wire [22:0] mca,
     output wire jisr,
-    output wire [4:0] il    // Interrupt level
+    output wire [31:0] il    // Interrupt level
 );
     // Code segment below generates masked cause signals
     genvar i;
