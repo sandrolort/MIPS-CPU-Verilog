@@ -4,7 +4,6 @@ module main_interrupt_tb;
     reg [31:0] ea;
     reg clk;
     reg rst = 1'b0;
-    reg [22:0] ca;
     reg [31:0] pc;
     reg e;
     reg rpt;
@@ -26,7 +25,9 @@ module main_interrupt_tb;
         .ea(ea),
         .clk(clk),
         .rst(rst),
-        .ca(ca),
+		.ca_part_1(16'b0),
+		.is_illegal(1'b0),
+		.ovfalu(1'b0),
         .pc(pc),
         .e(e),
         .rpt(rpt),
@@ -49,7 +50,6 @@ module main_interrupt_tb;
 
     initial begin
         ea = 32'b0;
-		ca = 23'b0;
 		pc = {30'b0, 2'b11};
 		e = 1'b0;
 		rpt = 1'b0;
@@ -57,7 +57,7 @@ module main_interrupt_tb;
 
 		// Test Case 1 (ill part 2):
 		instruction = {6'b010000, 26'b0};
-		mode_in = 1'b1;
+		mode_in = {31'b0, 1'b1};
 		#10;
 
 		// Test Case 2 (misaf):

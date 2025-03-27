@@ -48,6 +48,7 @@ wire [1:0] gp_mux_sel;
 wire [31:0] gpr_data_in;
 wire [39:0] decoder_packed;
 wire [31:0] ea;
+wire ovfalu;
 
 // Program counter
 reg [31:0] pc = 0;
@@ -63,21 +64,26 @@ wire [31:0] spr_out,
 wire jisr;
 wire eret = instruction[31:26] == 6'b010000 && instruction[5:0] == 6'b011000;
 wire [31:0] temp_pc = eret ? epc : next_pc;
-wire mode = 1'b0;
+wire [15:0] ca_part_1 = {rst, 15'b0};
+wire mode;
 
 main_interrupt interrupts(
 	.instruction(instruction),
 	.ea(ea),
 	.clk(clk),
 	.rst(rst),
-	.ca(23'b0), // initially, all cause signals are all set to 0
+	.ca_part_1(ca_part_1),
+	.is_illegal(is_illegal),
+	.ovfalu(ovfalu),
 	.pc(pc),
 	.e(E),
 	.rpt(1'b0),  // This should be modified if external interrupts are added
 	.next_pc(next_pc),
     .data_in(data_in),
 	.reg_sel(reg_sel),
+	.sprw(sprw),
     .spr_out(spr_out),
+	.mca(mca),
 	.jisr(jisr),
 	.abort(abort),
 	.mode(mode)
@@ -168,7 +174,8 @@ execute_master execute(
     .pc(pc),
     .alu_res(alu_res),
     .shift_res(shift_res),
-	.ea(ea)
+	.ea(ea),
+	.ovfalu(ovfalu)  // This was missing
 );
 
 // Writeback stage

@@ -3,11 +3,13 @@ module main_interrupt (
 	input wire [31:0] ea,
     input wire clk,
     input wire rst,  // 1 bit 'reset' signal
-    input wire [22:0] ca,  // Cause Signals
-    input wire [31:0] pc,
+	input wire [15:0] ca_part_1,
+    input wire is_illegal,
+	input wire ovfalu,
+	input wire [31:0] pc,
     input wire e,
     input wire rpt,         // 1 bit 'repeat' signal
-    // input wire [31:0] mode_in, // Only for testing
+    input wire [31:0] mode_in, // Only for testing
     input wire [31:0] next_pc,
 	input wire [31:0] data_in,
 	input wire [2:0] reg_sel,
@@ -18,17 +20,18 @@ module main_interrupt (
 	output reg abort = 1'b0,
 	output wire [31:0] mode
 );
-
     // Internal wires for connecting modules
-    wire [31:0] il;
+	wire [31:0] il;
     wire second_part_of_ill;
     wire ls;
     wire misaf;
     wire misals;
     wire sysc;
-    wire mode;
     wire movg2s;
     wire movs2g;
+	wire [31:0] sr;
+
+	wire [22:0] ca = {ca_part_1, misaf, 1'b0, (is_illegal | second_part_of_ill), misals, 1'b0, sysc, ovfalu};
 
     assign movg2s = (instruction[31:26] == 6'b010000) && (instruction[4:0] == 6'b00100);
     assign movs2g = (instruction[31:26] == 6'b010000) && (instruction[5:0] == 6'b00000);
@@ -36,14 +39,14 @@ module main_interrupt (
     // Instantiate updated interrupt_controller module
     interrupt_controller ic_inst (
         .ca(ca),
-        .sr(sr_out),
+        .sr(sr),
 		.mca(mca),
         .jisr(jisr),
         .il(il)
     );
 
     // Logic for illegal instruction in user mode
-    assign second_part_of_ill = mode == 32'b1 && (instruction[31:26] == 6'b010000);  // replace 'mode' with 'mode_in' for testing
+    assign second_part_of_ill = mode_in == 32'b1 && (instruction[31:26] == 6'b010000);  // replace 'mode' with 'mode_in' for testing
 
     // Logic of misalignment of fetch or load/store
     assign ls = (instruction[31:26] == 6'b100011) || (instruction[31:26] == 6'b101011);
@@ -98,7 +101,8 @@ module main_interrupt (
 		.reg_sel(reg_sel),
 		.sprw(sprw),
 		.spr_out(spr_out),
-		.mode(mode)
+		.sr(sr),
+		.mode(mode_in)  // Switch to 'mode_in' for testing
 	);
 
 endmodule

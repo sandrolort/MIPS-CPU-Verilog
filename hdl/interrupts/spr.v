@@ -10,6 +10,7 @@ module spr (
 	input wire [2:0] reg_sel,
     input wire sprw,
 	output wire [31:0] spr_out,
+	output wire [31:0] sr,
 	output wire [31:0] mode
 );
 	reg [31:0] spr [7:0];
@@ -43,6 +44,7 @@ module spr (
 	end
 
     assign spr_out = spr[reg_sel];
+	assign sr = spr[3'b000];
     assign mode = spr[3'b111];
 
 endmodule
