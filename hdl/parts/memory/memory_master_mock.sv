@@ -20,7 +20,7 @@ initial begin
     memory[0] = 32'h24020064;     // addiu $2, $0, 100     # Load immediate value 100 into $2
     memory[1] = 32'h24030100;     // addiu $3, $0, 256     # Load address 256 into $3
     memory[2] = 32'hac620000;     // sw $2, 0($3)          # Store $2 at memory[$3]
-    memory[3] = 32'h8c640000;     // lw $4, 0($3)          # Load from memory[$3] into $4
+    memory[3] = 32'h8c640000;     // lw $5, 0($3)          # Load from memory[$3] into $5
     memory[4] = 32'h00000000;     // nop                   # No operation
 end
 
