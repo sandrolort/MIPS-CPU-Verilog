@@ -9,7 +9,7 @@ module main_interrupt (
 	input wire [31:0] pc,
     input wire e,
     input wire rpt,         // 1 bit 'repeat' signal
-    input wire [31:0] mode_in, // Only for testing
+    // input wire [31:0] mode_in, // Only for testing
     input wire [31:0] next_pc,
 	input wire [31:0] data_in,
 	input wire [2:0] reg_sel,
