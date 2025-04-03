@@ -44,7 +44,7 @@ wire [31:0] alu_res, shift_res;
 wire [31:0] mem_out;
 wire mem_rren;
 wire mem_wren;
-wire [1:0] gp_mux_sel;
+wire [2:0] gp_mux_sel;
 wire [31:0] gpr_data_in;
 wire [39:0] decoder_packed;
 wire [31:0] ea;
@@ -77,11 +77,9 @@ main_interrupt interrupts(
 	.ovfalu(ovfalu),
 	.pc(pc),
 	.e(E),
-	.rpt(1'b0),  // This should be modified if external interrupts are added
 	.next_pc(next_pc),
     .data_in(data_in),
 	.reg_sel(reg_sel),
-	.sprw(sprw),
     .spr_out(spr_out),
 	.mca(mca),
 	.jisr(jisr),
@@ -185,7 +183,8 @@ writeback_master writeback(
     .shift_res(shift_res),
     .gp_mux_sel(gp_mux_sel),
     .gpr_data_in(gpr_data_in),
-    .link_addr(pc+32'd4)
+    .spr_in(spr_out),
+	.link_addr(pc+32'd4)
 );
 
 // General purpose register file

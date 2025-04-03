@@ -8,12 +8,10 @@ module main_interrupt (
 	input wire ovfalu,
 	input wire [31:0] pc,
     input wire e,
-    input wire rpt,         // 1 bit 'repeat' signal
     // input wire [31:0] mode_in, // Only for testing
     input wire [31:0] next_pc,
 	input wire [31:0] data_in,
 	input wire [2:0] reg_sel,
-	input wire sprw,
     output wire [31:0] spr_out,
 	output wire [22:0] mca,
     output wire jisr,
@@ -88,6 +86,10 @@ module main_interrupt (
 		end
     end
 
+	wire [4:0] rt = instruction[20:16];
+	wire [4:0] rd = instruction[15:11];
+	wire rpt = |il;
+
     // Instantiate spr module
     spr spr_inst (
         .clk(clk),
@@ -97,9 +99,10 @@ module main_interrupt (
         .pc(pc),
         .next_pc(next_pc),
         .ea(ea),
+		.rd(rd),
 		.data_in(data_in),
 		.reg_sel(reg_sel),
-		.sprw(sprw),
+		.sprw(movg2s),
 		.spr_out(spr_out),
 		.sr(sr),
 		.mode(mode_in)  // Switch to 'mode_in' for testing
