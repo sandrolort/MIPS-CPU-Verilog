@@ -73,7 +73,7 @@ function [1:0] WhereFrom(input [2:0]ttype, input [5:0] opc, input [5:0]fun);
     case(ttype)
         2'b10: casez(fun)
             6'b001001: WhereFrom = 2'b11; // PC
-            6'b000010, 6'b000011: WhereFrom = 2'b10; //Shift
+            6'b000010, 6'b000011, 6'b000000: WhereFrom = 2'b10; //Shift
             default: WhereFrom = 2'b00; // ALU
         endcase
         2'b00: if(opc == 6'b100011) WhereFrom = 2'b01; //Memory

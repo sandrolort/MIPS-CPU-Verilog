@@ -28,7 +28,7 @@ bce bce(a_gpr, b_gpr, bf, bcres);
 
 // Next PC calculation logic
 wire [31:0] incr = pc + 4;
-wire [31:0] pc_imm_sum = $unsigned($signed(pc) + $signed(imm << 2));
+wire [31:0] pc_imm_sum = $unsigned($signed(pc+4) + $signed(imm << 2));
 wire [31:0] jjal = {incr[31:28], iindex, 2'b00};
 wire [31:0] mux_bcres = bcres ? pc_imm_sum : incr;
 
