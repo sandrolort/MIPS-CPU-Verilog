@@ -7,11 +7,9 @@ module next_pc_calc(
 );
 
 // Splitter logic
-wire [5:0] opc, fun;
-wire [4:0] rs, rt, rd, sa;
 wire [15:0] imm;
 wire [25:0] iindex;
-splitter splt(i_fetch, opc, fun, rs, rt, rd, sa, imm, iindex);
+splitter splt(.i_input(i_fetch), .imm(imm), .iindex(iindex));
 
 // Unpack only the necessary wires from decode_data_packed
 wire [3:0] bf;

@@ -52,27 +52,26 @@ initial begin
     memory[31] = 32'h21290001; // addi $t1, $t1, 1
     memory[32] = 32'h08000019; // j 0x19
 
-    // For signal tap
-    memory[33] = 32'h20082000; // addi $t0, $zero, 0x2000 (base address)
-    memory[34] = 32'h8d110000; // lw $s1, 0($t0)  - load 1st element
-    memory[35] = 32'h8d120004; // lw $s2, 4($t0)  - load 2nd element
-    memory[36] = 32'h8d130008; // lw $s3, 8($t0)  - load 3rd element
-    memory[37] = 32'h8d14000c; // lw $s4, 12($t0) - load 4th element
-    memory[38] = 32'h8d150010; // lw $s5, 16($t0) - load 5th element
-    memory[39] = 32'h8d160014; // lw $s6, 18($t0) - load 6th element
-    memory[40] = 32'h8d170018; // lw $s7, 24($t0) - load 7th element
-    memory[41] = 32'h8d08001c; // lw $t0, 28($t0) - load 8th element (overwriting $t0)
-    memory[42] = 32'h20092020; // addi $t1, $zero, 0x2020 (new base address for next batch)
-    memory[43] = 32'h8d2a0000; // lw $t2, 0($t1)  - load 9th element
-    memory[44] = 32'h8d2b0004; // lw $t3, 4($t1)  - load 10th element
-    memory[45] = 32'h8d2c0008; // lw $t4, 8($t1)  - load 11th element
-    memory[46] = 32'h8d2d000c; // lw $t5, 12($t1) - load 12th element
-    memory[47] = 32'h8d2e0010; // lw $t6, 16($t1) - load 13th element
-    memory[48] = 32'h8d2f0014; // lw $t7, 20($t1) - load 14th element
-    memory[49] = 32'h8d380018; // lw $t8, 24($t1) - load 15th element
-    memory[50] = 32'h8d39001c; // lw $t9, 28($t1) - load 16th element
-    memory[51] = 32'h8d010020; // lw $at, 32($t1) - load 17th element
-    memory[52] = 32'h08000035; // j 0x35 (infinite loop to keep registers available)
+    // Code below loads the data in the registers. That's how we see on hardware if it worked!
+    memory[33] = 32'h20082000;  // addi $t0, $zero, 0x2000 (base address)
+    memory[34] = 32'h00080825;  // or $1, $0, $t0 (save base address to $1)
+    memory[35] = 32'h8c220000;  // lw $2, 0($1)   - load 1st element
+    memory[36] = 32'h8c230004;  // lw $3, 4($1)   - load 2nd element
+    memory[37] = 32'h8c240008;  // lw $4, 8($1)   - load 3rd element
+    memory[38] = 32'h8c25000c;  // lw $5, 12($1)  - load 4th element
+    memory[39] = 32'h8c260010;  // lw $6, 16($1)  - load 5th element
+    memory[40] = 32'h8c270014;  // lw $7, 20($1)  - load 6th element
+    memory[41] = 32'h8c280018;  // lw $8, 24($1)  - load 7th element
+    memory[42] = 32'h8c29001c;  // lw $9, 28($1)  - load 8th element
+    memory[43] = 32'h8c2a0020;  // lw $10, 32($1) - load 9th element
+    memory[44] = 32'h8c2b0024;  // lw $11, 36($1) - load 10th element
+    memory[45] = 32'h8c2c0028;  // lw $12, 40($1) - load 11th element
+    memory[46] = 32'h8c2d002c;  // lw $13, 44($1) - load 12th element
+    memory[47] = 32'h8c2e0030;  // lw $14, 48($1) - load 13th element
+    memory[48] = 32'h8c2f0034;  // lw $15, 52($1) - load 14th element
+    memory[49] = 32'h8c300038;  // lw $16, 56($1) - load 15th element
+    memory[50] = 32'h8c31003c;  // lw $17, 60($1) - load 16th element
+    memory[51] = 32'h8c320040;  // lw $18, 64($1) - load 17th element
 
     // Data array starting at memory address 0x2000 (8192 decimal)
     memory[2048] = 32'h00000040;
