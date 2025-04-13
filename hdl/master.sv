@@ -36,7 +36,7 @@ assign clock_led[1] = external_clk;
 assign clock_led[2] = ena;
 
 // Control and data signals
-wire [4:0] ra1, ra2;
+wire [4:0] rs, rt, rd;
 wire [31:0] a_gpr, b_gpr;
 wire gp_we;
 wire [4:0] cad;
@@ -45,8 +45,9 @@ wire [31:0] mem_out;
 wire mem_rren;
 wire mem_wren;
 wire [2:0] gp_mux_sel;
+wire spr_mux_sel;
 wire [31:0] gpr_data_in;
-wire [39:0] decoder_packed;
+wire [41:0] decoder_packed;
 wire [31:0] ea;
 wire ovfalu;
 
@@ -79,7 +80,7 @@ main_interrupt interrupts(
 	.e(E),
 	.next_pc(next_pc),
     .data_in(data_in),
-	.reg_sel(reg_sel),
+	.reg_sel(spr_mux_sel ? rt : rd),
     .spr_out(spr_out),
 	.mca(mca),
 	.jisr(jisr),
@@ -148,8 +149,9 @@ decode_master decode(
     .pc(pc),
     .i_fetch(instruction),
     .next_pc(next_pc),
-    .rs(ra1),
-    .rt(ra2),
+    .rs(rs),
+    .rt(rt),
+    .rd(rd),
     .decoder_packed(decoder_packed),
 	.is_illegal(is_illegal)
 );
@@ -160,6 +162,7 @@ decoder_deconcat defcon(
     .mem_wren(mem_wren),
     .mem_rren(mem_rren),
     .gp_mux_sel(gp_mux_sel),
+    .spr_mux_sel(spr_mux_sel),
     .cad(cad)
 );
 
@@ -192,8 +195,8 @@ gpr genreg(
     .clk(clk),
     .rst(rst),
     .we(gp_we & E),  // Only write during execute phase
-    .ra1(ra1),
-    .ra2(ra2),
+    .rs(rs),
+    .rt(rt),
     .wa(cad),
     .rd1(a_gpr),
     .rd2(b_gpr),

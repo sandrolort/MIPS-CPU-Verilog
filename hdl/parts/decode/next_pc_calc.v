@@ -2,7 +2,7 @@ module next_pc_calc(
     input wire [31:0] pc,
     input wire [31:0] a_gpr, b_gpr,
     input wire [31:0] i_fetch,
-    input wire [39:0] decode_data_packed,
+    input wire [41:0] decode_data_packed,
     output wire [31:0] next_pc
 );
 

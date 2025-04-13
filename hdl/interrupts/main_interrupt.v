@@ -26,13 +26,11 @@ module main_interrupt (
     wire misals;
     wire sysc;
     wire movg2s;
-    wire movs2g;
 	wire [31:0] sr;
 
 	wire [22:0] ca = {ca_part_1, misaf, 1'b0, (is_illegal | second_part_of_ill), misals, 1'b0, sysc, ovfalu};
 
-    assign movg2s = (instruction[31:26] == 6'b010000) && (instruction[4:0] == 6'b00100);
-    assign movs2g = (instruction[31:26] == 6'b010000) && (instruction[5:0] == 6'b00000);
+    assign movg2s = (instruction[31:26] == 6'b010000) && (instruction[25:21] == 5'b00100);
 
     // Instantiate updated interrupt_controller module
     interrupt_controller ic_inst (
@@ -88,7 +86,7 @@ module main_interrupt (
 
 	wire [4:0] rt = instruction[20:16];
 	wire [4:0] rd = instruction[15:11];
-	wire rpt = |il;
+	wire rpt = (il[15:1] != 0) || il[17] || il[20];
 
     // Instantiate spr module
     spr spr_inst (
