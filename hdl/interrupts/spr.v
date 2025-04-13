@@ -30,9 +30,9 @@ module spr (
  			spr[2] <= {9'b0, mca};
  			spr[3] <= ((rpt) ? pc : next_pc);
  			spr[4] <= ea;
- 			spr[5] <= spr[5];  // hardcoded to 0 until paging is implemented
- 			spr[6] <= spr[6];  // hardcoded to 0 until paging is implemented
- 			spr[7] <= 32'b0;  // user mode
+ 			spr[5] <= spr[5];  // hardcoded until paging is implemented
+ 			spr[6] <= spr[6];  // hardcoded until paging is implemented
+ 			spr[7] <= 32'b0;  // system mode
   		end else begin
  			spr[0] <= (reg_sel == 3'b000 && sprw) ? data_in : spr[0];
  			spr[1] <= (reg_sel == 3'b001 && sprw) ? data_in : spr[1];
