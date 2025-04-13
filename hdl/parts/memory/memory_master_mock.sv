@@ -15,34 +15,36 @@ module memory_master_mock(
 reg [31:0] memory [0:4096];
 
 initial begin
-    // Initialize all memory locations to 0
-	memory[0] = {6'b001000, 5'b00000, 5'b00001, {14'b0, 2'b11}};  // 'malf' first instruction
-	memory[1] = {6'b000000, 5'b00001, 15'b0, 6'b001000};  // 'malf' second instruction
-    for (integer i = 2; i < 4096; i = i + 1)
-        memory[i] = 32'h00000000;
-    // Initialize specific memory locations according to MIF file
-	// memory[0] = 32'b0; // 'ill' part 1
-	// memory[0] = {6'b010000, 5'b10000, 15'b0, 6'b01100};  // 'ill' part 2
-	// memory[0] = {6'b101011, 5'b00000, 5'b00001, {15'b0, 1'b1}}; // 'misals'
-	/*
-    memory[0] = 32'h24040019;  // addiu $4, $0, 25
-    memory[1] = 32'h24050004;  // addiu $5, $0, 4
-    memory[2] = 32'h0c000005;  // jal 5
-    memory[3] = 32'h2402000a;  // addiu $2, $0, 10
-    memory[4] = 32'h00000000;  // syscall
-    memory[5] = 32'h23bdfffc;  // addiu $sp, $sp, -4
-    memory[6] = 32'hafbf0000;  // sw $ra, 0($sp)
-    memory[7] = 32'h00044021;  // addu $8, $0, $4
-    memory[8] = 32'h00054821;  // addu $9, $0, $5
-    memory[9] = 32'h240a0000;  // addiu $10, $0, 0
-    memory[10] = 32'h0109082a; // slt $1, $8, $9
-    memory[11] = 32'h14200003; // bne $1, $0, 3
-    memory[12] = 32'h01094022; // sub $8, $8, $9
-    memory[13] = 32'h214a0001; // addiu $10, $10, 1
-    memory[14] = 32'h0800000a; // j 10
-    memory[15] = 32'h000a1021; // addu $2, $0, $10
-    memory[16] = 32'h00081821; // addu $3, $0, $8
-	*/
+  // Initialize all memory locations to 0
+  for (integer i = 0; i < 4096; i = i + 1)
+    memory[i] = 32'h00000000;
+  
+  // Memory initialization for ill part 2 test
+  
+  // Start: Set up special register access
+  memory[0] = 32'h24040001;     // addiu $4, $0, 1        # Load value 1 into $4
+  memory[1] = 32'h40840000;     // mtc0 $4, $0           # Move $4 to CP0 register 0 (index)
+  
+  // Check for interrupts and jump to main code if none
+  memory[2] = 32'h10000001;     // beq $0, $0, 1         # Jump to main code (PC+12)
+  
+  // Interrupt handler (skipped if no interrupt)
+  memory[3] = 32'h08000014;     // j 0x14 (20)            # Jump to interrupt handler
+  
+  // Main code starts here (PC = 24 = 0x6)
+  memory[4] = 32'h24020001;     // addiu $2, $0, 1        # Set up $2 = 1
+  
+  // Trigger ill part 2 exception with an illegal coprocessor instruction
+  // Using opcode 010000 (CP0) with an invalid function code
+  memory[5] = 32'h40000100;     // mtc0 $0, $2, 4        # Invalid CP0 instruction (ill part 2)
+  
+  // Code after the exception (should not execute if exception is caught)
+  memory[6] = 32'h24020004;     // addiu $2, $0, 4        # Set $2 = 4
+  memory[7] = 32'h00000000;     // syscall                # Exit program
+  
+  // Interrupt handler (at address 20 = 0x14)
+  memory[20] = 32'h24020002;    // addiu $2, $0, 2        # Set $2 = 2 (indicate handler was called)
+  memory[21] = 32'h00000000;    // syscall                # Exit program
 end
 
 

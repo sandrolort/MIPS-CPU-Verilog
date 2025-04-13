@@ -1,19 +1,19 @@
 module i_decoder(
     input wire [31:0] instruction,
-    output [4:0] rs, rt,
+    output [4:0] rs, rt, rd,
     output wire [41:0] out_data_packed,
 	output wire is_illegal
 );
 
 wire [5:0] opc, fun;
-wire [4:0] rd, sa;
+wire [4:0] sa;
 wire [15:0] imm;
 wire [25:0] iindex;
 wire [3:0] af;
 wire i, alu_mux_sel, gp_we, mem_wren, mem_rren, spr_mux_sel;
 wire [2:0] shift_type;
 wire [4:0] cad, cadn;
-wire [2:0] gp_mux_sel
+wire [2:0] gp_mux_sel;
 wire [1:0] pc_mux_select;
 wire [3:0] bf;
 wire [1:0] ttype;
@@ -56,7 +56,7 @@ decoder_concat concat_inst (
     .rs(rs),
     .rt(rt),
     .rd(rd),
-    .packed_out(out_data_packed),
+    .packed_out(out_data_packed)
 );
 
 function [1:0] Type(input [5:0] opc, input [5:0] fun, input [4:0] rt, input [4:0] rs);
@@ -96,23 +96,23 @@ function [0:0] IsWritten(input [5:0] opc, input [5:0] fun);
     endcase
 endfunction
 
-function [1:0] WhereFrom(input [2:0]ttype, input [5:0] opc, input [5:0] fun, input [4:0] rs);
+function [2:0] WhereFrom(input [1:0]ttype, input [5:0] opc, input [5:0] fun, input [4:0] rs);
     case(ttype)
         2'b10: begin
             if (opc == 6'b010000 && rs == 5'b00000)
-                WhereFrom = 2'b100; //MovS2G
+                WhereFrom = 3'b100; //MovS2G
             casez(fun)
-                6'b001001: WhereFrom = 2'b011; // PC
-                6'b000010, 6'b000011: WhereFrom = 2'b010; //Shift
-                default: WhereFrom = 2'b000; // ALU
+                6'b001001: WhereFrom = 3'b011; // PC
+                6'b000010, 6'b000011: WhereFrom = 3'b010; //Shift
+                default: WhereFrom = 3'b000; // ALU
             endcase
         end 
-        2'b00: if(opc == 6'b100011) WhereFrom = 2'b001; //Memory
+        2'b00: if(opc == 6'b100011) WhereFrom = 3'b001; //Memory
                 else casez (opc)
-                    6'b001???: WhereFrom = 2'b000; //ALU
-                    default: WhereFrom = 2'b011; //PC
+                    6'b001???: WhereFrom = 3'b000; //ALU
+                    default: WhereFrom = 3'b011; //PC
                 endcase
-        default: WhereFrom = 2'b11;
+        default: WhereFrom = 3'b11;
     endcase
 endfunction
 

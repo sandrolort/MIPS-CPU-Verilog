@@ -42,6 +42,7 @@ wire gp_we;
 wire [4:0] cad;
 wire [31:0] alu_res, shift_res;
 wire [31:0] mem_out;
+wire [31:0] epc;
 wire mem_rren;
 wire mem_wren;
 wire [2:0] gp_mux_sel;
@@ -59,9 +60,8 @@ wire [31:0] next_pc;
 wire [31:0] instruction;
 
 // Interrupts
-wire [31:0] data_in,
-wire [2:0] reg_sel,
-wire [31:0] spr_out,
+wire [2:0] reg_sel;
+wire [31:0] spr_out;
 wire jisr;
 wire eret = instruction[31:26] == 6'b010000 && instruction[5:0] == 6'b011000;
 wire [31:0] temp_pc = eret ? epc : next_pc;
@@ -79,12 +79,13 @@ main_interrupt interrupts(
 	.pc(pc),
 	.e(E),
 	.next_pc(next_pc),
-    .data_in(data_in),
+    .data_in(b_gpr),
 	.reg_sel(spr_mux_sel ? rt : rd),
     .spr_out(spr_out),
 	.mca(mca),
 	.jisr(jisr),
 	.abort(abort),
+    .epc(epc),
 	.mode(mode)
 );
 
