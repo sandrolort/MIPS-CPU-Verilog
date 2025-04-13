@@ -3,7 +3,8 @@ module spr_tb;
     // Inputs
     reg clk;
     reg jisr;
-    reg [22:0] mca;
+    reg eret;
+	reg [22:0] mca;
     reg rpt;
     reg [31:0] pc;
     reg [31:0] next_pc;
@@ -15,13 +16,15 @@ module spr_tb;
 	// Output
 	wire [31:0] spr_out;
 	wire [31:0] sr;
+	wire [31:0] epc;
 	wire [31:0] mode;
 
     // Instantiate the Unit Under Test (UUT)
     spr uut (
         .clk(clk),
         .jisr(jisr),
-        .mca(mca),
+        .eret(eret),
+		.mca(mca),
         .rpt(rpt),
         .pc(pc),
         .next_pc(next_pc),
@@ -31,6 +34,7 @@ module spr_tb;
 		.sprw(sprw),
 		.spr_out(spr_out),
 		.sr(sr),
+		.epc(epc),
 		.mode(mode)
 	);
 
@@ -46,6 +50,7 @@ module spr_tb;
     initial begin
         // Initialize inputs
         jisr = 0;
+		eret = 0;
         mca = 23'b0;
         rpt = 0;
         pc = 32'b0;

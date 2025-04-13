@@ -1,6 +1,7 @@
 module spr (
 	input wire clk,
 	input wire jisr,
+	input wire eret,
 	input wire [22:0] mca,
 	input wire rpt,  // 1 bit 'repeat' signal
 	input wire [31:0] pc,
@@ -11,6 +12,7 @@ module spr (
     input wire sprw,
 	output wire [31:0] spr_out,
 	output wire [31:0] sr,
+	output wire [31:0] epc,
 	output wire [31:0] mode
 );
 	reg [31:0] spr [7:0];
@@ -31,7 +33,18 @@ module spr (
  			spr[5] <= spr[5];  // hardcoded until paging is implemented
  			spr[6] <= spr[6];  // hardcoded until paging is implemented
  			spr[7] <= 32'b0;  // system mode
-  		end else begin
+		end
+		else if (eret) begin
+			spr[0] <= spr[1];  // d'.sr = d.esr
+			spr[7] <= {31'b0, 1'b1};  // d'.mode = 0^{31} 1
+			spr[1] <= spr[1];
+			spr[2] <= spr[2];
+			spr[3] <= spr[3];
+			spr[4] <= spr[4];
+			spr[5] <= spr[5];
+			spr[6] <= spr[6];
+  		end 
+		else begin
  			spr[0] <= (reg_sel == 3'b000 && sprw) ? data_in : spr[0];
  			spr[1] <= (reg_sel == 3'b001 && sprw) ? data_in : spr[1];
  			spr[2] <= (reg_sel == 3'b010 && sprw) ? data_in : spr[2];
@@ -45,6 +58,7 @@ module spr (
 
     assign spr_out = spr[reg_sel];
 	assign sr = spr[3'b000];
-    assign mode = spr[3'b111];
+	assign epc = spr[3'b011];
+	assign mode = spr[3'b111];
 
 endmodule
