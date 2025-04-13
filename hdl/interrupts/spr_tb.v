@@ -14,6 +14,8 @@ module spr_tb;
 
 	// Output
 	wire [31:0] spr_out;
+	wire [31:0] sr;
+	wire [31:0] mode;
 
     // Instantiate the Unit Under Test (UUT)
     spr uut (
@@ -27,7 +29,9 @@ module spr_tb;
 		.data_in(data_in),
 		.reg_sel(reg_sel),
 		.sprw(sprw),
-		.spr_out(spr_out)
+		.spr_out(spr_out),
+		.sr(sr),
+		.mode(mode)
 	);
 
 	initial begin

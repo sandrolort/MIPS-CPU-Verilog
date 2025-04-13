@@ -6,8 +6,6 @@ module spr (
 	input wire [31:0] pc,
 	input wire [31:0] next_pc,
 	input wire [31:0] ea,
-	input wire [4:0] rt,
-	input wire [4:0] rd,
 	input wire [31:0] data_in,
 	input wire [2:0] reg_sel,
     input wire sprw,

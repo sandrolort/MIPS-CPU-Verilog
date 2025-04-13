@@ -60,19 +60,19 @@ module main_interrupt (
         if (second_part_of_ill) begin
             $display("Trying to use unauthorized instructions");
             abort = 1'b1;
-			$stop;
+			// $stop;
         end
 
         if (misaf) begin
             $display("Misaligned fetch");
             abort = 1'b1;
-			$stop;
+			// $stop;
         end
 
         if (misals) begin
             $display("Misaligned load/store");
             abort = 1'b1;
-			$stop;
+			// $stop;
         end
 
 		if (sysc) begin
@@ -97,13 +97,12 @@ module main_interrupt (
         .pc(pc),
         .next_pc(next_pc),
         .ea(ea),
-		.rd(rd),
 		.data_in(data_in),
 		.reg_sel(reg_sel),
 		.sprw(movg2s),
 		.spr_out(spr_out),
 		.sr(sr),
-		.mode(mode_in)  // Switch to 'mode_in' for testing
+		.mode(mode)  // Switch to 'mode_in' for testing
 	);
 
 endmodule

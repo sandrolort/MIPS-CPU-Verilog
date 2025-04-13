@@ -4,14 +4,15 @@ module main_interrupt_tb;
     reg [31:0] ea;
     reg clk;
     reg rst = 1'b0;
-    reg [31:0] pc;
+    reg [15:0] ca_part_1;
+	reg is_illegal;
+	reg ovfalu;
+	reg [31:0] pc;
     reg e;
-    reg rpt;
     reg [31:0] mode_in;
     reg [31:0] next_pc;
     reg [31:0] data_in;
     reg [2:0] reg_sel;
-    reg sprw;
 
     // Outputs
     wire [31:0] spr_out;
@@ -30,12 +31,10 @@ module main_interrupt_tb;
 		.ovfalu(1'b0),
         .pc(pc),
         .e(e),
-        .rpt(rpt),
         .mode_in(mode_in),
         .next_pc(next_pc),
         .data_in(data_in),
         .reg_sel(reg_sel),
-        .sprw(sprw),
         .spr_out(spr_out),
 		.mca(mca),
         .jisr(jisr),
@@ -52,8 +51,10 @@ module main_interrupt_tb;
         ea = 32'b0;
 		pc = {30'b0, 2'b11};
 		e = 1'b0;
-		rpt = 1'b0;
 		next_pc = 32'b0;
+		data_in = 32'b0;
+		reg_sel = 3'b0;
+
 
 		// Test Case 1 (ill part 2):
 		instruction = {6'b010000, 26'b0};
