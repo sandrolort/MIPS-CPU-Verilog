@@ -164,7 +164,10 @@ decoder_deconcat defcon(
     .mem_rren(mem_rren),
     .gp_mux_sel(gp_mux_sel),
     .spr_mux_sel(spr_mux_sel),
-    .cad(cad)
+    .cad(cad),
+	// Add missing ports
+    .af(), .i(), .alu_mux_sel(), .shift_type(),
+    .bf(), .pc_mux_select(), .rs(), .rt(), .rd()
 );
 
 // Execute stage

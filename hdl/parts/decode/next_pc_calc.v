@@ -19,7 +19,11 @@ wire [1:0] pc_mux_select;
 decoder_deconcat deconcat_inst (
     .packed_in(decode_data_packed),
     .bf(bf),
-    .pc_mux_select(pc_mux_select)
+    .pc_mux_select(pc_mux_select),
+	// Add missing ports (example names; adjust based on actual module definition)
+    .af(), .i(), .alu_mux_sel(), .shift_type(),
+    .cad(), .gp_we(), .gp_mux_sel(), .spr_mux_sel(),
+    .mem_wren(), .mem_rren(), .rs(), .rt(), .rd()
 );
 
 // Branch condition evaluation unit
