@@ -22,16 +22,15 @@ module main_interrupt (
     // Internal wires for connecting modules
 	wire [31:0] il;
     wire second_part_of_ill;
-    wire ls;
     wire misaf;
     wire misals;
     wire sysc;
-    wire movg2s;
 	wire [31:0] sr;
+	
+    wire ls = (instruction[31:26] == 6'b100011) || (instruction[31:26] == 6'b101011);
 	wire eret = (instruction[31:26] == 6'b010000) && (instruction[5:0] == 6'b011000);
 	wire [22:0] ca = {ca_part_1, misaf, 1'b0, (is_illegal | second_part_of_ill), misals, 1'b0, sysc, ovfalu};
-
-    assign movg2s = (instruction[31:26] == 6'b010000) && (instruction[25:21] == 5'b00100);
+    wire movg2s = (instruction[31:26] == 6'b010000) && (instruction[25:21] == 5'b00100);
 
     // Instantiate updated interrupt_controller module
     interrupt_controller ic_inst (
@@ -44,9 +43,6 @@ module main_interrupt (
 
     // Logic for illegal instruction in user mode
     assign second_part_of_ill = mode == 32'b1 && (instruction[31:26] == 6'b010000);  // replace 'mode' with 'mode_in' for testing
-
-    // Logic of misalignment of fetch or load/store
-    assign ls = (instruction[31:26] == 6'b100011) || (instruction[31:26] == 6'b101011);
 
 	// Misaligned fetch in execute phase
 	assign misaf = e == 1 && pc[1:0] != 2'b00;

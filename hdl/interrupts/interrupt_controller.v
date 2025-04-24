@@ -11,15 +11,15 @@ module interrupt_controller (
         for (i = 0; i < 23; i = i + 1) begin : gen_mca
             if (i >= 1 && i <= 15 || i == 21 || i == 22) // Unmaskable interrupts are reset, illegal instructions, misalignment and page faults
                 assign mca[i] = ca[i] & sr[i];
-            else // Whose indexes are 0, 16, 17, 18, 19, 20
+            else // Whose indices are 0, 16, 17, 18, 19, 20
                 assign mca[i] = ca[i];
         end
     endgenerate
 
-    // Evaluating jisr predicate
-    assign jisr = |mca;  // Even if a single signal in mca is active, we need to jump to interrupt service routine
+    // Evaluating jisr predicate by ORing every bit
+    assign jisr = |mca; 
 
-    // Use find first one circuit to determine interrupt level
+    // Use the find first one circuit to determine interrupt level
     ff1 #(32) ff1_inst (.x({9'b0, mca}), .y(il));
 
 endmodule

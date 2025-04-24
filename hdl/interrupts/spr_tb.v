@@ -49,16 +49,16 @@ module spr_tb;
     // Test sequence
     initial begin
         // Initialize inputs
-        jisr = 0;
-		eret = 0;
+        jisr = 1'b0;
+		eret = 1'b0;
         mca = 23'b0;
-        rpt = 0;
+        rpt = 1'b0;
         pc = 32'b0;
         next_pc = 32'b0;
         ea = 32'b0;
 		data_in = 32'b0;
 		reg_sel = 3'b110;
-		sprw = 1;
+		sprw = 1'b1;
 
         // Example 1: No interrupt, rpt = 0
         #10;
