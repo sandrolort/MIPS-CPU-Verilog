@@ -60,17 +60,27 @@ wire [31:0] address;
 wire [31:0] read_data;
 wire [31:0] write_data;
 
+wire [31:0] sd_write_data;
+wire [31:0] sd_read_data;
+wire [10:0] sd_addr;
+wire        sd_wren;
+
 master mstr(
-      .external_clk(CLOCK_50_B5B),
-      .ena(SW[1] && c_state == 1),
-      .rst(SW[0]),
-      .debug_hex_display(hex_value),
-      .clock_led(LEDG),
-      .lpddr2_address(address),
-      .lpddr2_write_data(write_data),
-      .lpddr2_read_data(read_data),
-      .lpddr2_rreq(read_req),
-      .lpddr2_wreq(write_req)
+    .external_clk(CLOCK_50_B5B),
+    .ena(SW[1] && c_state == 1),
+    .rst(SW[0]),
+    .debug_hex_display(hex_value),
+    .clock_led(LEDG),
+    .lpddr2_address(address),
+    .lpddr2_write_data(write_data),
+    .lpddr2_read_data(read_data),
+    .lpddr2_rreq(read_req),
+    .lpddr2_wreq(write_req),
+    // SD Memory
+    .sd_write_data(sd_write_data),
+    .sd_read_data(sd_read_data),
+    .sd_addr(sd_addr),
+    .sd_wren(sd_wren)
 );
 
 hex_display display(
@@ -158,7 +168,6 @@ assign test_start_n           =(sample[4:3]==2'b01)?1'b0:1'b1;
 
 
 wire [3:0] c_state;
-assign LEDR = c_state; 
 lpddr2_memory fpga_mem_inst(
       .iCLK(afi_half_clk),
       .iRST_n(test_software_reset_n),
