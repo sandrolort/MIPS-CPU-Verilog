@@ -71,16 +71,14 @@ always@(posedge iCLK) begin
             READ : begin
                 avl_address <= addr;
                 avl_read <= 1'b1;
-                if (avl_waitrequest_n)
+                if (avl_waitrequest_n && avl_readdatavalid)
                     c_state <= WAIT_READ;
             end
 
             WAIT_READ : begin
                 avl_read <= 1'b0;
-                if (avl_readdatavalid) begin
-                    data_reg <= avl_readdata;
-                    c_state <= IDLE;
-                end
+                data_reg <= avl_readdata;
+                c_state <= IDLE;
             end
 
             default : c_state <= INIT;

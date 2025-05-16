@@ -77,7 +77,7 @@ end
 
 assign instruction = instruction_reg;
 
-`ifdef LUKA
+`ifdef HARDWARE
 // Memory stage with E signal
 memory_master memory(
     .clk(clk),

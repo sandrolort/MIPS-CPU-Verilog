@@ -1,0 +1,91 @@
+
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:49:12>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:49:14>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:49:18>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:49:38>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:49:42>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:49:47>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:49:50>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:50:06>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:50:35>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:51:03>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:51:04>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:51:06>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:56:25>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:56:33>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:56:35>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:56:36>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:56:38>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/run/media/sandro/Data/data/Documents/Hardware/Quartus/CPU-Thesis/clk_div.v
+
+May 16 11AM:56:44>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
