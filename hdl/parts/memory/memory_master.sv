@@ -14,22 +14,23 @@ module memory_master(
     input wire [31:0] read_data,
     output wire read_req,
     output wire write_req,
-    // SD
-    output wire [31:0] sd_write_data,
-    input wire [31:0] sd_read_data,
-    output wire [10:0] sd_addr,
-    output wire sd_wren
+	 
+    // Disk Memory
+    output wire [31:0] disk_hdin,
+    input wire [31:0] disk_hdout,
+    output wire [10:0] disk_hd_a,
+    output wire disk_hd_w
 );
 
 wire [31:0] sram_q;
 
-wire is_lpddr2_used = addr_in > {11{1'b1}} /* synthesis keep */;
-wire is_sd_used     = addr_in > {10{1'b1}} /* synthesis keep */;
+wire is_lpddr2_used = addr_in > 30'hFFF /* synthesis keep */;
+wire is_disk_used   = addr_in > 30'h7FF /* synthesis keep */;
 
-wire sram_wren = E && mem_wren && !is_lpddr2_used && !is_sd_used;
+wire sram_wren = E && mem_wren && !is_lpddr2_used && !is_disk_used;
 
-assign out = is_lpddr2_used ? read_data    :
-             is_sd_used     ? sd_read_data :
+assign out = is_lpddr2_used 	? 	read_data  :
+             is_disk_used   	? 	disk_hdout :
              sram_q;
 
 
@@ -47,9 +48,9 @@ assign write_req = E && mem_wren && is_lpddr2_used;
 assign read_req = is_lpddr2_used && ~write_req && (E && mem_rren || ~E);
 assign write_data = data_in;
 
-// SD
-assign sd_addr = addr_in[10:0];
-assign sd_write_data = data_in;
-assign sd_wren = E && mem_wren && !is_lpddr2_used && is_sd_used;
+// Disk
+assign disk_hd_a = addr_in[10:0];
+assign disk_hdin = data_in;
+assign disk_hd_w = E && mem_wren && !is_lpddr2_used && is_disk_used;
 
 endmodule

@@ -10,10 +10,11 @@ module master (
     input wire [31:0] lpddr2_read_data,
     output wire lpddr2_rreq,
     output wire lpddr2_wreq,
-    output wire [31:0] sd_write_data,
-    input wire [31:0] sd_read_data,
-    output wire [10:0] sd_addr,
-    output wire sd_wren
+	 
+    output wire [31:0] disk_hdin,
+    input wire [31:0] disk_hdout,
+    output wire [10:0] disk_hd_a,
+    output wire disk_hd_w
 );
 
 // Clock definitions
@@ -99,11 +100,12 @@ memory_master memory(
     .read_data(lpddr2_read_data),
     .read_req(lpddr2_rreq),
     .write_req(lpddr2_wreq),
-    // SD Memory
-    .sd_write_data(sd_write_data),
-    .sd_read_data(sd_read_data),
-    .sd_addr(sd_addr),
-    .sd_wren(sd_wren)
+	 
+    // Disk Memory
+    .disk_hdin(disk_hdin),
+    .disk_hdout(disk_hdout),
+    .disk_hd_a(disk_hd_a),
+    .disk_hd_w(disk_hd_w)
 );
 `else
 memory_master_mock memory(
