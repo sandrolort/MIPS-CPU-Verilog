@@ -18,7 +18,7 @@ module memory_master(
     // Disk Memory
     output wire [31:0] disk_hdin,
     input wire [31:0] disk_hdout,
-    output wire [10:0] disk_hd_a,
+    output wire [10:0] disk_hda,
     output wire disk_hd_w
 );
 
@@ -49,7 +49,7 @@ assign read_req = is_lpddr2_used && ~write_req && (E && mem_rren || ~E);
 assign write_data = data_in;
 
 // Disk
-assign disk_hd_a = addr_in[10:0];
+assign disk_hda = addr_in[10:0];
 assign disk_hdin = data_in;
 assign disk_hd_w = E && mem_wren && !is_lpddr2_used && is_disk_used;
 

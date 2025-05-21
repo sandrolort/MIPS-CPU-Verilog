@@ -67,7 +67,7 @@ wire [31:0] write_data;
 
 wire [31:0] disk_hdin;
 wire [31:0] disk_hdout;
-wire [10:0] disk_hd_a;
+wire [10:0] disk_hda;
 wire        disk_hd_w;
 
 master mstr(
@@ -85,7 +85,7 @@ master mstr(
     // Disk Memory
     .disk_hdin(disk_hdin),
     .disk_hdout(disk_hdout),
-    .disk_hd_a(disk_hd_a),
+    .disk_hda(disk_hda),
     .disk_hd_w(disk_hd_w)
 );
 
@@ -214,7 +214,7 @@ disk disk_inst(
 		.clk_shifted(disk_clk_shifted),
 		.rst_n(~SW[0] & pll_locked),
 		
-		.hd_a(disk_hd_a),
+		.hda(disk_hda),
 		.hd_w(disk_hd_w),
 		.hdin(disk_hdin),
 		.hdout(disk_hdout),

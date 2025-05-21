@@ -13,7 +13,7 @@ module master (
 	 
     output wire [31:0] disk_hdin,
     input wire [31:0] disk_hdout,
-    output wire [10:0] disk_hd_a,
+    output wire [10:0] disk_hda,
     output wire disk_hd_w
 );
 
@@ -104,7 +104,7 @@ memory_master memory(
     // Disk Memory
     .disk_hdin(disk_hdin),
     .disk_hdout(disk_hdout),
-    .disk_hd_a(disk_hd_a),
+    .disk_hda(disk_hda),
     .disk_hd_w(disk_hd_w)
 );
 `else
