@@ -9,12 +9,16 @@ module master (
     output wire [31:0] lpddr2_write_data,
     input wire [31:0] lpddr2_read_data,
     output wire lpddr2_rreq,
-    output wire lpddr2_wreq
+    output wire lpddr2_wreq,
+
+    output wire [31:0] disk_hdin,
+    input wire [31:0] disk_hdout,
+    output wire [10:0] disk_hda,
+    output wire disk_hd_w
 );
 
 // Clock definitions
 wire clk, clk_wen, mem_clk;
-wire E;  // E signal from memory stage
 assign mem_clk = external_clk;
 wire abort;
 wire is_illegal;
@@ -55,6 +59,15 @@ wire ovfalu;
 // Program counter
 reg [31:0] pc = 0;
 wire [31:0] next_pc;
+
+// Execute bit
+reg E = 0;
+always @(posedge clk or posedge rst) begin
+	if(rst)
+		E <= 0;
+	else
+		E <= ~E;
+end
 
 // Instruction register
 wire [31:0] instruction;
@@ -112,7 +125,7 @@ memory_master memory(
     .clk(clk),
     .mem_clk(mem_clk),
     .rst(rst),
-    .addr_in(~E ? pc[31:2] : alu_res),
+    .addr_in(~E ? pc[31:2] : alu_res[31:2]),
     .data_in(b_gpr),
     .mem_rren(mem_rren),
     .mem_wren(mem_wren),
@@ -125,14 +138,20 @@ memory_master memory(
     .write_data(lpddr2_write_data),
     .read_data(lpddr2_read_data),
     .read_req(lpddr2_rreq),
-    .write_req(lpddr2_wreq)
+    .write_req(lpddr2_wreq),
+
+    // Disk Memory
+    .disk_hdin(disk_hdin),
+    .disk_hdout(disk_hdout),
+    .disk_hda(disk_hda),
+    .disk_hd_w(disk_hd_w)
 );
 `else
 memory_master_mock memory(
     .clk(clk),
     .mem_clk(mem_clk),
     .rst(rst),
-    .addr_in(~E ? pc[31:2] : alu_res),
+    .addr_in(~E ? pc[31:2] : alu_res[31:2]),
     .data_in(b_gpr),
     .mem_rren(mem_rren),
     .mem_wren(mem_wren),

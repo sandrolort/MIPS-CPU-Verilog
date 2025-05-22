@@ -1,0 +1,104 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Quartus - Full Build",
+      "type": "shell",
+      "command": "echo Starting Quartus full build process...",
+      "dependsOrder": "sequence",
+      "dependsOn": ["Analysis & Synthesis", "Fitter", "Assembler", "Timing Analysis", "EDA Netlist Writer", "Open Programmer"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Analysis & Synthesis",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "PROJECT=$(find ${workspaceFolder} -maxdepth 1 -name \"*.qpf\" -exec basename {} .qpf \\; | head -1) && echo \"Using project: $PROJECT\" && /run/media/sandro/Data/data/intelFPGA_lite/23.1std/quartus/bin/quartus_map $PROJECT"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Fitter",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "PROJECT=$(find ${workspaceFolder} -maxdepth 1 -name \"*.qpf\" -exec basename {} .qpf \\; | head -1) && /run/media/sandro/Data/data/intelFPGA_lite/23.1std/quartus/bin/quartus_fit $PROJECT"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Assembler",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "PROJECT=$(find ${workspaceFolder} -maxdepth 1 -name \"*.qpf\" -exec basename {} .qpf \\; | head -1) && /run/media/sandro/Data/data/intelFPGA_lite/23.1std/quartus/bin/quartus_asm $PROJECT"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Timing Analysis",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "PROJECT=$(find ${workspaceFolder} -maxdepth 1 -name \"*.qpf\" -exec basename {} .qpf \\; | head -1) && /run/media/sandro/Data/data/intelFPGA_lite/23.1std/quartus/bin/quartus_sta $PROJECT"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "EDA Netlist Writer",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "PROJECT=$(find ${workspaceFolder} -maxdepth 1 -name \"*.qpf\" -exec basename {} .qpf \\; | head -1) && /run/media/sandro/Data/data/intelFPGA_lite/23.1std/quartus/bin/quartus_eda $PROJECT"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+        "label": "Open Programmer",
+        "type": "shell",
+        "command": "bash",
+        "args": [
+            "-c",
+            "PROJECT=$(find ${workspaceFolder} -maxdepth 1 -name \"*.qpf\" -exec basename {} .qpf \\; | head -1) && SOF_FILE=\"${workspaceFolder}/output_files/${PROJECT}.sof\" && if [ -f \"$SOF_FILE\" ]; then echo \"Found programming file: $SOF_FILE\" && /run/media/sandro/Data/data/intelFPGA_lite/23.1std/quartus/bin/quartus_pgmw -c \"$SOF_FILE\"; else echo \"Programming file not found: $SOF_FILE\" && /run/media/sandro/Data/data/intelFPGA_lite/23.1std/quartus/bin/quartus_pgmw; fi"
+        ],
+        "presentation": {
+            "reveal": "always",
+            "panel": "shared"
+        },
+        "problemMatcher": []
+    }
+  ]
+}

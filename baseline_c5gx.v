@@ -50,7 +50,12 @@ module baseline_c5gx(
       output      [9:0]  LEDR,
 
       ///////// SW ///////// 1.2 V ///////
-      input       [9:0]  SW
+      input       [9:0]  SW,
+		
+		///////// SD ///////// 3.3 V ///////
+		output				 SD_CLK,
+		output				 SD_CMD,
+		inout			[3:0]  SD_DAT
 );
 
 wire [31:0] hex_value;
@@ -60,17 +65,28 @@ wire [31:0] address;
 wire [31:0] read_data;
 wire [31:0] write_data;
 
+wire [31:0] disk_hdin;
+wire [31:0] disk_hdout;
+wire [10:0] disk_hda;
+wire        disk_hd_w;
+
 master mstr(
-      .external_clk(CLOCK_50_B5B),
-      .ena(SW[1] && c_state == 1),
-      .rst(SW[0]),
-      .debug_hex_display(hex_value),
-      .clock_led(LEDG),
-      .lpddr2_address(address),
-      .lpddr2_write_data(write_data),
-      .lpddr2_read_data(read_data),
-      .lpddr2_rreq(read_req),
-      .lpddr2_wreq(write_req)
+    .external_clk(CLOCK_50_B5B),
+    .ena(SW[1] && c_state == 1),
+    .rst(SW[0]),
+    .debug_hex_display(hex_value),
+    .clock_led(LEDG),
+    .lpddr2_address(address),
+    .lpddr2_write_data(write_data),
+    .lpddr2_read_data(read_data),
+    .lpddr2_rreq(read_req),
+    .lpddr2_wreq(write_req),
+	 
+    // Disk Memory
+    .disk_hdin(disk_hdin),
+    .disk_hdout(disk_hdout),
+    .disk_hda(disk_hda),
+    .disk_hd_w(disk_hd_w)
 );
 
 hex_display display(
@@ -99,10 +115,12 @@ wire [2:0]   fpga_lpddr2_avl_size;
 
 assign fpga_lpddr2_avl_size = 3'b001;
 
+wire lpddr_pll_locked;
+
 lpddr2 fpga_lpddr2_inst(
-    .pll_ref_clk(CLOCK_50_B5B),
-    .global_reset_n(test_global_reset_n),
-    .soft_reset_n(test_software_reset_n),
+    .pll_ref_clk(lpddr_refclk),
+    .global_reset_n(test_global_reset_n & pll_locked),
+    .soft_reset_n(test_software_reset_n & pll_locked),
     .afi_clk(afi_clk),
     .afi_half_clk(afi_half_clk),
     .mem_ca(DDR2LP_CA),
@@ -133,7 +151,8 @@ lpddr2 fpga_lpddr2_inst(
     .local_init_done(fpga_lpddr2_local_init_done),
     .local_cal_success(),
     .local_cal_fail(),
-    .oct_rzqin(DDR2LP_OCT_RZQ)
+    .oct_rzqin(DDR2LP_OCT_RZQ),
+	 .pll_locked(lpddr_pll_locked)
 );
 
 reg [31:0]  cont;
@@ -158,9 +177,9 @@ assign test_start_n           =(sample[4:3]==2'b01)?1'b0:1'b1;
 
 
 wire [3:0] c_state;
-lpddr2_memory fpga_lpddr2_Verify(
+lpddr2_memory fpga_mem_inst(
       .iCLK(afi_half_clk),
-      .iRST_n(test_software_reset_n),
+      .iRST_n(test_software_reset_n & lpddr_pll_locked),
 
       .read_req(read_req),
       .write_req(write_req),
@@ -179,5 +198,34 @@ lpddr2_memory fpga_lpddr2_Verify(
       .avl_burstbegin(fpga_lpddr2_avl_burstbegin),
 
       .c_state(c_state)
+);
+
+wire disk_clk_shifted;
+wire lpddr_refclk;
+wire pll_locked;
+// PLL for clock shifting
+diskpll clk_shift (
+    .refclk(CLOCK_50_B5B),
+	 .rst(SW[0]),
+	 .outclk_0(lpddr_refclk),
+	 .outclk_1(disk_clk_shifted),
+	 .locked(pll_locked)
+);
+
+disk disk_inst(
+		.clk(CLOCK_50_B5B),
+		.clk_shifted(disk_clk_shifted),
+		.rst_n(~SW[0] & pll_locked),
+		
+		.hda(disk_hda),
+		.hd_w(disk_hd_w),
+		.hdin(disk_hdin),
+		.hdout(disk_hdout),
+		
+		.SD_CLK(SD_CLK),
+		.SD_CMD(SD_CMD),
+		.SD_DAT(SD_DAT),
+		
+		.debug_state(LEDR[9:7])
 );
 endmodule

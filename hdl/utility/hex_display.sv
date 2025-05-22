@@ -1,9 +1,9 @@
 module hex_display(
     input wire [31:0] value,
-    output reg [6:0] hex0,
-    output reg [6:0] hex1,
-    output reg [6:0] hex2,
-    output reg [6:0] hex3
+    output wire [6:0] hex0,
+    output wire [6:0] hex1,
+    output wire [6:0] hex2,
+    output wire [6:0] hex3
 );
 
 reg [3:0] digit0, digit1, digit2, digit3;
@@ -34,11 +34,9 @@ function [6:0] seven_seg;
     end
 endfunction
 
-always @(*) begin
-    hex0 = seven_seg(digit0);
-    hex1 = seven_seg(digit1);
-    hex2 = seven_seg(digit2);
-    hex3 = seven_seg(digit3);
-end
+assign hex0 = seven_seg(digit0);
+assign hex1 = seven_seg(digit1);
+assign hex2 = seven_seg(digit2);
+assign hex3 = seven_seg(digit3);
 
 endmodule

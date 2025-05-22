@@ -4,7 +4,7 @@
 *.cmp
 *.done
 *.eqn
-*.hex
+# *.hex
 *.html
 *.jdi
 *.jpg
@@ -20,7 +20,7 @@
 *.sof
 *.sopc_builder
 *.summary
-*.tcl
+# *.tcl
 *.txt # Explicitly add any text files used
 *~
 *example*

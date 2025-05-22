@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="diskpll_sim/diskpll.vo" type="VERILOG" />
+ <topLevel name="diskpll" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

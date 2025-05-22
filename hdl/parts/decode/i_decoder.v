@@ -62,21 +62,21 @@ decoder_concat concat_inst (
 function [1:0] Type(input [5:0] opc, input [5:0] fun, input [4:0] rt, input [4:0] rs);
 	begin
         casez (opc)
-            6'b10?011, 6'b001???, 6'b00010?: 
+            6'b10?011, 6'b001???, 6'b00010?:
 				Type = 2'b00; // I-Type
-            6'b000001: 
-				if (rt[4:1] == 4'b0000) 
+            6'b000001:
+				if (rt[4:1] == 4'b0000)
                     Type = 2'b00; // I-Type
-            6'b00011?: 
-				if (rt == 5'b00000) 
+            6'b00011?:
+				if (rt == 5'b00000)
                     Type = 2'b00; // I-Type
-            6'b000000: 
+            6'b000000:
 				if (fun[5:3] == 3'b100 || fun == 6'b000010 || fun[5:1] == 5'b10101 || fun == 6'b001000 || fun == 6'b001010 || fun == 6'b001100)
                     Type = 2'b10; // R-Type
-            6'b010000: 
+            6'b010000:
 				if ((fun == 6'b011000 && rs == 5'b10000) || rs == 5'b00100 || rs == 5'b00000)
                     Type = 2'b10; // R-Type
-            6'b00001?: 
+            6'b00001?:
 				Type = 2'b01; // J-Type
             default: begin
                 Type = 2'b11; // None of the above, undefined(c) -> illegal instruction
@@ -106,7 +106,7 @@ function [2:0] WhereFrom(input [1:0]ttype, input [5:0] opc, input [5:0] fun, inp
                 6'b000010, 6'b000011: WhereFrom = 3'b010; //Shift
                 default: WhereFrom = 3'b000; // ALU
             endcase
-        end 
+        end
         2'b00: if(opc == 6'b100011) WhereFrom = 3'b001; //Memory
                 else casez (opc)
                     6'b001???: WhereFrom = 3'b000; //ALU
