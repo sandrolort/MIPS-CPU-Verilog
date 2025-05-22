@@ -34,9 +34,9 @@ module disk (
     reg rd_en = 1'b0;             // Read enable
     reg wr_en = 1'b0;             // Write enable
     	 
-	 reg [7:0] disk_sd_byte_counter = 8'h0;
-	 reg [2:0] disk_sd_block_counter = 3'h0;
-	 reg counter_rdy = 0;
+	 reg [2:0] block_counter = 3'h0;
+	 reg [7:0] byte_counter = 8'h0;
+	 reg count_rdy = 0;
 	 
 	 reg [3:0] disk_sram_byteena_incr = 4'b1111;
     
@@ -66,7 +66,7 @@ module disk (
 
     // SD Card signal assignments
     wire [31:0] sd_addr;
-    assign sd_addr = spar + disk_sd_block_counter;
+    assign sd_addr = spar + block_counter;
     assign SD_DAT = 4'bZ;
     
     // SD card controller instantiation
@@ -118,49 +118,46 @@ module disk (
     );
     
 
-	 wire op_busy = rd_busy | wr_busy;
-	 wire op_req = rd_data_en | wr_req;
-	 
-	 always @(negedge op_busy or negedge rst_n) begin
-		 if(!rst_n) begin
-			disk_sd_block_counter <= 0;
-		 end
-		 else begin
-			disk_sd_block_counter <= disk_sd_block_counter + 3'b1;
-		 end
+	  always @(negedge op_busy or negedge rst_n) begin
+			if(!rst_n)
+				block_counter <= 0;
+			else
+				block_counter <= block_counter + 1;
 	 end
 	 
-    always @(posedge op_req or negedge op_busy or negedge rst_n) begin
+	 wire op_req = (state == DISK_READ) ? rd_data_en : (~wr_req);
+	 wire op_busy = (state == DISK_READ) ? rd_busy : wr_busy;
+	 always @(posedge op_req or negedge op_busy or negedge rst_n) begin
         if (~rst_n) begin
+				byte_counter <= 8'h0;
 				wr_data <= 16'h0;
-				disk_sd_byte_counter <= 8'h0;
-				disk_sram_byteena_incr <= 4'b1111;
-				counter_rdy <= 0;
+				disk_sram_byteena_incr <= 4'b0011;
+				count_rdy <= 0;
         end
 		  else if (~op_busy) begin
-				disk_sd_byte_counter <= 8'h0;
-				wr_data <= 16'h0;
-				disk_sram_byteena_incr <= 4'b1111;
-				counter_rdy <= 0;
+				count_rdy <= 0;
+				byte_counter <= 8'h0;
+				disk_sram_byteena_incr <= 4'b0011;
+
 		  end
         else if (op_req) begin
-				if(~counter_rdy)
-					counter_rdy <= ~counter_rdy;
+				if((count_rdy | wr_req) && ({block_counter, byte_counter} != 11'h7FF))
+					byte_counter <= byte_counter + 1;
+				
+				if(~count_rdy)
+					count_rdy <= 1;
 					
-				if(counter_rdy)
-					disk_sd_byte_counter <= disk_sd_byte_counter + 11'h1;
-					
-				wr_data <= disk_sd_byte_counter[0] ? disk_sram_data_out[15:0] : disk_sram_data_out[31:16];
+				wr_data <= byte_counter[0] ? disk_sram_data_out[15:0] : disk_sram_data_out[31:16];
 				disk_sram_byteena_incr = disk_sram_byteena_incr[0] ? disk_sram_byteena_incr << 2 : disk_sram_byteena_incr >> 2;//disk_sram_addr_incr[0] ? 4'b0011 : 4'b1100;
         end
     end
-	 
-	 //SRAM signal assignments	 
+	
+	//SRAM signal assignments	 
     assign disk_sram_data_in = (state == DISK_READ) ? {rd_data, rd_data} : sram_reg_data;
     assign disk_sram_byteena = ((state == DISK_READ) || (state == DISK_WRITE)) ? disk_sram_byteena_incr : 4'b1111;
     assign disk_sram_wren = (state == DISK_READ) ? rd_data_en : sram_reg_wren;
     assign disk_sram_addr = ((state == DISK_READ) || (state == DISK_WRITE)) ? 
-                           {disk_sd_block_counter, disk_sd_byte_counter[7:1]} : sram_reg_addr;
+                           {block_counter, byte_counter[7:1]} : sram_reg_addr;
     
     // Disk busy status with clear definition
     wire disk_busy;
@@ -303,13 +300,13 @@ module disk (
                 end
                 
                 DISK_READ: begin
-                    if (rd_busy && disk_sd_block_counter == 3'b111) begin
+                    if (rd_busy && {block_counter, byte_counter[7]} == 4'b1111) begin
                         rd_en <= 1'b0;
                     end
                 end
                 
                 DISK_WRITE: begin
-                    if (wr_busy && disk_sd_block_counter == 3'b111) begin
+                    if (wr_busy && {block_counter, byte_counter[7]} == 4'b1111) begin
                         wr_en <= 1'b0;
                     end
                 end
