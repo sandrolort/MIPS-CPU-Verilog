@@ -17,7 +17,10 @@ module main_interrupt (
     output wire jisr,
 	output reg abort = 1'b0,
 	output wire [31:0] epc,
-	output wire [31:0] mode
+	output wire [31:0] mode,
+    output wire [31:0] pto,
+    output wire [31:0] ptl,
+    output wire rpt
 );
     // Internal wires for connecting modules
 	wire [31:0] il;
@@ -83,7 +86,7 @@ module main_interrupt (
 
 	wire [4:0] rt = instruction[20:16];
 	wire [4:0] rd = instruction[15:11];
-	wire rpt = (il[15:1] != 0) || il[17] || il[20];
+	assign rpt = (il[15:1] != 0) || il[17] || il[20];
 
     // Instantiate spr module
     spr spr_inst (
@@ -101,7 +104,9 @@ module main_interrupt (
 		.spr_out(spr_out),
 		.sr(sr),
 		.epc(epc),
-		.mode(mode)
+		.mode(mode),
+        .pto(pto),
+        .ptl(ptl)
 	);
 
 endmodule

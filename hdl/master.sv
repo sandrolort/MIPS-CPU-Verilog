@@ -14,7 +14,8 @@ module master (
 
 // Clock definitions
 wire clk, clk_wen, mem_clk;
-wire E;  // E signal from memory stage
+reg E  = 0;  // E signal from memory stage
+reg phase = 0;
 assign mem_clk = external_clk;
 wire abort;
 wire is_illegal;
@@ -66,7 +67,42 @@ wire jisr;
 wire eret = instruction[31:26] == 6'b010000 && instruction[5:0] == 6'b011000;
 wire [31:0] temp_pc = eret ? epc : next_pc;
 wire [15:0] ca_part_1 = {rst, 15'b0};
-wire mode;
+wire [31:0] mode31;
+wire mode = mode31[0];
+wire [31:0] pto;
+wire [31:0] ptl;
+// ex(h) = h.E ∧ (¬h.mode[0] ∨ h.mode[0] ∧ h.phase).
+wire ex = E && (~mode || (mode && phase));
+wire rpt;
+wire mw;
+wire gw;
+
+// mw(h, eev) = ex(h) ∧ s(h) ∧ ¬( jisr(h, eev) ∧ repeat(h, eev)),
+assign mw = ex && mem_wren && ~(
+    jisr && rpt
+);
+
+// gw(h, eev) = ex(h) ∧ (gprwold (h) ∨ movs2g(h)) ∧ ¬( jisr(h, eev) ∧ repeat(h, eev)).
+// do without movs2g
+assign gw = ex && (gp_we & ~(
+    jisr & rpt
+));
+
+
+// Execute bit updated
+always @(posedge clk or posedge jisr) begin
+    // ¬ jisr(h, eev) ∧ (¬h.mode[0] ∧ ¬h.E ∨
+// h.mode[0] ∧ (h.E ⊕ h.phase)),
+    E <= ~jisr && (
+        (~mode && ~E) || (mode && (E ^ phase))
+    );
+end
+
+always @(posedge clk or posedge jisr) begin
+    // phase <= ¬ jisr(h, eev) ∧ h.mode[0] ∧ ¬h.phase.
+    phase <= ~jisr && mode && ~phase;
+end
+
 
 main_interrupt interrupts(
 	.instruction(instruction),
@@ -86,15 +122,16 @@ main_interrupt interrupts(
 	.jisr(jisr),
 	.abort(abort),
     .epc(epc),
-	.mode(mode)
+	.mode(mode31),
+    .pto(pto),
+    .ptl(ptl),
+    .rpt(rpt)
 );
 
 
 always @(posedge E or posedge jisr) begin // JISR or E
-    if (jisr)  // reset
-        pc <= 32'b0;
-    else if (E) // next_pc vs epc
-        pc <= temp_pc;
+// pcce(h, eev) = ex(h) ∨ jisr(h, eev),
+    pc <= ex || jisr ? temp_pc : pc;
 end
 
 // Instruction register
@@ -105,6 +142,19 @@ always @(posedge mem_clk) begin
 end
 
 assign instruction = instruction_reg;
+wire [29:0] ma;
+
+MMU mmu(
+    .clk(clk),
+    .pc(pc[31:2]),
+    .ea(ea[31:2]),
+    .pto(pto[31:2]),
+    .mout(mem_out),
+    .phase(phase),
+    .E(E),
+    .mode(mode),
+    .ma(ma)
+);
 
 `ifdef HARDWARE
 // Memory stage with E signal
@@ -115,7 +165,7 @@ memory_master memory(
     .addr_in(~E ? pc[31:2] : alu_res),
     .data_in(b_gpr),
     .mem_rren(mem_rren),
-    .mem_wren(mem_wren),
+    .mw(mw),
     .gp_we(gp_we),
 	.jisr(jisr),  // Added
     .out(mem_out),
@@ -132,11 +182,10 @@ memory_master_mock memory(
     .clk(clk),
     .mem_clk(mem_clk),
     .rst(rst),
-    .addr_in(~E ? pc[31:2] : alu_res),
+    .addr_in(ma),
     .data_in(b_gpr),
     .mem_rren(mem_rren),
-    .mem_wren(mem_wren),
-    .gp_we(gp_we),
+    .mw(mw),
 	.jisr(jisr),  // Added
     .out(mem_out),
     .E(E)
@@ -198,7 +247,7 @@ writeback_master writeback(
 gpr genreg(
     .clk(clk),
     .rst(rst),
-    .we(gp_we & E),  // Only write during execute phase
+    .we(gw),  // Only write during execute phase
     .rs(rs),
     .rt(rt),
     .wa(cad),

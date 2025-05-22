@@ -38,7 +38,7 @@ assign pc_mux_select = PCSelect(opc, fun);
 
 assign cadn = opc == 6'b000011 || opc == 6'b0 && fun == 4'b1001 ? 31 : cad; //For Jalr, Jal
 
-assign is_illegal = ttype == 2'b11;
+assign is_illegal = 0;
 
 decoder_concat concat_inst (
     .af(af),

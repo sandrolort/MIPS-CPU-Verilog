@@ -13,7 +13,9 @@ module spr (
 	output wire [31:0] spr_out,
 	output wire [31:0] sr,
 	output wire [31:0] epc,
-	output wire [31:0] mode
+	output wire [31:0] mode,
+	output wire [31:0] pto,
+	output wire [31:0] ptl
 );
 	reg [31:0] spr [7:0];
 
@@ -21,22 +23,25 @@ module spr (
 	   integer i;
 	   for (i = 0; i < 8; i = i + 1)
 			spr[i] = 32'b0;
+		spr[5] = 4096;
+		spr[6] = 4096;
+		spr[7] = 1;
 	end
 
 	always @(posedge clk) begin
-  		if (jisr) begin
- 			spr[1] = spr[0];  // moved up as we first store value of d.sr in d'.esr 
- 			spr[0] = 32'b0;
- 			spr[2] <= {9'b0, mca};
- 			spr[3] <= ((rpt) ? pc : next_pc);
- 			spr[4] <= ea;
- 			spr[5] <= spr[5];  // hardcoded until paging is implemented
- 			spr[6] <= spr[6];  // hardcoded until paging is implemented
- 			spr[7] <= 32'b0;  // system mode
+		if (jisr) begin
+			spr[1] = spr[0];  // moved up as we first store value of d.sr in d'.esr 
+			spr[0] = 32'b0;
+			spr[2] <= {9'b0, mca};
+			spr[3] <= ((rpt) ? pc : next_pc);
+			spr[4] <= ea;
+			spr[5] <= spr[5];  // hardcoded until paging is implemented
+			spr[6] <= spr[6];  // hardcoded until paging is implemented
+			spr[7] <= 0;
 		end
 		else if (eret) begin
 			spr[0] <= spr[1];  // d'.sr = d.esr
-			spr[7] <= {31'b0, 1'b1};  // d'.mode = 0^{31} 1
+			spr[7] <= 1;
 			spr[1] <= spr[1];
 			spr[2] <= spr[2];
 			spr[3] <= spr[3];
@@ -60,5 +65,8 @@ module spr (
 	assign sr = spr[3'b000];
 	assign epc = spr[3'b011];
 	assign mode = spr[3'b111];
+
+	assign pto = spr[5];
+	assign ptl = spr[6];
 
 endmodule

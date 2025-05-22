@@ -37,7 +37,7 @@ wire [31:0] jjal = {incr[31:28], iindex, 2'b00};
 wire [31:0] mux_bcres = bcres ? pc_imm_sum : incr;
 
 assign next_pc =
-    (i_fetch == 32'b0)       ? pc        : // Halt signal
+    // (i_fetch == 32'b0)       ? pc        : // Halt signal
     (pc_mux_select == 2'b11) ? incr      :
     (pc_mux_select == 2'b01) ? mux_bcres :
     (pc_mux_select == 2'b10) ? jjal      :

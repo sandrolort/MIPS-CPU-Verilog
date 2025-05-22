@@ -25,10 +25,10 @@ initial begin
     #30;
     rst = 0;
 
-    for (integer i = 0; i < 4096; i = i + 1)
-		uut.memory.memory[i] = 32'h00000000;
+    // for (integer i = 0; i < 4096; i = i + 1)
+	// 	uut.memory.memory[i] = 32'h00000000;
 
-    $readmemb("./programs/simple", uut.memory.memory);
+    // $readmemb("./programs/simple", uut.memory.memory);
 
 
 
