@@ -1,5 +1,5 @@
 module execute_master(
-    input [39:0] decoder_packed,
+    input [41:0] decoder_packed,
     input [31:0] a_decoder, b_decoder,
     input [31:0] i_decoder,
     input [31:0] pc,
@@ -26,7 +26,11 @@ decoder_deconcat deconcat_inst (
     .af(af),
     .i(i),
     .alu_mux_sel(alu_mux_sel),
-    .shift_type(shift_type)
+    .shift_type(shift_type),
+	// Add missing ports
+    .cad(), .gp_we(), .gp_mux_sel(), .bf(),
+    .pc_mux_select(), .spr_mux_sel(), .mem_wren(),
+    .mem_rren(), .rs(), .rt(), .rd()
 );
 
 assign alu_b = alu_mux_sel ? imm_extended : b_decoder;

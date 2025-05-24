@@ -6,6 +6,8 @@ module memory_master(
     input wire [31:0] data_in,
     input wire mem_wren,
     input wire mem_rren,
+    input wire gp_we,
+	input wire jisr,  // Added
     output wire [31:0] out,
     input wire E,
     // LPDDR2 Memory
@@ -14,7 +16,7 @@ module memory_master(
     input wire [31:0] read_data,
     output wire read_req,
     output wire write_req,
-	 
+
     // Disk Memory
     output wire [31:0] disk_hdin,
     input wire [31:0] disk_hdout,
