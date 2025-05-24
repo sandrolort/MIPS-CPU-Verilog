@@ -17,7 +17,7 @@ module interrupt_controller (
     endgenerate
 
     // Evaluating jisr predicate by ORing every bit
-    assign jisr = |mca; 
+    assign jisr = |mca; //todo check this
 
     // Use the find first one circuit to determine interrupt level
     ff1 #(32) ff1_inst (.x({9'b0, mca}), .y(il));

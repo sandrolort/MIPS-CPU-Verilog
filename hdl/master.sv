@@ -103,11 +103,15 @@ main_interrupt interrupts(
 );
 
 
-always @(posedge E or posedge jisr) begin // JISR or E
-    if (jisr)  // reset
+always @(posedge clk or posedge rst) begin
+    if (rst) begin
         pc <= 32'b0;
-    else if (E) // next_pc vs epc
+    end else if (jisr) begin
+        pc <= 32'b0;  // Jump to interrupt vector
+    end else if (E) begin  // Only update PC during execute phase
         pc <= temp_pc;
+    end
+    // else maintain current PC value
 end
 
 // Instruction register

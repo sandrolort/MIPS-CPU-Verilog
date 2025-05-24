@@ -50,36 +50,37 @@ module main_interrupt (
 	// Misaligned load or store
 	assign misals = ls && ea[1:0] != 2'b00;
 
-    // Logic for system call
-    assign sysc = instruction[31:26] == 6'b000000 && instruction[5:0] == 6'b001100;
+	// Logic for system call
+	assign sysc = instruction[31:26] == 6'b000000 && instruction[5:0] == 6'b001100;
 
-    always @(posedge clk, rst) begin
-        if (second_part_of_ill) begin
-            $display("Trying to use unauthorized instructions");
-            abort = 1'b1;
+	always @(posedge clk, posedge rst) begin
+	if (rst) begin
+		// Asynchronous reset
+		abort <= 1'b0;
+	end else begin
+		// Synchronous logic on clock edge
+		if (second_part_of_ill) begin
+			$display("Trying to use unauthorized instructions");
+			abort <= 1'b1;
 			// $stop;
-        end
-
-        if (misaf) begin
-            $display("Misaligned fetch");
-            abort = 1'b1;
+		end else if (misaf) begin
+			$display("Misaligned fetch");
+			abort <= 1'b1;
 			// $stop;
-        end
-
-        if (misals) begin
-            $display("Misaligned load/store");
-            abort = 1'b1;
+		end else if (misals) begin
+			$display("Misaligned load/store");
+			abort <= 1'b1;
 			// $stop;
-        end
+		end else begin
+			// Default case - maintain current state or set to 0
+			abort <= 1'b0;
+		end
 
 		if (sysc) begin
-            $display("System Call");
+			$display("System Call");
 		end
-
-		if (rst) begin
-            abort = 1'b0;
-		end
-    end
+	end
+	end
 
 	wire [4:0] rt = instruction[20:16];
 	wire [4:0] rd = instruction[15:11];

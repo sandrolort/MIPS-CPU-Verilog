@@ -60,29 +60,36 @@ decoder_concat concat_inst (
 );
 
 function [1:0] Type(input [5:0] opc, input [5:0] fun, input [4:0] rt, input [4:0] rs);
-	begin
+    begin
         casez (opc)
             6'b10?011, 6'b001???, 6'b00010?:
-				Type = 2'b00; // I-Type
+                Type = 2'b00; // I-Type
             6'b000001:
-				if (rt[4:1] == 4'b0000)
+                if (rt[4:1] == 4'b0000)
                     Type = 2'b00; // I-Type
+                else
+                    Type = 2'b11; // Illegal instruction
             6'b00011?:
-				if (rt == 5'b00000)
+                if (rt == 5'b00000)
                     Type = 2'b00; // I-Type
+                else
+                    Type = 2'b11; // Illegal instruction
             6'b000000:
-				if (fun[5:3] == 3'b100 || fun == 6'b000010 || fun[5:1] == 5'b10101 || fun == 6'b001000 || fun == 6'b001010 || fun == 6'b001100)
+                if (fun[5:3] == 3'b100 || fun == 6'b000010 || fun[5:1] == 5'b10101 || fun == 6'b001000 || fun == 6'b001010 || fun == 6'b001100 || fun == 6'b000000)
                     Type = 2'b10; // R-Type
+                else
+                    Type = 2'b11; // Illegal instruction
             6'b010000:
-				if ((fun == 6'b011000 && rs == 5'b10000) || rs == 5'b00100 || rs == 5'b00000)
+                if ((fun == 6'b011000 && rs == 5'b10000) || rs == 5'b00100 || rs == 5'b00000)
                     Type = 2'b10; // R-Type
+                else
+                    Type = 2'b11; // Illegal instruction
             6'b00001?:
-				Type = 2'b01; // J-Type
+                Type = 2'b01; // J-Type
             default: begin
-                Type = 2'b11; // None of the above, undefined(c) -> illegal instruction
+                Type = 2'b11; // Illegal instruction
                 $display("ill: Undefined Instruction");
-				// $stop; // According to Table 13 on page 377, ill should be aborted
-                end
+            end
         endcase
     end
 endfunction
