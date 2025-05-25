@@ -29,7 +29,15 @@ module main_interrupt (
 	
     wire ls = (instruction[31:26] == 6'b100011) || (instruction[31:26] == 6'b101011);
 	wire eret = (instruction[31:26] == 6'b010000) && (instruction[5:0] == 6'b011000);
-	wire [22:0] ca = {ca_part_1, misaf, 1'b0, (is_illegal | second_part_of_ill), misals, 1'b0, sysc, ovfalu};
+	wire [22:0] ca = {ovfalu,                             // ca[22] - arithmetic overflow
+						sysc,                             // ca[21] - system call
+						1'b0,                             // ca[20] - page fault load/store (pfls)
+						misals,                           // ca[19] - misaligned load/store
+						(is_illegal | second_part_of_ill),// ca[18] - illegal instruction
+						1'b0,                             // ca[17] - page fault fetch (pff)
+						misaf,                            // ca[16] - misaligned fetch
+						ca_part_1[14:0],                  // ca[15:1] - external events
+						ca_part_1[15]};                   // ca[0] - reset
     wire movg2s = (instruction[31:26] == 6'b010000) && (instruction[25:21] == 5'b00100);
 
     // Instantiate updated interrupt_controller module

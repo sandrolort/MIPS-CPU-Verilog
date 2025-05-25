@@ -93,7 +93,7 @@ main_interrupt interrupts(
 	.e(E),
 	.next_pc(next_pc),
     .data_in(b_gpr),
-	.reg_sel(spr_mux_sel ? rt : rd),
+	.reg_sel(rd),
     .spr_out(spr_out),
 	.mca(mca),
 	.jisr(jisr),
